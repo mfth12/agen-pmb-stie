@@ -40,7 +40,7 @@
                                         <td>{{ $nonakademik->kategori }}</td>
                                         <td>{{ $nonakademik->ta }}</td>
                                         <td>{{ $nonakademik->tglmulai }}</td>
-{{-- storage/app/public/image --}}
+                                            {{-- storage/app/public/image --}}
                                         <td class="text-center">
                                             <img src="{{ asset('storage/brosurs/'.$nonakademik->brosur) }}" class="rounded" style="width: 150px">
                                         </td>

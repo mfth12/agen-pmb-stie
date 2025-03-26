@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Kegiatan Non Akademik</h3>
+                    <h3 class="text-center my-4">Data Peserta Non Akademik</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <!-- <a href="{{ route('nonakademiks.create') }}" class="btn btn-md btn-success mb-3">Add Kegiatan</a> -->
+                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Add Kegiatan</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -41,7 +41,10 @@
                                   <td>{{$s->id_peserta}}</td>
                                   <td>{{$s->NAMA}}</td>
                                   <td>{{$s->kegiatan}}</td>
-                                
+                                  <td>
+                                    <a href="/transaknonakademiks/view/{{$s->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"> view</i></a>
+                                    <a href="/transaknonakademiks/hapus/{{$s->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>
+                                </td>
                                 </tr>
                                 @endforeach
                             </tbody>

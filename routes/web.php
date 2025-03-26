@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//import return type View
+use Illuminate\View\View;
+
 Route::get('/', function () {
     return view('welcome');
 });

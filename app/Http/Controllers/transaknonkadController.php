@@ -23,7 +23,7 @@ class transaknonkadController extends Controller
             ->select('transaknonkad.id','transaknonkad.id_non','transaknonkad.id_peserta', 'mahasiswa.NAMA', 'non_akademiks.kegiatan', 'non_akademiks.kegiatan')
             ->get();
 
-        return view('transaknonakademiks.index', ['peserta' => $peserta]);
+        return view ('transaknonakademiks.index', ['peserta' => $peserta]);
     }
 
     
