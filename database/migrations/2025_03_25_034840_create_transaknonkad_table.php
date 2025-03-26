@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('transaknonkad', function (Blueprint $table) {
+            $table->id();
+            $table->BigInteger('id_non');
+            $table->char('id_peserta',20);
+            $table->string('kode_bayar');
+            $table->string('status_bayar')->nullable();
+            $table->tinyInteger('nilai')->default(0);
+            $table->string('lulus')->default('0');
+            $table->string('no_sertifikat')->default('-');
+            $table->string('file_sertifikat')->default('-');
+            $table->timestamps();
+
+            $table->foreign('id_non')->references('id')->on('non_akademiks')->onDelete('cascade');
+            $table->foreign('id_peserta')->references('ID')->on('mahasiswa')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('transaknonkad');
+    }
+};
