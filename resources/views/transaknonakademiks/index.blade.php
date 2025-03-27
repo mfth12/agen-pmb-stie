@@ -18,7 +18,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Add Kegiatan</a>
+                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Registrasi Kegiatan</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
