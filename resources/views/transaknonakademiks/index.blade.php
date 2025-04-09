@@ -19,11 +19,14 @@
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
                         <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Registrasi Kegiatan</a>
+                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Upload Sertifikat</a>
+                        <a href="{{ route('mahasiswa.index') }}" class="btn btn-md btn-success mb-3">Mahasiswa Aktif</a>
+                        <a href="{{ route('multiakademik.index') }}" class="btn btn-md btn-success mb-3">Kegiatan Multidatabase</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Kode Kegiatan</th>
+                                    <th>Id Kegiatan</th>
                                     <th>Nim</th>
                                     <th>Nama Mahasiswa</th>
                                     <th>Nama Kegiatan</th>
@@ -43,7 +46,7 @@
                                   <td>{{$s->kegiatan}}</td>
                                   <td>
                                     <a href="/transaknonakademiks/view/{{$s->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"> view</i></a>
-                                    <a href="/transaknonakademiks/hapus/{{$s->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>
+                                    <a href="/transaknonakademiks/edit/{{$s->id}}" onclick="return confirm('Data tidak bisa di Edit');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>
                                 </td>
                                 </tr>
                                 @endforeach

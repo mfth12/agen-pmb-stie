@@ -14,7 +14,7 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <img src="{{ asset('storage/brosurs/'.$nonakademik->brosur) }}" class="rounded" style="width: 100%">
+                        <img src="{{ asset('public/brosurs'.$nonakademik->brosur) }}" class="rounded" style="width: 100%">
                         {{-- <h2>{{ $nonakademik->kegiatan }}, NaraSumber: --}}
                             {{-- {{ $nonakademik->narsum }} --}}
                         {{-- </h2> --}}

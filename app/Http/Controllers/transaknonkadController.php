@@ -25,6 +25,7 @@ class transaknonkadController extends Controller
 
         return view ('transaknonakademiks.index', ['peserta' => $peserta]);
     }
-
     
+
+         
 }

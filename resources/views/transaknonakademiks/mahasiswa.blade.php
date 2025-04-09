@@ -13,23 +13,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Peserta Non Akademik Multi Database</h3>
+                    <h3 class="text-center my-4">Mahasiswa Aktif (Beda Database)</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('multiakademik.create') }}" class="btn btn-md btn-success mb-3">Registrasi Kegiatan</a>
-                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Upload Sertifikat</a>
-                        {{-- <a href="{{ route('mahasiswa.index') }}" class="btn btn-md btn-success mb-3">Mahasiswa Aktif</a> --}}
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Id Kegiatan</th>
-                                    <th>Nim</th>
+                                    <th>NIM</th>
                                     <th>Nama Mahasiswa</th>
-                                    <th>Status Kuliah</th>
-                                    <th>Nama Kegiatan</th>
+                                    <th>Prodi</th>
+                                    <th>SKS</th>
+                                    <th>Status</th>
                                     {{-- <th>No. Hp</th> --}}
                                     {{-- <th>Aksi</th> --}}
                                   </tr>
@@ -37,17 +33,16 @@
             ->get(); --}}
                             </thead>
                             <tbody>
-                                @foreach($peserta as $s) 
+                                @foreach($mahasiswa as $s) 
                                 <tr>
-                                  <td>{{$s->id}}</td>
-                                  <td>{{$s->id_non}}</td>
-                                  <td>{{$s->id_peserta}}</td>
+                                  <td>{{$s->ID}}</td>
                                   <td>{{$s->NAMA}}</td>
+                                  <td>{{$s->IDPRODI}}</td>
+                                  <td>{{$s->SKS}}</td>
                                   <td>{{$s->STATUS}}</td>
-                                  <td>{{$s->kegiatan}}</td>
                                   <td>
-                                    <a href="/transaknonakademiks/view/{{$s->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"> view</i></a>
-                                    <a href="/transaknonakademiks/edit/{{$s->id}}" onclick="return confirm('Data tidak bisa di Edit');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>
+                                    <a href="/transaknonakademiks/view/{{$s->ID}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"> view</i></a>
+                                    <a href="/transaknonakademiks/edit/{{$s->ID}}" onclick="return confirm('Data tidak bisa di Edit');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>
                                 </td>
                                 </tr>
                                 @endforeach

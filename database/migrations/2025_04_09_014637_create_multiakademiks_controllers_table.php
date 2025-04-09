@@ -7,14 +7,13 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations: tidak perlu karena tabel sudah ada di database dba
+     * Run the migrations.
      */
     public function up(): void
     {
-        Schema::connection('mysql2')->create('mahasiswa', function (Blueprint $table) {
-            // tabel sudah ada, tdk perlu dicreat/edit
-            // $table->id();
-            // $table->timestamps();
+        Schema::create('multiakademiks_controllers', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mahasiswa');
+        Schema::dropIfExists('multiakademiks_controllers');
     }
 };

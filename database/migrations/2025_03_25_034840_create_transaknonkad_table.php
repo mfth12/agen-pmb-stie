@@ -28,6 +28,12 @@ return new class extends Migration
         });
     }
 
+    //database2
+  
+
+    
+
+
     /**
      * Reverse the migrations.
      */
