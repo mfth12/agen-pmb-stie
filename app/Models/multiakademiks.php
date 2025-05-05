@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +17,8 @@ class multiakademiks extends Model
       *
       * @var array
       */
+      //sambungkan ke mysql
+     protected $connection = 'mysql';
      protected $fillable = [
          'id_non',
          'id_peserta',

@@ -14,27 +14,30 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('transaknonakademiks.store') }}" method="POST" enctype="multipart/form-data" >
+                        <form action="{{ route('multiakademik.store') }}" method="POST" enctype="multipart/form-data" >
                         
                             @csrf
 
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">Kode Kegiatan</label>
-                                {{-- <input type="text" class="form-control @error('id_non') is-invalid @enderror" name="id_non" value="{{$peserta[0]->kegiatan }}" placeholder=""> --}}
-                                <select class="form-select" aria-label="Default select example">
+                                {{-- <input type="text" class="form-control @error('id_non') is-invalid @enderror" name="id_non" value="" placeholder=""> --}}
+                                <select class="form-select" name="id_non"  aria-label="Default select example">
                                     <option selected>-- Pilih --</option>
                                     @foreach($peserta as $s)
-                                      <option value="{{$s->id}}">{{$s->kegiatan}}</option>
+                                      <option value="{{$s->id}}">{{$s->kegiatan}}, Prasyarat: {{$s->kategori}}, Tanggal: {{$s->tglmulai}}, Biaya: {{$s->biaya}}, SKPI:  {{ ($s->skpi == 1) ? 'Ya' : 'Tidak' }}</option>
                                     @endforeach
                                 </select>
-                            
+                             {{-- pindahkan nilai $s ke text --}} 
+                             <p>{{$s->id}}, {{$s->kegiatan}}, {{$s->kategori}}</p>
+
                                 @error('id_non')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
+                                
                             </div>
-
+                            
 
                             <div class="form-group mb-3">
 
@@ -52,18 +55,38 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">Kode Bayar</label>
-                                <input type="text" class="form-control @error('kode_bayar') is-invalid @enderror" name="kode_bayar" value="{{ old('kode_bayar') }}" placeholder="">
                             
-                                <!-- error message untuk description -->
-                                @error('kode_bayar')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label class="font-weight-bold">Kode Bayar</label>
+                                        <input type="text" class="form-control @error('kode_bayar') is-invalid @enderror" name="kode_bayar" value="{{ old('kode_bayar') }}" placeholder="">
+                                    
+                                        <!-- error message untuk description -->
+                                        @error('kode_bayar')
+                                            <div class="alert alert-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label class="font-weight-bold">BIAYA</label>
+                                        <input type="number" class="form-control @error('biaya') is-invalid @enderror" name="biaya" value="{{$s->biaya}}" placeholder="{{$s->biaya}}">
+                                    
+                                        <!-- error message untuk stock -->
+                                        @error('biaya')
+                                            <div class="alert alert-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>    
+                            
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">Status Bayar</label>
                                 <input type="text" class="form-control @error('status_bayar') is-invalid @enderror" name="status_bayar" value="{{ old('status_bayar') }}" placeholder="">

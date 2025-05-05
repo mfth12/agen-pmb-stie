@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\multiakademik;
 use Illuminate\Http\Request;
 
 //import return type redirectResponse
@@ -10,7 +10,10 @@ use Illuminate\Http\RedirectResponse;
 //import return type View
 use Illuminate\View\View;
 
+
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Storage;
 
 class multiakademiksController extends Controller
 {
@@ -22,6 +25,7 @@ class multiakademiksController extends Controller
             ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
             ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
             ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non','sinkad-stiepem.transaknonkad.id_peserta', 'dba.mahasiswa.NAMA', 'dba.mahasiswa.STATUS', 'sinkad-stiepem.non_akademiks.kegiatan')
+            // ->where ('sinkad-stiepem.transaknonkad.id_peserta','$nim')
             ->get();
 
         // dd($peserta);
@@ -31,16 +35,23 @@ class multiakademiksController extends Controller
     public function create(): View
     {
         $peserta = DB::table('sinkad-stiepem.non_akademiks') 
-        // ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
-        // ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
-        ->select('sinkad-stiepem.non_akademiks.id','sinkad-stiepem.non_akademiks.kegiatan')
-        ->where('sinkad-stiepem.non_akademiks.statusopen', '1')
+        ->select('non_akademiks.id','non_akademiks.kegiatan','non_akademiks.kategori','non_akademiks.tglmulai','non_akademiks.biaya','non_akademiks.skpi')
+        ->where('sinkad-stiepem.non_akademiks.statusopen', '1') //0=tdk aktif(default), 1=open, 2=selesai
         ->get();
         
+        //  $peserta = DB::table('sinkad-stiepem.transaknonkad') 
+        // // ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
+        // // ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
+        // ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non')
+        // // ->where('sinkad-stiepem.non_akademiks.statusopen', '1') //0=tdk aktif(default), 1=open, 2=selesai
+        // ->get();
+
+
         // dd($peserta);
         return view('transaknonakademiks.createtransakademiks', ['peserta' => $peserta]);
     }
 
+    
     /**
      * store
      *
@@ -67,7 +78,7 @@ class multiakademiksController extends Controller
         // $brosur->storeAs('public/brosurs', $brosur->hashName());
 
         //create product
-        multiakademiksController::create([
+        multiakademik::create([         //insert ke nama tabel
             'id_non'      => $request->id_non,
             'id_peserta'  => $request->id_peserta,
             'kode_bayar'  => $request->kode_bayar,
@@ -79,4 +90,18 @@ class multiakademiksController extends Controller
         //redirect to index
         return redirect()->route('multiakademik.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
+
+    public function sertifikatup(): View
+    {
+        $peserta = DB::table('sinkad-stiepem.transaknonkad') 
+        ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
+        ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
+        ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non','sinkad-stiepem.transaknonkad.id_peserta','sinkad-stiepem.transaknonkad.kode_bayar','sinkad-stiepem.transaknonkad.status_bayar','sinkad-stiepem.transaknonkad.nilai','sinkad-stiepem.transaknonkad.lulus','sinkad-stiepem.transaknonkad.no_sertifikat','sinkad-stiepem.transaknonkad.file_sertifikat')
+        ->get();
+        // ->where ('sinkad-stiepem.transaknonkad.id_peserta',$nimLogin)
+        
+        return view('transaknonakademiks.uploadsertifikat', ['peserta' => $peserta]);
+    }
+
+    
 }

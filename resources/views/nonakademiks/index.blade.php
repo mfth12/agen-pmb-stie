@@ -41,7 +41,7 @@
                                         <td>{{ $nonakademik->tglmulai }}</td>
                                             {{-- storage/app/public/image --}}
                                         <td class="text-center">
-                                            <img src="{{ asset('public/brosurs'.$nonakademik->brosur) }}" class="rounded" style="width: 150px">
+                                            <img src="{{ asset('storage/brosurs/'.$nonakademik->brosur) }}" class="rounded" style="width: 150px">
                                         </td>
                                         {{-- <td>{{ $nonakademik->semester }}</td> --}}
 

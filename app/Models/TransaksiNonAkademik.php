@@ -25,5 +25,10 @@ class TransaksiNonAkademik extends Model
          'lulus',
          'no_sertifikat',
          'file_sertifikat',
+         'kegiatan',
+         'kategori',
+         'ta',
+         'tgl',
+         'skpi',          
         ];
 }

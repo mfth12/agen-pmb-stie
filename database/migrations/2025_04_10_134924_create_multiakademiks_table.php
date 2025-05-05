@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('multiakademiks_controllers', function (Blueprint $table) {
+        Schema::create('multiakademiks', function (Blueprint $table) {
             $table->id();
-            
             $table->timestamps();
         });
     }
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('multiakademiks_controllers');
+        Schema::dropIfExists('multiakademiks');
     }
 };

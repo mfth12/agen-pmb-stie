@@ -28,31 +28,34 @@
                                     </div>
                                 @enderror
                             </div>
-
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">KATEGORI</label>
-                                <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="kategori" value="{{ old('kategori') }}" placeholder="">
-                            
-                                <!-- error message untuk title -->
-                                @error('kegiatan')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label class="font-weight-bold">KATEGORI</label>
+                                        <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="kategori" value="{{ old('kategori') }}" placeholder="">
+                                    
+                                        <!-- error message untuk title -->
+                                        @error('kegiatan')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label class="font-weight-bold">TA</label>
+                                        <input type="text" class="form-control @error('ta') is-invalid @enderror" name="ta" value="{{ old('ta') }}" placeholder="">
+                                
+                                        <!-- error message untuk description -->
+                                        @error('ta')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">TA</label>
-                                <input type="text" class="form-control @error('ta') is-invalid @enderror" name="ta" value="{{ old('ta') }}" placeholder="">
-                            
-                                <!-- error message untuk description -->
-                                @error('ta')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-
+                                </div>
+                                
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
@@ -66,6 +69,7 @@
                                             </div>
                                         @enderror
                                     </div>
+                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
