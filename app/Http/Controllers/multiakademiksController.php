@@ -24,7 +24,7 @@ class multiakademiksController extends Controller
         $peserta = DB::table('sinkad-stiepem.transaknonkad') 
             ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
             ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
-            ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non','sinkad-stiepem.transaknonkad.id_peserta', 'dba.mahasiswa.NAMA', 'dba.mahasiswa.STATUS', 'sinkad-stiepem.non_akademiks.kegiatan')
+            ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non','sinkad-stiepem.transaknonkad.id_peserta', 'dba.mahasiswa.NAMA', 'dba.mahasiswa.STATUS', 'sinkad-stiepem.non_akademiks.kegiatan','sinkad-stiepem.non_akademiks.tglmulai')
             // ->where ('sinkad-stiepem.transaknonkad.id_peserta','$nim')
             ->get();
 

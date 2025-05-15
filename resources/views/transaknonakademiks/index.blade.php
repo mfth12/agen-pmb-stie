@@ -13,13 +13,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Peserta Non Akademik</h3>
+                    <h3 class="text-center my-4">Data Peserta Kegiatan Non Akademik</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Registrasi Kegiatan</a>
-                        <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Upload Sertifikat</a>
+                        {{-- <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Registrasi Kegiatan</a> --}}
+                        {{-- <a href="{{ route('transaknonakademiks.index') }}" class="btn btn-md btn-success mb-3">Upload Sertifikat</a> --}}
                         <a href="{{ route('mahasiswa.index') }}" class="btn btn-md btn-success mb-3">Mahasiswa Aktif</a>
                         <a href="{{ route('multiakademik.index') }}" class="btn btn-md btn-success mb-3">Kegiatan Multidatabase</a>
                         <table class="table table-bordered">
@@ -30,7 +30,7 @@
                                     <th>Nim</th>
                                     <th>Nama Mahasiswa</th>
                                     <th>Nama Kegiatan</th>
-                                    {{-- <th>No. Hp</th> --}}
+                                    <th>Tanggal</th>
                                     {{-- <th>Aksi</th> --}}
                                   </tr>
                                   {{-- ->select('transaknonkad.id','transaknonkad.id_non','transaknonkad.id_peserta', 'mahasiswa.NAMA', 'non_akademiks.kegiatan', 'non_akademiks.kegiatan')
@@ -44,6 +44,7 @@
                                   <td>{{$s->id_peserta}}</td>
                                   <td>{{$s->NAMA}}</td>
                                   <td>{{$s->kegiatan}}</td>
+                                  <td>{{$s->tglmulai}}</td>
                                   <td>
                                     <a href="/transaknonakademiks/view/{{$s->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"> view</i></a>
                                     <a href="/transaknonakademiks/edit/{{$s->id}}" onclick="return confirm('Data tidak bisa di Edit');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>

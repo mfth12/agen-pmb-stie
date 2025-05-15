@@ -28,9 +28,9 @@
                                     <th>Id Kegiatan</th>
                                     <th>Nim</th>
                                     <th>Nama Mahasiswa</th>
-                                    <th>Status Kuliah</th>
+                                    {{-- <th>Status Kuliah</th> --}}
                                     <th>Nama Kegiatan</th>
-                                    {{-- <th>No. Hp</th> --}}
+                                    <th>Tanggal</th>
                                     {{-- <th>Aksi</th> --}}
                                   </tr>
                                   {{-- ->select('transaknonkad.id','transaknonkad.id_non','transaknonkad.id_peserta', 'mahasiswa.NAMA', 'non_akademiks.kegiatan', 'non_akademiks.kegiatan')
@@ -43,8 +43,9 @@
                                   <td>{{$s->id_non}}</td>
                                   <td>{{$s->id_peserta}}</td>
                                   <td>{{$s->NAMA}}</td>
-                                  <td>{{$s->STATUS}}</td>
+                                  {{-- <td>{{$s->STATUS}}</td> --}}
                                   <td>{{$s->kegiatan}}</td>
+                                  <td>{{$s->tglmulai}}</td>
                                   <td>
                                     <a href="/transaknonakademiks/view/{{$s->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"> view</i></a>
                                     <a href="/transaknonakademiks/edit/{{$s->id}}" onclick="return confirm('Data tidak bisa di Edit');" class="btn btn-danger btn-sm"><i class="fa fa-trash">edit</i></a>
