@@ -14,6 +14,7 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
+                        // POST before
                         <form action="{{ route('uploadsertifikat') }}" method="POST" enctype="multipart/form-data" >
                         
                             @csrf
@@ -105,8 +106,8 @@
                             </div>
                             {{-- //kolom tabel masih ragu: kategori,biaya,narsum,id_penyelenggara,skpi --}}
                          
-                            <button type="submit" class="btn btn-md btn-primary me-3">SAVE</button>
-                            <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                            <button type="submit" class="btn btn-md btn-primary me-3">save</button>
+                            <button type="reset" class="btn btn-md btn-warning">reset</button>
 
                         </form> 
                     </div>

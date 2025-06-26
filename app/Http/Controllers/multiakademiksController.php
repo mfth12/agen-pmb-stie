@@ -20,11 +20,12 @@ class multiakademiksController extends Controller
     //
     public function index()
     { 
-       
-        $peserta = DB::table('sinkad-stiepem.transaknonkad') 
-            ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
-            ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
-            ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non','sinkad-stiepem.transaknonkad.id_peserta', 'dba.mahasiswa.NAMA', 'dba.mahasiswa.STATUS', 'sinkad-stiepem.non_akademiks.kegiatan','sinkad-stiepem.non_akademiks.tglmulai')
+       //nama tabel baru dbaConsole & sinkadstie
+       //DB::connection('mysql2')->table('mahasiswa')
+        $peserta = DB::connection('mysql')->table('sinkadstie.transaknonkad') 
+            ->join('sinkadstie.non_akademiks', 'sinkadstie.transaknonkad.id_non', '=', 'sinkadstie.non_akademiks.id')
+            ->join('dbaConsole.mahasiswa', 'sinkadstie.transaknonkad.id_peserta', '=', 'dbaConsole.mahasiswa.ID')
+            ->select('sinkadstie.transaknonkad.id','sinkadstie.transaknonkad.id_non','sinkadstie.transaknonkad.id_peserta', 'dbaConsole.mahasiswa.NAMA', 'dbaConsole.mahasiswa.STATUS', 'sinkadstie.non_akademiks.kegiatan',('sinkadstie.non_akademiks.tglmulai'))
             // ->where ('sinkad-stiepem.transaknonkad.id_peserta','$nim')
             ->get();
 
@@ -34,9 +35,9 @@ class multiakademiksController extends Controller
     
     public function create(): View
     {
-        $peserta = DB::table('sinkad-stiepem.non_akademiks') 
+        $peserta = DB::table('sinkadstie.non_akademiks') 
         ->select('non_akademiks.id','non_akademiks.kegiatan','non_akademiks.kategori','non_akademiks.tglmulai','non_akademiks.biaya','non_akademiks.skpi')
-        ->where('sinkad-stiepem.non_akademiks.statusopen', '1') //0=tdk aktif(default), 1=open, 2=selesai
+        ->where('sinkadstie.non_akademiks.statusopen', '1') //0=tdk aktif(default), 1=open, 2=selesai
         ->get();
         
         //  $peserta = DB::table('sinkad-stiepem.transaknonkad') 
@@ -93,10 +94,10 @@ class multiakademiksController extends Controller
 
     public function sertifikatup(): View
     {
-        $peserta = DB::table('sinkad-stiepem.transaknonkad') 
-        ->join('sinkad-stiepem.non_akademiks', 'sinkad-stiepem.transaknonkad.id_non', '=', 'sinkad-stiepem.non_akademiks.id')
-        ->join('dba.mahasiswa', 'sinkad-stiepem.transaknonkad.id_peserta', '=', 'dba.mahasiswa.ID')
-        ->select('sinkad-stiepem.transaknonkad.id','sinkad-stiepem.transaknonkad.id_non','sinkad-stiepem.transaknonkad.id_peserta','sinkad-stiepem.transaknonkad.kode_bayar','sinkad-stiepem.transaknonkad.status_bayar','sinkad-stiepem.transaknonkad.nilai','sinkad-stiepem.transaknonkad.lulus','sinkad-stiepem.transaknonkad.no_sertifikat','sinkad-stiepem.transaknonkad.file_sertifikat')
+        $peserta = DB::table('sinkadstie.transaknonkad') 
+        ->join('sinkadstie.non_akademiks', 'sinkadstie.transaknonkad.id_non', '=', 'sinkadstie.non_akademiks.id')
+        ->join('dbaConsole.mahasiswa', 'sinkadstie.transaknonkad.id_peserta', '=', 'dbaConsole.mahasiswa.ID')
+        ->select('sinkadstie.transaknonkad.id','sinkadstie.transaknonkad.id_non','sinkadstie.transaknonkad.id_peserta','sinkadstie.transaknonkad.kode_bayar','sinkadstie.transaknonkad.status_bayar','sinkadstie.transaknonkad.nilai','sinkadstie.transaknonkad.lulus','sinkadstie.transaknonkad.no_sertifikat','sinkadstie.transaknonkad.file_sertifikat')
         ->get();
         // ->where ('sinkad-stiepem.transaknonkad.id_peserta',$nimLogin)
         

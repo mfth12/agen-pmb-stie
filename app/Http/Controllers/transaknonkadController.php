@@ -17,10 +17,10 @@ class transaknonkadController extends Controller
      */
     public function index()
     {            
-        $peserta = DB::table('transaknonkad')
-            ->join('non_akademiks', 'transaknonkad.id_non', '=', 'non_akademiks.id')
-            ->join('mahasiswa', 'transaknonkad.id_peserta', '=', 'mahasiswa.ID')
-            ->select('transaknonkad.id','transaknonkad.id_non','transaknonkad.id_peserta', 'mahasiswa.NAMA', 'non_akademiks.kegiatan', 'non_akademiks.kegiatan','non_akademiks.tglmulai')
+        $peserta = DB::connection('mysql')->table('sinkadstie.transaknonkad')
+            ->join('sinkadstie.non_akademiks', 'sinkadstie.transaknonkad.id_non', '=', 'sinkadstie.non_akademiks.id')
+            ->join('dbaConsole.mahasiswa', 'transaknonkad.id_peserta', '=', 'dbaConsole.mahasiswa.ID')
+            ->select('transaknonkad.id','transaknonkad.id_non','transaknonkad.id_peserta', 'dbaConsole.mahasiswa.NAMA', 'sinkadstie.non_akademiks.kegiatan', 'sinkadstie.non_akademiks.kegiatan','sinkadstie.non_akademiks.tglmulai')
             ->get();
 
         return view ('transaknonakademiks.index', ['peserta' => $peserta]);
