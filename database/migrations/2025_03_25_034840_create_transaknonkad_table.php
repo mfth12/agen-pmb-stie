@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transaknonkad', function (Blueprint $table) {
             $table->id();
-            $table->BigInteger('id_non');
+            $table->unsignedBigInteger('id_non');
             $table->char('id_peserta',20);
             $table->string('kode_bayar');
             $table->string('status_bayar')->nullable();
@@ -29,9 +29,9 @@ return new class extends Migration
     }
 
     //database2
-  
 
-    
+
+
 
 
     /**
