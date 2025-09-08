@@ -12,7 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transaknonkad', function (Blueprint $table) {
-            //
+            // Foreign ke tabel non_akademiks
+            $table->foreign('id_non')
+                ->references('id')
+                ->on('non_akademiks')
+                ->onDelete('cascade');
+
+            // Foreign ke tabel dbmahasiswa
+            $table->foreign('id_peserta')
+                ->references('ID')
+                ->on('dbmahasiswa')
+                ->onDelete('cascade');
         });
     }
 
@@ -22,7 +32,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('transaknonkad', function (Blueprint $table) {
-            //
+            $table->dropForeign(['id_non']);
+            $table->dropForeign(['id_peserta']);
         });
     }
 };
