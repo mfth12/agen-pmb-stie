@@ -33,7 +33,8 @@ return new class extends Migration
     public function down(): void
     {
         // Optional: drop database atau kosongkan tabel
-        exec("docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE sinkadstie; CREATE DATABASE sinkadstie;'");
-        exec("docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE dbaConsole; CREATE DATABASE dbaConsole;'");
+        // exec("docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE sinkadstie; CREATE DATABASE sinkadstie;'");
+        // exec("docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE dbaConsole; CREATE DATABASE dbaConsole;'");
+        // docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE sinkadstie; CREATE DATABASE sinkadstie;' && docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE dbaConsole; CREATE DATABASE dbaConsole;'
     }
 };
