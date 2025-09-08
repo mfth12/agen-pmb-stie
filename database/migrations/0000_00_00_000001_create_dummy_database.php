@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -11,19 +11,23 @@ return new class extends Migration
     public function up(): void
     {
         // Path file SQL
-        $backupPath1 = base_path('database/backups/dbaConsole-live.sql');
-        $backupPath2 = base_path('database/backups/sinkadstie-live.sql');
+        $backupPath1 = base_path('database/backups/sinkadstie-live.sql');
+        $backupPath2 = base_path('database/backups/dbaConsole-live.sql');
 
-        // Perintah restore
-        $cmd1 = "pv {$backupPath1} | docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 dbaConsole";
-        $cmd2 = "pv {$backupPath2} | docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 sinkadstie";
+        // Restore pertama
+        if (file_exists($backupPath1)) {
+            $sql1 = file_get_contents($backupPath1);
+            DB::unprepared($sql1);
+        } else {
+            throw new \Exception("File backup tidak ditemukan: {$backupPath1}");
+        }
 
-        // Jalankan command
-        exec($cmd1, $output1, $status1);
-        exec($cmd2, $output2, $status2);
-
-        if ($status1 !== 0 || $status2 !== 0) {
-            throw new \Exception("Gagal restore database dari file backup");
+        // Restore kedua
+        if (file_exists($backupPath2)) {
+            $sql2 = file_get_contents($backupPath2);
+            DB::unprepared($sql2);
+        } else {
+            throw new \Exception("File backup tidak ditemukan: {$backupPath2}");
         }
     }
 
@@ -32,8 +36,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Optional: drop database atau kosongkan tabel
-        exec("docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE dbaConsole; CREATE DATABASE dbaConsole;'");
-        exec("docker exec -i ctpegawai-database mysql -u root -psatuduatiga456TujuhDelapan9 -e 'DROP DATABASE sinkadstie; CREATE DATABASE sinkadstie;'");
+        // Opsional: drop tabel yang dipulihkan
+        DB::unprepared('DROP DATABASE sinkadstie; CREATE DATABASE sinkadstie;');
+        DB::unprepared('DROP DATABASE dbaConsole; CREATE DATABASE dbaConsole;');
+        // Sesuaikan dengan kebutuhan
     }
 };
