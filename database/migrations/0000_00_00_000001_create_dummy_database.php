@@ -5,40 +5,33 @@ use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         // Path file SQL
-        $backupPath1 = base_path('database/backups/sinkadstie-live.sql');
-        $backupPath2 = base_path('database/backups/dbaConsole-live.sql');
+        $backupSinkad = base_path('database/backups/sinkadstie-live.sql');
+        $backupDbaConsole = base_path('database/backups/dbaConsole-live.sql');
 
-        // Restore pertama
-        if (file_exists($backupPath1)) {
-            $sql1 = file_get_contents($backupPath1);
+        // Restore ke DB default (sinkadstie)
+        if (file_exists($backupSinkad)) {
+            $sql1 = file_get_contents($backupSinkad);
             DB::unprepared($sql1);
         } else {
-            throw new \Exception("File backup tidak ditemukan: {$backupPath1}");
+            throw new \Exception("File backup tidak ditemukan: {$backupSinkad}");
         }
 
-        // Restore kedua
-        if (file_exists($backupPath2)) {
-            $sql2 = file_get_contents($backupPath2);
-            DB::unprepared($sql2);
+        // Restore ke DB tambahan (dbaConsole)
+        if (file_exists($backupDbaConsole)) {
+            $sql2 = file_get_contents($backupDbaConsole);
+            DB::connection('mysql2')->unprepared($sql2);
         } else {
-            throw new \Exception("File backup tidak ditemukan: {$backupPath2}");
+            throw new \Exception("File backup tidak ditemukan: {$backupDbaConsole}");
         }
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        // Opsional: drop tabel yang dipulihkan
-        DB::unprepared('DROP DATABASE sinkadstie; CREATE DATABASE sinkadstie;');
-        DB::unprepared('DROP DATABASE dbaConsole; CREATE DATABASE dbaConsole;');
-        // Sesuaikan dengan kebutuhan
+        // Hati-hati, ini akan menghapus semua tabel
+        DB::unprepared('DROP DATABASE IF EXISTS sinkadstie; CREATE DATABASE sinkadstie;');
+        DB::connection('mysql2')->unprepared('DROP DATABASE IF EXISTS dbaConsole; CREATE DATABASE dbaConsole;');
     }
 };
