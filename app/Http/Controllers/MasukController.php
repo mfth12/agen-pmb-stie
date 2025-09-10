@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MasukController extends Controller
 {
@@ -11,7 +12,11 @@ class MasukController extends Controller
      */
     public function index()
     {
-        //
+        $konfigs = Session::get('konfigs');
+        return view('sistem.masuk', [
+            'title'   => 'Siskrip STIE',
+            'konfigs' => $konfigs
+        ]);
     }
 
     /**
