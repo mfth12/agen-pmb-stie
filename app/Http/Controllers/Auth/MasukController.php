@@ -28,11 +28,11 @@ class MasukController extends Controller
       return redirect()->route('dashboard.index'); // ini redirect ke dasbor, BUKAN '/'
     }
 
-    $pageConfigs = [
-      'myLayout' => 'blank',
-      'myStyle' => $_COOKIE['admin-colorPref'] ?? 'light',
-    ];
-    return view('auth.masuk', ['pageConfigs' => $pageConfigs]);
+    $konfigs = Session::get('konfigs');
+    return view('sistem.masuk', [
+      'title'     => 'Siskrip STIE',
+      'konfigs'   => $konfigs
+    ]);
   }
 
 
