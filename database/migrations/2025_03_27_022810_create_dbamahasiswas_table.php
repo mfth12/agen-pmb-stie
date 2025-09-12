@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('mysql2')->create('mahasiswa', function (Blueprint $table) {
-            // tabel sudah ada, tdk perlu dicreat/edit
-            // $table->id();
-            // $table->timestamps();
-        });
+        // Schema::connection('mysql2')->create('mahasiswa', function (Blueprint $table) {
+        // tabel sudah ada, tdk perlu dicreat/edit
+        // $table->id();
+        // $table->timestamps();
+        // });
     }
 
     /**
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mahasiswa');
+        // Schema::dropIfExists('mahasiswa');
     }
 };

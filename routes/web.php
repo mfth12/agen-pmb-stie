@@ -1,13 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
 
 //import return type View
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MasukController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [MasukController::class, 'index'])
+    ->name('home')
+    ->middleware(['guest', 'set.konfigs', 'cache.headers']);
 
 //route resource for products
 Route::resource('/nonakademiks', \App\Http\Controllers\NonkadController::class);

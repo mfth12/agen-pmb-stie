@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('non_akademiks', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id'); // bigint unsigned auto increment
             $table->string('kegiatan');
             $table->string('kategori');
             $table->string('ta');
