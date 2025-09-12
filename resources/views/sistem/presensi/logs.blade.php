@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="callout callout-default">
-              Data log mesin fingeprint pada {{ $konfigs->nama_sistem . ' ' . $konfigs->nama_lembaga }}
+              Data log mesin fingeprint pada {{ konfigs('NAMA_SISTEM') . ' ' . $konfigs->nama_lembaga }}
             </div>
           </div>
           {{--  --}}

@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="callout callout-default">
-              Catatan pengiriman pesan whatsapp dari {{ $konfigs->nama_sistem . ' ' . $konfigs->nama_lembaga }}
+              Catatan pengiriman pesan whatsapp dari {{ konfigs('NAMA_SISTEM') . ' ' . $konfigs->nama_lembaga }}
             </div>
           </div>
           <div class="col-lg-12">

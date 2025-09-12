@@ -21,12 +21,12 @@
                 {{-- @method('post') --}}
                 <input type="hidden" name="konfig_id" value="{{ $konfigs->konfig_id }}">
                 <div class="form-group row">
-                  <label for="nama_sistem" class="col-sm-4 col-form-label">Nama Sistem</label>
+                  <label for="NAMA_SISTEM" class="col-sm-4 col-form-label">Nama Sistem</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control @error('nama_sistem') is-invalid @enderror" id="nama_sistem"
-                      name="nama_sistem" value="{{ old('nama_sistem', $konfigs->nama_sistem) }}"
-                      placeholder="{{ $konfigs->nama_sistem }}">
-                    @error('nama_sistem')
+                    <input type="text" class="form-control @error('NAMA_SISTEM') is-invalid @enderror" id="NAMA_SISTEM"
+                      name="NAMA_SISTEM" value="{{ old('NAMA_SISTEM', konfigs('NAMA_SISTEM')) }}"
+                      placeholder="{{ konfigs('NAMA_SISTEM') }}">
+                    @error('NAMA_SISTEM')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>

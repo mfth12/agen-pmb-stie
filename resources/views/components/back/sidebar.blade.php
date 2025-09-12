@@ -4,7 +4,7 @@
       <img src="{{ asset('img/' . $konfigs->logo_lembaga) }}" class="brand-image img-circle elevation-3">
     @endif
     <span class="brand-text font-weight-light {{ $konfigs->logo_lembaga ? '' : 'ml-3' }}">
-      {{ $konfigs->nama_sistem }}
+      {{ konfigs('NAMA_SISTEM') }}
     </span>
   </a>
 

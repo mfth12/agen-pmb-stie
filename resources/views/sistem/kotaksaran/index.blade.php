@@ -34,7 +34,7 @@
                   </p>
                 @else
                   <p class="card-text">
-                    Anda dapat melakukan pengaduan atau mengirimkan saran terkait penggunaan {{ $konfigs->nama_sistem }}
+                    Anda dapat melakukan pengaduan atau mengirimkan saran terkait penggunaan {{ konfigs('NAMA_SISTEM') }}
                     ini. <a href="javascript:void(0)">
                       Pelajari
                       selengkapnya</a>

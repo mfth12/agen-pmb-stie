@@ -41,7 +41,7 @@
   <div id="pwaforwp-add-to-home-click" style="background-color:#d2dfeb"
     class="pwaforwp-footer-prompt pwaforwp-bounceInUp pwaforwp-animated">
     <span id="pwaforwp-prompt-close" class="pwaforwp-prompt-close"></span>
-    <p>Pasang <strong>{{ session('konfigs')['nama_sistem'] . ' ' . session('konfigs')['unik'] }}</strong> di perangkat
+    <p>Pasang <strong>{{ konfigs('NAMA_SISTEM') . ' ' . konfigs('UNIK') }}</strong> di perangkat
       Anda</p>
     <div class="btn btn-sm btn-primary">Pasang</div>
   </div>
