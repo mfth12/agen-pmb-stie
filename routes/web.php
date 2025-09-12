@@ -4,15 +4,11 @@ use Illuminate\View\View;
 
 //import return type View
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MasukController;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\Auth\MasukController;
 
 Route::get('/', [MasukController::class, 'index'])
-    ->name('home')
-    ->middleware(['guest', 'set.konfigs', 'cache.headers']);
+    ->name('masuk')
+    ->middleware(['guest', 'cache.headers']);
 
 //route resource for products
 Route::resource('/nonakademiks', \App\Http\Controllers\NonkadController::class);
