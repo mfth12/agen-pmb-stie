@@ -30,6 +30,19 @@ class NonkadController extends Controller
 
         //render view with products
         return view('nonakademiks.index', compact('nonakademiks'));
+// tambah komlom jumlah peserta
+//DB::connection('mysql2')->table('mahasiswa')
+// $kegiatan = DB::connection('mysql')->table('sinkadstie.non_akademiks') 
+// ->left join('sinkadstie.transaknonkad', 'sinkadstie.non_akademiks.id', '=','sinkadstie.transaknonkad.id_non' )
+// ->select('sinkadstie.non_akademiks.id','sinkadstie.non_akademiks.kegiatan','sinkadstie.non_akademiks.kategori',
+// 'sinkadstie.non_akademiks.ta','sinkadstie.non_akademiks.tglmulai',if(sinkadstie.transaknonkad.id_non is null,0,count(sinkadstie.non_akademiks.kegiatan)) as Pendaftar,'sinkadstie.transaknonkad.id_non')
+// ->group by sinkadstie.non_akademiks.id
+// // ->where ('sinkad-stiepem.transaknonkad.id_peserta','$nim')
+// ->get();
+
+// dd($peserta);
+// return view ('transaknonakademiks.registerkegiatan', ['peserta' => $peserta]);
+
     }
 
     public function create(): View
