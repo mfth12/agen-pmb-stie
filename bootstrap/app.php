@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\setKonfigs;
+// use App\Http\Middleware\setKonfigs;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -19,7 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web([
             // LocaleMiddleware::class, // disable, we use single language which is Indonesian
-            setKonfigs::class,
+            // setKonfigs::class,
         ]);
 
         $middleware->validateCsrfTokens(except: [
@@ -32,7 +32,7 @@ return Application::configure(basePath: dirname(__DIR__))
             // 'role'                  => RoleMiddleware::class,
             // 'permission'            => PermissionMiddleware::class,
             // 'role_or_permission'    => RoleOrPermissionMiddleware::class,
-            'set.konfigs'           => setKonfigs::class,
+            // 'set.konfigs'           => setKonfigs::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -56,24 +56,42 @@ class KonfigurasiModel extends Model
    */
   public static function toCache()
   {
-    $config = KonfigurasiModel::all()->pluck('config_value', 'config_key');
-    Cache::put('config', $config);
+    $konfigs = KonfigurasiModel::all()->pluck('config_value', 'config_key')->toArray();
+    Cache::put('konfigs', $konfigs);
   }
+
+  /**
+   * digunakan untuk  memanggil data cache.
+   *
+   */
   public static function getCache($idx = null)
   {
-    if (!Cache::has('config')) {
+    if (!Cache::has('konfigs')) {
       KonfigurasiModel::toCache();
     }
 
     if ($idx == null) {
-      return Cache::get('config');
+      return Cache::get('konfigs');
     } else {
-      $config = Cache::get('config');
-      return $config[$idx];
+      $konfigs = Cache::get('konfigs');
+      return $konfigs[$idx];
     }
   }
+
   /**
-   * digunakan untuk menghapus cache.
+   * digunakan untuk  melakukan refresh cache.
+   *
+   */
+  public static function refreshCache()
+  {
+    Cache::forget('konfigs');
+    Cache::rememberForever('konfigs', function () {
+      return self::pluck('config_value', 'config_key');
+    });
+  }
+
+  /**
+   * digunakan untuk menghapus seluruh cache.
    *
    */
   public static function clear()
