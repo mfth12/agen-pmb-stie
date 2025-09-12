@@ -11,7 +11,9 @@
   integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{-- AdminLTE3 --}}
-<link rel="stylesheet" href="{{ asset('css/back/adminlte.min.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('css/back/adminlte.min.css') }}"> --}}
+@vite(['resources/css/back/adminlte-lama.min.css'])
+
 {{-- Loading progress --}}
 <script src="{{ asset('js/back/nprogress.js') }}"></script>
 {{-- For PWA --}}
