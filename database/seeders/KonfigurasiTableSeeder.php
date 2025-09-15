@@ -61,7 +61,7 @@ class KonfigurasiTableSeeder extends Seeder
       // 'id'            => "104",
       'config_group'  => 'identitas',
       'config_key'    => 'LOGO',
-      'config_value'  => '{realpath:"",relativepath:""}',
+      'config_value'  => '{realpath:"/public/logo-main.png",relativepath:"logo-main.png"}',
       'created_at'    => Carbon::now(),
       'updated_at'    => Carbon::now()
     ]);

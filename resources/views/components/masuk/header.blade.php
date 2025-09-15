@@ -29,4 +29,6 @@
 </style>
 {{-- FOR CUSTOM JS ON BEGINING --}}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+@vite(['resources/js/tabler.min.js'])
+@vite(['resources/js/demo.min.js'])
 {{-- END --}}

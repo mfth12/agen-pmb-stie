@@ -7,6 +7,7 @@
 </head>
 
 <body class="hold-transition login-page bakgron disable-selection">
+  @vite(['resources/js/tabler-theme.min.js']) {{-- this is tabler.css --}}
   <div class="login-box" id="thisme">
     @yield('container')
   </div>
