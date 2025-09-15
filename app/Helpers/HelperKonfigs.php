@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Cache;
 use App\Models\Sistem\KonfigurasiModel;
 
 if (!function_exists('konfigs')) {
@@ -13,9 +12,11 @@ if (!function_exists('konfigs')) {
      */
     function konfigs(string $key, $default = null)
     {
-        $konfigs = Cache::rememberForever('konfigs', function () {
-            return KonfigurasiModel::pluck('config_value', 'config_key');
-        });
+        static $konfigs = null;
+
+        if ($konfigs === null) {
+            $konfigs = KonfigurasiModel::pluck('config_value', 'config_key')->toArray();
+        }
 
         return $konfigs[$key] ?? $default;
     }
