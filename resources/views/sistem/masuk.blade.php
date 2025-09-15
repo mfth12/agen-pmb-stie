@@ -1,13 +1,6 @@
-@extends('components.theme.masuk')
+@extends('components.theme.front')
 
 @section('container')
-  {{-- <div class="card card-outline card-secondary">
-    <div class="card-header text-center">
-      <h2>{{ konfigs('NAMA_SISTEM') }} asdt</h2>
-      <p>Masuk ke sistem non-akademik STIE Pembangunan</p>
-    </div>
-  </div> --}}
-
   <div class="page page-center">
     <div class="container container-tight py-4">
       <div class="text-center mb-4">
@@ -23,7 +16,7 @@
       </div>
       <div class="card card-md">
         <div class="card-body">
-          <h2 class="h2 text-center mb-4">Masuk ke Akun Anda</h2>
+          <h2 class="h2 text-center mb-4">Masuk menggunakan Akun Siakad Anda</h2>
           <form action="./" method="get" autocomplete="off" novalidate>
             <div class="mb-3">
               <label class="form-label">Email address</label>
