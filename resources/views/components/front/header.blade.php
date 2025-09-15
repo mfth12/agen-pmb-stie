@@ -4,10 +4,10 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>{{ $title }}</title>
-{{-- BEGIN GLOBAL MANDATORY STYLES --}}
+{{-- GLOBAL MANDATORY STYLES --}}
 @vite(['resources/css/app.css']) {{-- this is tabler.css --}}
 @vite(['resources/js/back/nprogress.js'])
-{{-- ADD --}}
+{{-- ADDITIONALS --}}
 @vite(['resources/css/tabler-flags.css'])
 @vite(['resources/css/tabler-flags.css'])
 @vite(['resources/css/tabler-socials.css'])
@@ -19,16 +19,14 @@
 <link rel="prefetch" href="{{ asset('manifest.json') }}">
 <link rel="manifest" href="{{ asset('manifest.json') }}">
 @vite(['resources/css/pwaforwp-main.css'])
-{{-- FOR CLOUDFLARE TURNSTILE --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"
-  integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{-- FOR CUSTOM STYLES --}}
 <style>
+  /* FOR CLOUDFLARE TURNSTILE */
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css");
   @import url("https://rsms.me/inter/inter.css");
 </style>
 {{-- FOR CUSTOM JS ON BEGINING --}}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 @vite(['resources/js/tabler.min.js'])
-@vite(['resources/js/demo.min.js'])
+{{-- @vite(['resources/js/demo.min.js']) --}}
 {{-- END --}}
