@@ -60,23 +60,23 @@ class KonfigurasiModel extends Model
     Cache::put('konfigs', $konfigs);
   }
 
-  /**
-   * digunakan untuk  memanggil data cache.
-   *
-   */
-  public static function getCache($idx = null)
-  {
-    if (!Cache::has('konfigs')) {
-      KonfigurasiModel::toCache();
-    }
+  // /**
+  //  * digunakan untuk  memanggil data cache.
+  //  *
+  //  */
+  // public static function getCache($idx = null)
+  // {
+  //   if (!Cache::has('konfigs')) {
+  //     KonfigurasiModel::toCache();
+  //   }
 
-    if ($idx == null) {
-      return Cache::get('konfigs');
-    } else {
-      $konfigs = Cache::get('konfigs');
-      return $konfigs[$idx];
-    }
-  }
+  //   if ($idx == null) {
+  //     return Cache::get('konfigs');
+  //   } else {
+  //     $konfigs = Cache::get('konfigs');
+  //     return $konfigs[$idx];
+  //   }
+  // }
 
   /**
    * digunakan untuk  melakukan refresh cache.
@@ -84,28 +84,29 @@ class KonfigurasiModel extends Model
    */
   public static function refreshCache()
   {
+    Cache::flush();
     Cache::forget('konfigs');
     Cache::rememberForever('konfigs', function () {
       return self::pluck('config_value', 'config_key');
     });
   }
 
-  /**
-   * digunakan untuk menghapus seluruh cache.
-   *
-   */
-  public static function clear()
-  {
-    Cache::flush();
-  }
+  // /**
+  //  * digunakan untuk menghapus seluruh cache.
+  //  *
+  //  */
+  // public static function clear()
+  // {
+  //   Cache::flush();
+  // }
 
-  /**
-   * digunakan untuk mengambil nama tabel model ini.
-   *
-   * @return string
-   */
-  public static function getTableName()
-  {
-    return with(new static)->getTable();
-  }
+  // /**
+  //  * digunakan untuk mengambil nama tabel model ini.
+  //  *
+  //  * @return string
+  //  */
+  // public static function getTableName()
+  // {
+  //   return with(new static)->getTable();
+  // }
 }
