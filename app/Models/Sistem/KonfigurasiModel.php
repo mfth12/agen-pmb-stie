@@ -37,11 +37,11 @@ class KonfigurasiModel extends Model
   ];
 
   /**
-   * enable auto_increment.
+   * Enable auto_increment.
    *
    * @var string
    */
-  public $incrementing = false;
+  public $incrementing = true;
 
   /**
    * activated timestamps.
@@ -51,13 +51,26 @@ class KonfigurasiModel extends Model
   public $timestamps = true;
 
   /**
-   * digunakan untuk  menyimpan ke cache.
+   * Digunakan untuk  menyimpan ke cache.
    *
    */
   public static function toCache()
   {
     $konfigs = KonfigurasiModel::all()->pluck('config_value', 'config_key')->toArray();
     Cache::put('konfigs', $konfigs);
+  }
+
+  /**
+   * Digunakan untuk  melakukan refresh cache.
+   *
+   */
+  public static function refreshCache()
+  {
+    Cache::flush();
+    Cache::forget('konfigs');
+    Cache::rememberForever('konfigs', function () {
+      return self::pluck('config_value', 'config_key');
+    });
   }
 
   // /**
@@ -78,19 +91,6 @@ class KonfigurasiModel extends Model
   //   }
   // }
 
-  /**
-   * digunakan untuk  melakukan refresh cache.
-   *
-   */
-  public static function refreshCache()
-  {
-    Cache::flush();
-    Cache::forget('konfigs');
-    Cache::rememberForever('konfigs', function () {
-      return self::pluck('config_value', 'config_key');
-    });
-  }
-
   // /**
   //  * digunakan untuk menghapus seluruh cache.
   //  *
@@ -100,13 +100,13 @@ class KonfigurasiModel extends Model
   //   Cache::flush();
   // }
 
-  // /**
-  //  * digunakan untuk mengambil nama tabel model ini.
-  //  *
-  //  * @return string
-  //  */
-  // public static function getTableName()
-  // {
-  //   return with(new static)->getTable();
-  // }
+  /**
+   * Digunakan untuk mengambil nama tabel model ini.
+   *
+   * @return string
+   */
+  public static function getTableName()
+  {
+    return with(new static)->getTable();
+  }
 }
