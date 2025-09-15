@@ -8,15 +8,11 @@
 
 <body class="hold-transition login-page bakgron disable-selection">
   @vite(['resources/js/tabler-theme.min.js']) {{-- this is tabler.css --}}
+
   <div class="login-box" id="thisme">
     @yield('container')
   </div>
-  <div id="pwaforwp-add-to-home-click" style="background-color:#d2dfeb"
-    class="pwaforwp-footer-prompt pwaforwp-bounceInUp pwaforwp-animated">
-    <span id="pwaforwp-prompt-close" class="pwaforwp-prompt-close"></span>
-    <p>Pasang <strong>{{ konfigs('NAMA_SISTEM') . ' ' . konfigs('NAMA_SISTEM_ALIAS') }}</strong> di perangkat Anda</p>
-    <div class="btn btn-sm btn-primary">Pasang</div>
-  </div>
+
   <x-masuk.script />
 </body>
 
