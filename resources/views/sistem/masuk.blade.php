@@ -6,7 +6,10 @@
       {{-- @php
         dd(konfigs('NAMA_SISTEM'));
       @endphp --}}
-      <h2>{{ konfigs('NAMA_SISTEM') }}</h2>
+      <h2>{{ konfigs('NAMA_SISTEM') }} asdt</h2>
+      <h2>{{ konfigs('NAMA_SISTEM') }} asdt</h2>
+      <h2>{{ konfigs('NAMA_SISTEM') }} asdt</h2>
+      <h2>{{ konfigs('NAMA_SISTEM') }} asdt</h2>
     </div>
   </div>
 @endsection

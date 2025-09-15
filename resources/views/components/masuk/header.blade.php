@@ -13,6 +13,7 @@
 {{-- AdminLTE3 --}}
 {{-- <link rel="stylesheet" href="{{ asset('css/back/adminlte.min.css') }}"> --}}
 @vite(['resources/css/back/adminlte-lama.min.css'])
+@vite(['resources/css/back/dropify.min.css'])
 
 {{-- Loading progress --}}
 <script src="{{ asset('js/back/nprogress.js') }}"></script>

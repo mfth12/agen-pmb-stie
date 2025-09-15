@@ -26,11 +26,11 @@
 
 {{-- <link rel="stylesheet" href="{{ asset('css/back/adminlte-lama.min.css') }}"> --}}
 {{-- <link rel="stylesheet" href="{{ asset('css/back/dropify.min.css') }}"> --}}
-@vite(['resources/css/back/adminlte-lama.min.css', 'resources/css/back/dropify.min.css'])
+@vite(['resources/css/back/adminlte-lama.min.css'])
+@vite(['resources/css/back/dropify.min.css'])
 
 
 
 
 <script src="{{ asset('js/back/nprogress.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('css/back/nprogress.css') }}">
-
