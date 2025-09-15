@@ -10,6 +10,10 @@ Route::get('/', [MasukController::class, 'index'])
     ->name('masuk')
     ->middleware(['guest', 'cache.headers']);
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
 //route resource for products
 Route::resource('/nonakademiks', \App\Http\Controllers\NonkadController::class);
 Route::resource('/transaknonakademiks', \App\Http\Controllers\transaknonkadController::class);
