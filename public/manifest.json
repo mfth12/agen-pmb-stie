@@ -1,0 +1,38 @@
+{
+    "name": "Sistem Pegawai STIE",
+    "short_name": "Pegawai STIE",
+    "description": "Sistem Informasi Pegawai STIE Pembangunan Tanjungpinang",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "logo-main.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "logo-main.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "logo-main.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "background_color": "#D5E0EB",
+    "theme_color": "#343A40",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": ".",
+    "android_package_name": "id.ac.stie-pemb.pegawai.pwa",
+    "shortcuts": [],
+    "scope": "."
+}
