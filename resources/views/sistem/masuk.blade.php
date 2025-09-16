@@ -7,18 +7,18 @@
         <div class="col-lg">
           <div class="container-tight py-9">
             <div class="text-center mb-2">
-              <a href="." aria-label="Tabler"
+              <a href="javascript:void()" aria-label="{{ konfigs('NAMA_SISTEM_ALIAS') }}"
                 class="navbar-brand navbar-brand-autodark d-flex align-items-center justify-content-center">
                 <span class=" d-flex align-items-center">
                   @include('components.back.macros', ['height' => 20, 'withbg' => 'fill: #fff;'])
                 </span>
-                <h1 class="mb-0">Sinkad</h1>
+                <h1 class="mb-0">{{ konfigs('NAMA_SISTEM_ALIAS') }}</h1>
               </a>
             </div>
             <h3 class="text-center mb-4">{{ konfigs('NAMA_SISTEM') }}</h3>
             <div class="card card-md">
               <div class="card-body">
-                <div class="alert alert-info" role="alert">
+                <div class="alert alert-hilang alert-info" role="alert">
                   <i class="ti ti-info-circle fs-2 text-info"></i>
                   Masuk menggunakan Akun Siakad Anda!
                 </div>
@@ -49,12 +49,18 @@
                       </span>
                     </div>
                   </div>
-                  <div class="mb-2">
-                    <label class="form-check">
-                      <input type="checkbox" class="form-check-input" />
-                      <span class="form-check-label">Ingat saya</span>
-                    </label>
-                  </div>
+
+                  {{-- clouflare turnstile script begin --}}
+                  @if (env('USING_TURNSTILE', false))
+                    <div class="mb-4 mt-4" style="display: block; flex-flow: row;">
+                      <div class="cf-turnstile" style="min-width: 100px;" data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}"
+                        data-size="flexible" data-refresh-expired="auto" data-callback="javascriptCallback"
+                        data-theme="light" data-language="{{ env('TURNSTILE_LANGUAGE', 'en-US') }}">
+                      </div>
+                    </div>
+                  @endif
+
+                  {{-- submit --}}
                   <div class="form-footer">
                     <button type="submit" class="btn btn-primary w-100">Masuk</button>
                   </div>
