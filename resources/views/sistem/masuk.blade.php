@@ -34,7 +34,7 @@
                   <label class="form-label">
                     Password
                     <span class="form-label-description">
-                      <a href="/lupa_password">Lupa password?</a>
+                      <a href="/lupa-password">Lupa password?</a>
                     </span>
                   </label>
                   {{-- baru --}}
