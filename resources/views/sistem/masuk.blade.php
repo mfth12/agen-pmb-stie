@@ -41,7 +41,7 @@
                   <div class="input-group input-group-flat">
                     {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-s']) !!}
                     <span class="input-group-text cursor-pointer" id="toggle-password">
-                      <i class="ti ti-eye-off" id="toggle-password-icon"></i>
+                      <i class="ti ti-eye-off fs-2" id="toggle-password-icon"></i>
                     </span>
                   </div>
                 </div>
