@@ -1,14 +1,17 @@
 <?php
 
-use Illuminate\View\View;
-
-//import return type View
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\MasukController;
 
-Route::get('/', [MasukController::class, 'index'])
-    ->name('masuk')
-    ->middleware(['guest', 'cache.headers']);
+// Rute "/" universal, tidak pakai middleware
+Route::get('/', fn() => redirect()->route(Auth::check() ? 'dashboard.index' : 'login'));
+
+// Rute masuk
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', [MasukController::class, 'index'])->name('masuk');
+    Route::post('/', [MasukController::class, 'masuk'])->name('masuk.do');
+});
 
 Route::get('/welcome', function () {
     return view('welcome');

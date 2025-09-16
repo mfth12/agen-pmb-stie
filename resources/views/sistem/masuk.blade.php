@@ -19,52 +19,55 @@
             <div class="card card-md">
               <div class="card-body">
                 <div class="alert alert-hilang alert-info" role="alert">
-                  <i class="ti ti-info-circle fs-2 text-info"></i>
-                  Masuk menggunakan Akun Siakad Anda!
+                  <i class="ti ti-fingerprint fs-2 text-info"></i>
+                  Gunakan Akun Siakad Anda untuk masuk!
                 </div>
-                <form action="./" method="get" autocomplete="off" novalidate>
-                  <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="email" class="form-control" placeholder="Username Siakad" autocomplete="off" />
+
+                {!! html()->form('post')->route('masuk.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-4 mt-2'])->open() !!}
+                <div class="mb-3">
+                  <label class="form-label">Username</label>
+                  {{-- <input type="email" class="form-control" placeholder="Username Siakad" autocomplete="off" /> --}}
+                  {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Siakad')->attributes(['aria-describedby' => 'username']) !!}
+
+                </div>
+                <div class="mb-2">
+                  <label class="form-label">
+                    Password
+                    <span class="form-label-description">
+                      <a href="/lupa_password">Lupa password?</a>
+                    </span>
+                  </label>
+                  {{-- baru --}}
+                  <div class="input-group input-group-flat">
+                    {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-s']) !!}
+                    <span class="input-group-text cursor-pointer" id="toggle-password">
+                      <i class="ti ti-eye-off" id="toggle-password-icon"></i>
+                    </span>
                   </div>
-                  <div class="mb-2">
-                    <label class="form-label">
-                      Password
-                      <span class="form-label-description">
-                        <a href="./forgot-password.html">Lupa password?</a>
-                      </span>
-                    </label>
-                    <div class="input-group input-group-flat">
-                      <input type="password" class="form-control"
-                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" autocomplete="off" />
-                      <span class="input-group-text">
-                        <a href="#" class="link-secondary" title="Show password"
-                          data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="icon icon-1">
-                            <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                            <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                          </svg></a>
-                      </span>
+                </div>
+
+                {{-- clouflare turnstile script begin --}}
+                @if (env('USING_TURNSTILE', false))
+                  <div class="mb-4 mt-4" style="display: block; flex-flow: row;">
+                    <div class="cf-turnstile" style="min-width: 100px;" data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}"
+                      data-size="flexible" data-refresh-expired="auto" data-callback="javascriptCallback"
+                      data-theme="light" data-language="{{ env('TURNSTILE_LANGUAGE', 'en-US') }}">
                     </div>
                   </div>
+                @endif
 
-                  {{-- clouflare turnstile script begin --}}
-                  @if (env('USING_TURNSTILE', false))
-                    <div class="mb-4 mt-4" style="display: block; flex-flow: row;">
-                      <div class="cf-turnstile" style="min-width: 100px;" data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}"
-                        data-size="flexible" data-refresh-expired="auto" data-callback="javascriptCallback"
-                        data-theme="light" data-language="{{ env('TURNSTILE_LANGUAGE', 'en-US') }}">
-                      </div>
-                    </div>
-                  @endif
+                {{-- submit --}}
+                <div class="form-footer">
+                  {{-- <button type="submit" class="btn btn-primary w-100">Masuk</button> --}}
+                  {!! html()->button(
+                          '<span><span class="button-text">Masuk</span><div class="spinner-border spinner-border-md ms-2 d-none " role="status"></div></span>',
+                          'submit',
+                      )->class('btn btn-primary d-grid w-100')->id('loginButton') !!}
+                </div>
 
-                  {{-- submit --}}
-                  <div class="form-footer">
-                    <button type="submit" class="btn btn-primary w-100">Masuk</button>
-                  </div>
-                </form>
+                {{-- </form> --}}
+                {!! html()->form()->close() !!}
+
               </div>
             </div>
             <div class="text-center text-secondary mt-3">

@@ -3,7 +3,7 @@
 
 <head>
   <x-front.header :title="$title" />
-  <x-back.pwa :konfigs="$konfigs" />
+  <x-back.pwa {{--  :konfigs="$konfigs" --}} />
 </head>
 
 <body class="hold-transition login-page bakgron disable-selection">

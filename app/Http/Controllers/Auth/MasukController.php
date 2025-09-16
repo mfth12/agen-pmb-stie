@@ -28,10 +28,8 @@ class MasukController extends Controller
       return redirect()->route('dashboard.index'); // ini redirect ke dasbor, BUKAN '/'
     }
 
-    $konfigs = Session::get('konfigs');
     return view('sistem.masuk', [
-      'title'     => 'Siskrip STIE',
-      'konfigs'   => $konfigs
+      'title'     => konfigs('NAMA_SISTEM'),
     ]);
   }
 
