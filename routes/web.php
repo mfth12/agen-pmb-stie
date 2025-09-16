@@ -2,15 +2,18 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DasborController;
 use App\Http\Controllers\Auth\MasukController;
 
 // Rute "/" universal, tidak pakai middleware
-Route::get('/', fn() => redirect()->route(Auth::check() ? 'dashboard.index' : 'login'));
+Route::get('/', fn() => redirect()->route(Auth::check() ? 'dashboard.index' : 'masuk'));
 
 // Rute masuk
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [MasukController::class, 'index'])->name('masuk');
-    Route::post('/', [MasukController::class, 'masuk'])->name('masuk.do');
+    Route::post('/masuk', [MasukController::class, 'masuk'])->name('masuk.do');
+    // Alias untuk kompatibilitas bawaan Laravel
+    Route::get('/masuk', [MasukController::class, 'index'])->name('login');
 });
 
 // Rute dasbor
@@ -20,15 +23,15 @@ Route::middleware([
 ])->group(
     function () {
         Route::post('/keluar', [MasukController::class, 'keluar'])->name('logout');
-        Route::get('/dasbor', [DasborUtama::class, 'index'])->name('dashboard.index');
+        Route::get('/dasbor', [DasborController::class, 'index'])->name('dashboard.index');
         // Route::get('/dasbor/crm', [DasborUtama::class, 'crm'])->name('dashboard.crm');
         // Route::get('/profil', [ProfilController::class, 'index'])->name('profil-index'); //not used again
     }
 );
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
 //route resource for products
 Route::resource('/nonakademiks', \App\Http\Controllers\NonkadController::class);

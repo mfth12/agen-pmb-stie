@@ -43,18 +43,19 @@ class MasukController extends Controller
     $throttleKey = Str::transliterate(Str::lower($request->string('username')) . '|' . $request->ip());
     $maxAttempts = (int) env('LOGIN_MAX_ATTEMPTS', 3);
     $decaySeconds = (int) env('LOGIN_DECAY_SECONDS', 120);
-
+    
     if (RateLimiter::tooManyAttempts($throttleKey, $maxAttempts)) {
       event(new Lockout($request));
       $seconds = RateLimiter::availableIn($throttleKey);
-
+      
       throw ValidationException::withMessages([
         'masuk' => 'Silakan coba lagi dalam <span id="countdown">' . $seconds . '</span> detik.',
       ]);
     }
-
+    
     // Ambil kredensi
     $credentials = $request->only('username', 'password');
+    dd($credentials);
 
     // Lakukan try catch ke endpoint API SIAKAD
     try {
@@ -161,7 +162,7 @@ class MasukController extends Controller
     Auth::logout();
 
     // Redirect ke halaman login
-    return redirect()->route('login')->with('keluar', 'Anda telah keluar sistem');
+    return redirect()->route('masuk')->with('keluar', 'Anda telah keluar sistem');
   }
 
 
