@@ -14,7 +14,7 @@ function GetFilesArray(query) {
 
 
 /**
- * Pendeklarasian path untuk setiap resources
+ * Deklarasi path untuk setiap resources
  */
 
 // CSS setup files
@@ -23,6 +23,8 @@ const allCssSetupFiles = GetFilesArray('resources/css/*.js');
 // JS setup files
 const allJsSetupFiles = GetFilesArray('resources/js/*.js');
 
+// Images setup files 
+const allImgSetupFiles = GetFilesArray('resources/img/*.*');
 // siakad3 js files
 // const systemJsFiles = GetFilesArray('resources/js/system/*.js');
 // const dmasterJsFiles = GetFilesArray('resources/js/dmaster/*.js');
@@ -57,11 +59,11 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/css/back/adminlte-lama.min.css',
                 'resources/js/app.js',
                 // Add this line - load vendor setup files first
                 ...allCssSetupFiles,
                 ...allJsSetupFiles,
+                ...allImgSetupFiles,
                 // ...vendorJsFiles
             ],
             refresh: true

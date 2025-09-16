@@ -2,95 +2,77 @@
 
 @section('container')
   <div class="page page-center">
-    <div class="container container-tight py-10">
-      <div class="text-center mb-2">
-        <a href="." aria-label="Tabler"
-          class="navbar-brand navbar-brand-autodark d-flex align-items-center justify-content-center">
-          <span class=" d-flex align-items-center">
-            @include('components.back.macros', ['height' => 20, 'withbg' => 'fill: #fff;'])
-          </span>
-          <h1 class="mb-0">Sinkad</h1>
-        </a>
-      </div>
-      <h3 class="text-center mb-4">Sistem Informasi Non Akademik</h3>
-
-      <div class="card card-md">
-        <div class="card-body">
-
-          <p class="text-center mb-4">Masuk menggunakan Akun Siakad Anda</p>
-          <form action="./" method="get" autocomplete="off" novalidate>
-            <div class="mb-3">
-              <label class="form-label">Username</label>
-              <input type="email" class="form-control" placeholder="Username Siakad" autocomplete="off" />
+    <div class="container container-normal py-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg">
+          <div class="container-tight py-9">
+            <div class="text-center mb-2">
+              <a href="." aria-label="Tabler"
+                class="navbar-brand navbar-brand-autodark d-flex align-items-center justify-content-center">
+                <span class=" d-flex align-items-center">
+                  @include('components.back.macros', ['height' => 20, 'withbg' => 'fill: #fff;'])
+                </span>
+                <h1 class="mb-0">Sinkad</h1>
+              </a>
             </div>
-            <div class="mb-2">
-              <label class="form-label">
-                Password
-                <span class="form-label-description">
-                  <a href="./forgot-password.html">Lupa password?</a>
-                </span>
-              </label>
-              <div class="input-group input-group-flat">
-                <input type="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                  autocomplete="off" />
-                <span class="input-group-text">
-                  <a href="#" class="link-secondary" title="Show password"
-                    data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="icon icon-1">
-                      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                      <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                    </svg></a>
-                </span>
+            <h3 class="text-center mb-4">{{ konfigs('NAMA_SISTEM') }}</h3>
+            <div class="card card-md">
+              <div class="card-body">
+                <div class="alert alert-info" role="alert">
+                  <i class="ti ti-info-circle fs-2 text-info"></i>
+                  Masuk menggunakan Akun Siakad Anda!
+                </div>
+                <form action="./" method="get" autocomplete="off" novalidate>
+                  <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="email" class="form-control" placeholder="Username Siakad" autocomplete="off" />
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">
+                      Password
+                      <span class="form-label-description">
+                        <a href="./forgot-password.html">Lupa password?</a>
+                      </span>
+                    </label>
+                    <div class="input-group input-group-flat">
+                      <input type="password" class="form-control"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" autocomplete="off" />
+                      <span class="input-group-text">
+                        <a href="#" class="link-secondary" title="Show password"
+                          data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="icon icon-1">
+                            <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                            <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                          </svg></a>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-check">
+                      <input type="checkbox" class="form-check-input" />
+                      <span class="form-check-label">Ingat saya</span>
+                    </label>
+                  </div>
+                  <div class="form-footer">
+                    <button type="submit" class="btn btn-primary w-100">Masuk</button>
+                  </div>
+                </form>
               </div>
             </div>
-            <div class="mb-2">
-              <label class="form-check">
-                <input type="checkbox" class="form-check-input" />
-                <span class="form-check-label">Ingat saya</span>
-              </label>
-            </div>
-            <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Masuk</button>
-            </div>
-          </form>
-        </div>
-        {{-- <div class="hr-text">or</div> --}}
-        {{-- <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <a href="#" class="btn btn-4 w-100">
-                <!-- Download SVG icon from http://tabler.io/icons/icon/brand-github -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon text-github icon-2">
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
-                Login with Github
-              </a>
-            </div>
-            <div class="col">
-              <a href="#" class="btn btn-4 w-100">
-                <!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="icon text-x icon-2">
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-                Login with X
-              </a>
+            <div class="text-center text-secondary mt-3">
+              Copyright © {{ now()->year }}
+              <a href="https://www.stie-pembangunan.ac.id/" target="_blank" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Kunjungi situs">STIE Pembangunan Tanjungpinang</a>.
+              {{ env('APP_VERSION') }}
             </div>
           </div>
-        </div> --}}
-      </div>
-      <div class="text-center text-secondary mt-3">
-        Copyright © {{ now()->year }}
-        <a href="https://www.stie-pembangunan.ac.id/" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top"
-          title="Kunjungi situs">STIE Pembangunan Tanjungpinang</a>.
-        {{ env('APP_VERSION') }}
+        </div>
+
+        <div class="col-lg d-none d-lg-block">
+          <img src="{{ Vite::asset('resources/img/login-illustration.png') }}" alt="Login Illustration">
+        </div>
       </div>
     </div>
   </div>
