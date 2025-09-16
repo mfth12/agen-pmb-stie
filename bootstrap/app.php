@@ -42,6 +42,6 @@ return Application::configure(basePath: dirname(__DIR__))
                 return response()->json(['message' => 'Unauthenticated.'], 401);
             }
 
-            return redirect()->guest(route('masuk'))->with('no_session', 'Silakan masuk ke sistem');
+            return redirect()->guest(route('masuk'))->with('no_session', 'Silakan masuk ke sistem.');
         });
     })->create();
