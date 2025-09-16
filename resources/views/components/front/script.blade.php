@@ -42,4 +42,13 @@
       return false; // Ctrl+U
     }
   }
+
+  // untuk fadeout alert
+  $(document).ready(function() {
+    window.setTimeout(function() {
+      $(".alert-hilang").fadeTo(1200, 0).slideUp(750, function() {
+        $(this).remove();
+      });
+    }, 3500); // alert menghilang dalam 3.5 detik
+  });
 </script>
