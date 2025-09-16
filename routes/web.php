@@ -13,6 +13,19 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/', [MasukController::class, 'masuk'])->name('masuk.do');
 });
 
+// Rute dasbor
+Route::middleware([
+    'auth',
+    'disablepreventback'
+])->group(
+    function () {
+        Route::post('/keluar', [MasukController::class, 'keluar'])->name('logout');
+        Route::get('/dasbor', [DasborUtama::class, 'index'])->name('dashboard.index');
+        // Route::get('/dasbor/crm', [DasborUtama::class, 'crm'])->name('dashboard.crm');
+        // Route::get('/profil', [ProfilController::class, 'index'])->name('profil-index'); //not used again
+    }
+);
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
