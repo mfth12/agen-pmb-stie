@@ -18,17 +18,45 @@
             <h3 class="text-center mb-4">{{ konfigs('NAMA_SISTEM') }}</h3>
             <div class="card card-md">
               <div class="card-body">
-                <div class="alert alert-hilang alert-info" role="alert">
-                  <i class="ti ti-fingerprint fs-2 text-info"></i>
-                  Gunakan Akun Siakad Anda untuk masuk!
-                </div>
+                {{-- ALERTS --}}
+                @if ($errors->has('masuk'))
+                  <div class="alert alert-hilang alert-danger" role="alert">
+                    <i class="ti ti-ban fs-2 text-danger"></i>
+                    {!! $errors->first('masuk') !!}
+                  </div>
+                @elseif ($errors->has('koneksi'))
+                  <div class="alert alert-hilang alert-danger" role="alert">
+                    <i class="ti ti-alert-triangle fs-2 text-danger"></i>
+                    {!! $errors->first('koneksi') !!}
+                  </div>
+                @elseif ($errors->has('turnstile_notvalid'))
+                  <div class="alert alert-hilang alert-danger" role="alert">
+                    <i class="ti ti-cloud-x fs-2 text-danger"></i>
+                    {!! $errors->first('turnstile_notvalid') !!}
+                  </div>
+                @elseif (session()->has('no_session'))
+                  <div class="alert alert-hilang alert-danger" role="alert">
+                    <i class="ti ti-alert-triangle fs-2 text-danger"></i>
+                    {!! session('no_session') !!}
+                  </div>
+                @elseif (session()->has('keluar'))
+                  <div class="alert alert-hilang alert-secondary" role="alert">
+                    <i class="ti ti-lock fs-2 text-secondary"></i>
+                    {!! session('keluar') !!}
+                  </div>
+                @else
+                  <div class="alert alert-hilang alert-info" role="alert">
+                    <i class="ti ti-fingerprint fs-2 text-info"></i>
+                    Gunakan Akun Siakad Anda untuk masuk.
+                  </div>
+                @endif
+                {{-- END OF ALERTS --}}
 
+                {{-- LOGIN FORM --}}
                 {!! html()->form('post')->route('masuk.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
                 <div class="mb-3">
                   <label class="form-label">Username</label>
-                  {{-- <input type="email" class="form-control" placeholder="Username Siakad" autocomplete="off" /> --}}
                   {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Siakad')->attributes(['aria-describedby' => 'username']) !!}
-
                 </div>
                 <div class="mb-2">
                   <label class="form-label">
@@ -37,7 +65,6 @@
                       <a href="/lupa-password">Lupa password?</a>
                     </span>
                   </label>
-                  {{-- baru --}}
                   <div class="input-group input-group-flat">
                     {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-s']) !!}
                     <span class="input-group-text cursor-pointer" id="toggle-password">
@@ -46,7 +73,7 @@
                   </div>
                 </div>
 
-                {{-- clouflare turnstile script begin --}}
+                {{-- Clouflare turnstile script --}}
                 @if (env('USING_TURNSTILE', false))
                   <div class="mb-4 mt-4" style="display: block; flex-flow: row;">
                     <div class="cf-turnstile" style="min-width: 100px;" data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}"
@@ -56,18 +83,16 @@
                   </div>
                 @endif
 
-                {{-- submit --}}
+                {{-- Submit button --}}
                 <div class="form-footer">
-                  {{-- <button type="submit" class="btn btn-primary w-100">Masuk</button> --}}
                   {!! html()->button(
                           '<span><span class="button-text">Masuk</span><div class="spinner-border spinner-border-md ms-2 d-none " role="status"></div></span>',
                           'submit',
                       )->class('btn btn-primary d-grid w-100')->id('loginButton') !!}
                 </div>
 
-                {{-- </form> --}}
                 {!! html()->form()->close() !!}
-
+                {{-- END OF LOGIN FORM --}}
               </div>
             </div>
             <div class="text-center text-secondary mt-3">
