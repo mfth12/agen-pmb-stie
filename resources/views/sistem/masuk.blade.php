@@ -23,7 +23,7 @@
                   Gunakan Akun Siakad Anda untuk masuk!
                 </div>
 
-                {!! html()->form('post')->route('masuk.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-4 mt-2'])->open() !!}
+                {!! html()->form('post')->route('masuk.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
                 <div class="mb-3">
                   <label class="form-label">Username</label>
                   {{-- <input type="email" class="form-control" placeholder="Username Siakad" autocomplete="off" /> --}}
