@@ -52,7 +52,7 @@ class KonfigurasiTableSeeder extends Seeder
       // 'id'            => "103",
       'config_group'  => 'identitas',
       'config_key'    => 'NAMA_SISTEM_ALIAS',
-      'config_value'  => 'SINKAD',
+      'config_value'  => 'Sinkad',
       'created_at'    => Carbon::now(),
       'updated_at'    => Carbon::now()
     ]);
