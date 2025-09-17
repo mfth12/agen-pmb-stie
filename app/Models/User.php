@@ -54,7 +54,7 @@ class User extends Authenticatable implements HasMedia
      *
      * @var string
      */
-    protected $table = 'e1_users';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

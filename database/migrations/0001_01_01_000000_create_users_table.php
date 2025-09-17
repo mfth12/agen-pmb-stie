@@ -12,13 +12,27 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->bigIncrements('user_id')->from(3201);           //added
+            $table->string('siakad_id', 64)->unique();                                    //synced
+            $table->string('username');                             //added
+            // $table->string('password');                                     //notused
+            $table->string('name');                                                       //synced
+            $table->string('email')->unique();                                            //synced
+            $table->string('nomor_hp', 64)->unique();                                     //synced
+            $table->string('nomor_hp2', 64)->nullable();                                  //synced
+            $table->timestamp('email_verified_at')->nullable();                           //synced
+            $table->text('about')->nullable();                                            //synced
+            // $table->string('role', 64)->nullable();              //added
+            $table->string('default_role', 15);                                           //synced
+            $table->string('theme')->default('default');                                  //synced
+            $table->string('avatar')->nullable();                                         //synced
+            $table->string('status', 15)->default('active');                              //synced
+            $table->string('status_login', 15)->default('offline');                       //synced
+            $table->boolean('isdeleted')->default(true);                                  //synced
+            $table->timestamp('last_logged_in')->nullable();                    //added
+            $table->timestamp('last_synced_at')->nullable();                    //added
+            $table->rememberToken();                                           //laravel
+            $table->timestamps();                                              //laravel
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
