@@ -22,6 +22,7 @@
 {{-- FOR CUSTOM STYLES --}}
 <style>
   /* FOR CLOUDFLARE TURNSTILE */
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
   @import url("https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css");
   @import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css");
   @import url("https://rsms.me/inter/inter.css");

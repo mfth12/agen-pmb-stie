@@ -21,32 +21,57 @@
               <div class="card-body">
                 {{-- ALERTS --}}
                 @if ($errors->has('masuk'))
-                  <div class="alert alert-hilang alert-danger" role="alert">
-                    <i class="ti ti-ban fs-2 text-danger"></i>
+                  <div
+                    class="alert alert-hilang alert-danger text-danger alert-dismissible d-flex align-items-center animate__animated animate__shakeX"
+                    role="alert">
+                    <div class="alert-icon">
+                      <i class="ti ti-ban fs-2 text-danger"></i>
+                    </div>
                     {!! $errors->first('masuk') !!}
+                    <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                   </div>
                 @elseif ($errors->has('koneksi'))
-                  <div class="alert alert-hilang alert-danger" role="alert">
-                    <i class="ti ti-alert-triangle fs-2 text-danger"></i>
-                    {!! $errors->first('koneksi') !!}
+                  <div
+                    class="alert alert-hilang alert-danger text-danger alert-dismissible d-flex align-items-center animate__animated animate__shakeX"
+                    role="alert">
+                    <div class="alert-icon">
+                      <i class="ti ti-plug-connected-x fs-2 text-danger"></i>
+                    </div>
+                    {!! $errors->first('koneksi') !!} asd
+                    <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                   </div>
                 @elseif ($errors->has('turnstile_notvalid'))
-                  <div class="alert alert-hilang alert-danger" role="alert">
-                    <i class="ti ti-cloud-x fs-2 text-danger"></i>
+                  <div
+                    class="alert alert-hilang alert-danger text-danger alert-dismissible d-flex align-items-center animate__animated animate__shakeX"
+                    role="alert">
+                    <div class="alert-icon">
+                      <i class="ti ti-cloud-x fs-2 text-danger"></i>
+                    </div>
                     {!! $errors->first('turnstile_notvalid') !!}
+                    <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                   </div>
                 @elseif (session()->has('no_session'))
-                  <div class="alert alert-hilang alert-danger" role="alert">
-                    <i class="ti ti-alert-triangle fs-2 text-danger"></i>
+                  <div
+                    class="alert alert-hilang alert-danger text-danger alert-dismissible d-flex align-items-center animate__animated animate__shakeX"
+                    role="alert">
+                    <div class="alert-icon">
+                      <i class="ti ti-ban fs-2 text-danger"></i>
+                    </div>
                     {!! session('no_session') !!}
+                    <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                   </div>
                 @elseif (session()->has('keluar'))
-                  <div class="alert alert-hilang alert-secondary" role="alert">
-                    <i class="ti ti-lock fs-2 text-secondary"></i>
+                  <div
+                    class="alert alert-hilang alert-secondary text-secondary alert-dismissible d-flex align-items-center"
+                    role="alert">
+                    <div class="alert-icon">
+                      <i class="ti ti-lock fs-2 text-secondary"></i>
+                    </div>
                     {!! session('keluar') !!}
+                    <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                   </div>
                 @else
-                  <div class="alert alert-hilang alert-info" role="alert">
+                  <div class="alert alert-hilang alert-info text-info d-flex align-items-center" role="alert">
                     <i class="ti ti-fingerprint fs-2 text-info"></i>
                     Gunakan Akun Siakad Anda untuk masuk.
                   </div>
@@ -62,21 +87,17 @@
                 <div class="mb-2">
                   <label class="form-label">
                     Password
-                    <span class="form-label-description">
-                      <a href="/lupa-password">Lupa password?</a>
+                    <span class="form-label-description"><a href="/lupa-password" class="text-muted">
+                        Lupa password?</a>
                     </span>
                   </label>
-                  <div class="input-group input-group-flat">
-                    {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-password']) !!}
-                    <span class="input-group-text cursor-pointer" id="toggle-password">
-                      <i class="ti ti-eye-off fs-2" id="toggle-password-icon"></i>
-                    </span>
+                  <div class="input-group">
+                    {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-password', 'autocomplete' => 'off']) !!}
                   </div>
                 </div>
-
                 {{-- Clouflare turnstile script --}}
                 @if (env('USING_TURNSTILE', false))
-                  <div class="mb-4 mt-4" style="display: block; flex-flow: row;">
+                  <div class="mt-4" style="display: block; flex-flow: row;">
                     <div class="cf-turnstile" style="min-width: 100px;" data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}"
                       data-size="flexible" data-refresh-expired="auto" data-callback="javascriptCallback"
                       data-theme="light" data-language="{{ env('TURNSTILE_LANGUAGE', 'en-US') }}">
