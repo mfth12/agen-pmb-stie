@@ -12,9 +12,12 @@
 </script>
 {{-- TAMABAHAN JQUERY CDN --}}
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 @vite(['resources/js/pwaforwp-video.js'])
 @vite(['resources/js/pwaforwp-download.js'])
 @vite(['resources/js/pwa-register-sw.js'])
+@vite(['resources/assets/vendor/libs/@form-validation/popular.js'])
+@vite(['resources/assets/vendor/libs/@form-validation/bootstrap5.js'])
+@vite(['resources/assets/vendor/libs/@form-validation/auto-focus.js'])
 {{-- TAMBAHAN HALAMAN MASUK JS --}}
 @vite(['resources/js/pages/masuk.js'])

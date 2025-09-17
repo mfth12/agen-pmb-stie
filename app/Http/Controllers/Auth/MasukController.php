@@ -55,7 +55,6 @@ class MasukController extends Controller
     
     // Ambil kredensi
     $credentials = $request->only('username', 'password');
-    dd($credentials);
 
     // Lakukan try catch ke endpoint API SIAKAD
     try {

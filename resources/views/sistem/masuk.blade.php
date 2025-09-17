@@ -4,6 +4,7 @@
   <div class="page page-center">
     <div class="container container-normal py-4">
       <div class="row align-items-center g-4">
+        {{--  --}}
         <div class="col-lg">
           <div class="container-tight py-9">
             <div class="text-center mb-2">
@@ -54,7 +55,7 @@
 
                 {{-- LOGIN FORM --}}
                 {!! html()->form('post')->route('masuk.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
-                <div class="mb-3">
+                <div class="mb-2">
                   <label class="form-label">Username</label>
                   {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Siakad')->attributes(['aria-describedby' => 'username']) !!}
                 </div>
@@ -66,7 +67,7 @@
                     </span>
                   </label>
                   <div class="input-group input-group-flat">
-                    {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-s']) !!}
+                    {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-password']) !!}
                     <span class="input-group-text cursor-pointer" id="toggle-password">
                       <i class="ti ti-eye-off fs-2" id="toggle-password-icon"></i>
                     </span>
@@ -86,7 +87,7 @@
                 {{-- Submit button --}}
                 <div class="form-footer">
                   {!! html()->button(
-                          '<span><span class="button-text">Masuk</span><div class="spinner-border spinner-border-md ms-2 d-none " role="status"></div></span>',
+                          '<span><span class="button-text">Masuk</span><div class="spinner-border spinner-border-sm ms-2 d-none " role="status"></div></span>',
                           'submit',
                       )->class('btn btn-primary d-grid w-100')->id('loginButton') !!}
                 </div>

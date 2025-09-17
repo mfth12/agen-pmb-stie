@@ -1,5 +1,3 @@
-
-
 /**
  * Halaman otentikasi masuk
  */
@@ -61,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     })();
 });
 
-// Fungsi untuk menghilangkan alert otomatis
+// FUNGSI UNTUK MENGHILANGKAN ALERT OTOMATOS
 $(document).ready(function () {
     window.setTimeout(function () {
         $('.alert-hilang')
@@ -69,10 +67,10 @@ $(document).ready(function () {
             .slideUp(750, function () {
                 $(this).remove();
             });
-    }, 5500);
+    }, 7500);
 });
 
-// Handler untuk tombol login
+// HANDLER UNTUK TOMBOL LOGIN
 $(document).ready(function () {
     $('#loginButton').on('click', function (e) {
         e.preventDefault(); // Mencegah submit langsung
@@ -92,7 +90,7 @@ $(document).ready(function () {
                     // Submit form setelah 500ms agar animasi loading terlihat
                     setTimeout(() => {
                         form.submit();
-                    }, 1); //1ms //0,5 detik
+                    }, 500); //500ms //0,5 detik
                 }
             })
             // Jika validasi gagal, biarkan plugin FormValidation menangani pesan error
@@ -102,7 +100,7 @@ $(document).ready(function () {
     });
 });
 
-// Animasi hitungan mundur untuk throttle
+// ANIMASI HITUNGAN MUNDUR UNTUK THROTLE
 document.addEventListener('DOMContentLoaded', function () {
     const countdown = document.getElementById('countdown');
     if (countdown) {
@@ -142,7 +140,7 @@ document.onkeydown = function (e) {
 }
 
 
-// toggle password
+// TOGGLE PASSWORD
 $(document).ready(function () {
     $('#toggle-password').on('click', function () {
         let $password = $('#password');
