@@ -2,30 +2,94 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasFactory, Notifiable;
+    /**
+     * thn
+     * @use HasFactory<\Database\Factories\UserFactory>
+     */
+    use HasFactory, Notifiable, HasRoles, InteractsWithMedia;
+
+    protected $primaryKey     = 'user_id';
+    protected $guarded        = ['user_id']; //dilindungi agar tidak ada input yang masuk ke user_id
+    protected static $logName = 'sistem';
+    public $timestamps        = true;
+    // protected $with 				= ['detail', 'level']; //menggunakan eiger loading di models
+
+    /**
+     * key name route pada model ini.
+     *
+     * @var string
+     */
+    public function getRouteKeyName()
+    {
+        return 'user_id';
+    }
+
+    public function getAuthIdentifierName()
+    {
+        return 'user_id';
+    }
+
+    /**
+     * untuk casting datetime
+     *
+     */
+    protected $casts = [
+        'last_logged_in' => 'datetime',
+        'last_synced_at' => 'datetime',
+    ];
+
+    /**
+     * nama tabel model ini.
+     *
+     * @var string
+     */
+    protected $table = 'e1_users';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $fillable = [ //translation from siakad-db
+        //'user_id',
+        'siakad_id',            //id
+        'username', //original
+        // 'password', //not used
+        'name',                 //name
+        'email',                //email
+        'nomor_hp',             //nomor_hp
+        'nomor_hp2',            //nomor_hp2
+        'email_verified_at',    //email_verified_at
+        'about',                //about
+        // 'role',  //original
+        'default_role',         //default_role        //mixing default
+        'theme',                //theme
+        'avatar',               //avatar
+        'status',               //status
+        'status_login',         //status_login
+        'isdeleted',            //isdeleted
+        'last_logged_in', //original
+        'last_synced_at', //original
+        'rememberToken', //original
+        'updated_at',           //updated_at
+        'created_at',           //created_at
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
         'password',
@@ -41,7 +105,36 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
+    }
+
+    /**
+     * Additional according to siakad
+     */
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        if (function_exists('proc_open')) {
+            $this->addMediaConversion('thumb')
+                ->width(350)
+                ->height(350);
+        } else {
+            $this->addMediaConversion('thumb')
+                ->width(350)
+                ->height(350)
+                ->quality(70);
+        }
+    }
+
+    /**
+     * Additional according to siakad
+     * digunakan untuk mengambil nama tabel model ini.
+     *
+     * @return string
+     */
+    public static function getTableName()
+    {
+        return with(new static)->getTable();
     }
 }
