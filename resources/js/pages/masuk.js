@@ -1,97 +1,159 @@
+
+
+/**
+ * Halaman otentikasi masuk
+ */
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('formAuthentication');
-    const button = document.getElementById('loginButton');
+// Deklarasi variabel global untuk FormValidation instance
+let fv;
+const formAuthentication = document.querySelector('#formAuthentication');
 
-    if (form) {
-        const fv = FormValidation.formValidation(form, {
-            fields: {
-                username: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Silakan isi username Anda'
-                        },
-                        stringLength: {
-                            min: 6,
-                            message: 'Username minimal 6 karakter'
+document.addEventListener('DOMContentLoaded', function (e) {
+    (function () {
+        // Form validation untuk login
+        if (formAuthentication) {
+            fv = FormValidation.formValidation(formAuthentication, {
+                fields: {
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Silakan isi username Anda'
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: 'Username harus lebih dari 6 karakter'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Silakan isi password Anda'
+                            },
+                            stringLength: {
+                                min: 6,
+                                message: 'Password harus lebih dari 6 karakter'
+                            }
                         }
                     }
                 },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Silakan isi password Anda'
-                        },
-                        stringLength: {
-                            min: 6,
-                            message: 'Password minimal 6 karakter'
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap5: new FormValidation.plugins.Bootstrap5({
+                        eleValidClass: '',
+                        rowSelector: '.mb-2'
+                    }),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    // defaultSubmit: new FormValidation.plugins.DefaultSubmit(), //tidak menggunakan ini
+                    autoFocus: new FormValidation.plugins.AutoFocus()
+                },
+                init: instance => {
+                    instance.on('plugins.message.placed', function (e) {
+                        if (e.element.parentElement.classList.contains('input-group')) {
+                            e.element.parentElement.insertAdjacentElement('afterend', e.messageElement);
                         }
-                    }
-                }
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                bootstrap5: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: function (field, ele) {
-                        // username pakai .mb-3, password pakai .mb-2
-                        return field === 'username' ? '.mb-3' : '.mb-2';
-                    },
-                    eleInvalidClass: 'is-invalid',
-                    eleValidClass: 'is-valid'
-                }),
-                submitButton: new FormValidation.plugins.SubmitButton(),
-                autoFocus: new FormValidation.plugins.AutoFocus()
-            },
-        });
-
-        // === HANDLER TOMBOL LOGIN ===
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const loader = button.querySelector('.spinner-border');
-            fv.validate().then(function (status) {
-                if (status === 'Valid') {
-                    button.querySelector('.button-text').textContent = 'Memproses';
-                    loader.classList.remove('d-none');
-                    button.disabled = true;
-
-                    form.submit(); // submit normal
+                    });
                 }
             });
-        });
-    }
+        }
+        // end validation
+    })();
+});
 
-    // === HILANGKAN ALERT OTOMATIS ===
-    setTimeout(function () {
-        document.querySelectorAll('.alert-hilang').forEach(function (alert) {
-            alert.style.transition = "opacity 1.2s, transform 0.75s";
-            alert.style.opacity = "0";
-            setTimeout(() => alert.remove(), 2000);
-        });
+// Fungsi untuk menghilangkan alert otomatis
+$(document).ready(function () {
+    window.setTimeout(function () {
+        $('.alert-hilang')
+            .fadeTo(1200, 0)
+            .slideUp(750, function () {
+                $(this).remove();
+            });
     }, 5500);
+});
 
-    // === TOGGLE PASSWORD ===
-    document.getElementById('toggle-password').addEventListener('click', function () {
-        const $password = document.getElementById('password');
-        const $icon = document.getElementById('toggle-password-icon');
-        if ($password.type === 'password') {
-            $password.type = 'text';
-            $icon.classList.remove('ti-eye-off');
-            $icon.classList.add('ti-eye');
+// Handler untuk tombol login
+$(document).ready(function () {
+    $('#loginButton').on('click', function (e) {
+        e.preventDefault(); // Mencegah submit langsung
+        const button = $(this);
+        const loader = button.find('.spinner-border');
+        const form = button.closest('form');
+
+        // Validasi form menggunakan instance yang sudah ada
+        fv.validate()
+            .then(function (status) {
+                if (status === 'Valid') {
+                    // Jika validasi sukses, maka tampilkan loader dan ubah teks tombol
+                    button.find('.button-text').text('Memproses');
+                    loader.removeClass('d-none');
+                    button.prop('disabled', true);
+
+                    // Submit form setelah 500ms agar animasi loading terlihat
+                    setTimeout(() => {
+                        form.submit();
+                    }, 1); //1ms //0,5 detik
+                }
+            })
+            // Jika validasi gagal, biarkan plugin FormValidation menangani pesan error
+            .catch(function (err) {
+                console.error('Validasi error:', err);
+            });
+    });
+});
+
+// Animasi hitungan mundur untuk throttle
+document.addEventListener('DOMContentLoaded', function () {
+    const countdown = document.getElementById('countdown');
+    if (countdown) {
+        let seconds = parseInt(countdown.innerText);
+        const interval = setInterval(() => {
+            seconds--;
+            if (seconds <= 0) {
+                countdown.innerText = '0';
+                clearInterval(interval);
+            } else {
+                countdown.innerText = seconds;
+            }
+        }, 1000);
+    }
+});
+
+
+// DISABLING RIGHT CLICK
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+
+// DISABLING SHORTCUT KEY
+document.onkeydown = function (e) {
+    if (e.keyCode == 123) {
+        return false; // F12 key
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false; // Ctrl+Shift+I
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false; // Ctrl+Shift+J
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false; // Ctrl+U
+    }
+}
+
+
+// toggle password
+$(document).ready(function () {
+    $('#toggle-password').on('click', function () {
+        let $password = $('#password');
+        let $icon = $('#toggle-password-icon');
+
+        if ($password.attr('type') === 'password') {
+            $password.attr('type', 'text');
+            $icon.removeClass('ti-eye-off').addClass('ti-eye');
         } else {
-            $password.type = 'password';
-            $icon.classList.remove('ti-eye');
-            $icon.classList.add('ti-eye-off');
+            $password.attr('type', 'password');
+            $icon.removeClass('ti-eye').addClass('ti-eye-off');
         }
     });
-
-    // === DISABLE RIGHT CLICK + DEV TOOLS ===
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = function (e) {
-        if (e.keyCode === 123) return false;
-        if (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) return false;
-        if (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) return false;
-        if (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) return false;
-    };
 });
