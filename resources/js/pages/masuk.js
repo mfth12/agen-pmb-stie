@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
         // Form validation untuk login
         if (formAuthentication) {
             fv = FormValidation.formValidation(formAuthentication, {
+                // Set the default locale
                 fields: {
                     username: {
                         validators: {
                             notEmpty: {
-                                message: 'Silakan isi username Anda'
+                                message: 'Silakan isi username'
                             },
                             stringLength: {
                                 min: 6,
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                     password: {
                         validators: {
                             notEmpty: {
-                                message: 'Silakan isi password Anda'
+                                message: 'Silakan isi password'
                             },
                             stringLength: {
                                 min: 6,
