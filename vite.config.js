@@ -16,12 +16,16 @@ function GetFilesArray(query) {
 /**
  * Deklarasi path untuk setiap resources
  */
+// Vendor setup files
+const allVendorCssFiles = GetFilesArray('resources/assets/vendor/libs/**/*.css');
+const allVendorJsFiles = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 
 // CSS setup files
-const allCssSetupFiles = GetFilesArray('resources/css/*.js');
+const allCssSetupFiles = GetFilesArray('resources/css/**/*.css');
 
 // JS setup files
 const allJsSetupFiles = GetFilesArray('resources/js/*.js');
+const JsMasukFiles = GetFilesArray('resources/js/pages/*.js');
 
 // Images setup files 
 const allImgSetupFiles = GetFilesArray('resources/img/*.*');
@@ -61,9 +65,12 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 // Add this line - load vendor setup files first
+                ...allVendorCssFiles,
+                ...allVendorJsFiles,
                 ...allCssSetupFiles,
                 ...allJsSetupFiles,
                 ...allImgSetupFiles,
+                ...JsMasukFiles,
                 // ...vendorJsFiles
             ],
             refresh: true

@@ -14,7 +14,7 @@
 @vite(['resources/css/tabler-vendors.css'])
 @vite(['resources/css/tabler-marketing.css'])
 @vite(['resources/css/tabler-themes.css'])
-@vite(['resources/assets/vendor/libs/@form-validation/form-validation.scss'])
+{{-- @vite(['resources/assets/vendor/libs/@form-validation/form-validation.scss']) --}}
 {{-- FOR PWA --}}
 <link rel="prefetch" href="{{ asset('manifest.json') }}">
 <link rel="manifest" href="{{ asset('manifest.json') }}">
@@ -29,7 +29,7 @@
   /* @import url("https://cdn.jsdelivr.net/npm/formvalidation@0.6.2-dev/dist/css/formValidation.min.css"); */
 </style>
 @vite(['resources/js/tabler.min.js'])
-@vite(['resources/js/back/nprogress.js'])
+{{-- @vite(['resources/js/back/nprogress.js']) --}}
 {{-- FOR CUSTOM JS ON BEGINING --}}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/formvalidation@0.6.2-dev/dist/js/formValidation.min.js"></script>
