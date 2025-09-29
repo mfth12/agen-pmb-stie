@@ -21,7 +21,7 @@ $authentication-1-inner-max-width: 460px !default;
     align-items: center;
     justify-content: center;
     .card-body {
-      padding: 2.2rem;
+      padding: 3rem;
       @include light.media-breakpoint-down(sm) {
         padding: 2rem;
       }

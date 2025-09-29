@@ -24,8 +24,8 @@ const allVendorJsFiles = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 const allCssSetupFiles = GetFilesArray('resources/css/**/*.css');
 
 // JS setup files
-const allJsSetupFiles = GetFilesArray('resources/js/*.js');
-const JsMasukFiles = GetFilesArray('resources/js/pages/*.js');
+const allJsSetupFiles = GetFilesArray('resources/js/**/*.js');
+const JsMasukFiles = GetFilesArray('resources/js/pages/**/*.js');
 
 // Images setup files 
 const allImgSetupFiles = GetFilesArray('resources/img/*.*');

@@ -109,7 +109,7 @@ class TemplateCustomizer {
     this.settings.styles = styles || STYLES
     this.settings.navbarOptions = navbarOptions || NAVBAR_OPTIONS
     this.settings.defaultStyle = defaultStyle || DEFAULT_STYLE
-    this.settings.lang = lang || 'id'
+    this.settings.lang = lang || 'en'
     this.pathResolver = pathResolver || (p => p)
 
     if (this.settings.styles.length < 2) {
@@ -284,54 +284,54 @@ class TemplateCustomizer {
     if (updateStorage) this.settings.onSettingsChange.call(this, this.settings)
   }
 
-  setLang(lang, updateStorage = true, force = false) {
-    if (lang === this.settings.lang && !force) return
-    if (!TemplateCustomizer.LANGUAGES[lang]) throw new Error(`Language "${lang}" not found!`)
+  // setLang(lang, updateStorage = true, force = false) {
+  //   if (lang === this.settings.lang && !force) return
+  //   if (!TemplateCustomizer.LANGUAGES[lang]) throw new Error(`Language "${lang}" not found!`)
 
-    const t = TemplateCustomizer.LANGUAGES[lang]
+  //   const t = TemplateCustomizer.LANGUAGES[lang]
 
-    ;[
-      'panel_header',
-      'panel_sub_header',
-      'theming_header',
-      'style_label',
-      'style_switch_light',
-      'style_switch_dark',
-      'layout_header',
-      'layout_label',
-      'layout_header_label',
-      'content_label',
-      'layout_static',
-      'layout_offcanvas',
-      'layout_fixed',
-      'layout_fixed_offcanvas',
-      'layout_dd_open_label',
-      'layout_navbar_label',
-      'layout_footer_label',
-      'misc_header',
-      'theme_label',
-      'direction_label'
-    ].forEach(key => {
-      const el = this.container.querySelector(`.template-customizer-t-${key}`)
-      // eslint-disable-next-line no-unused-expressions
-      el && (el.textContent = t[key])
-    })
+  //   ;[
+  //     'panel_header',
+  //     'panel_sub_header',
+  //     'theming_header',
+  //     'style_label',
+  //     'style_switch_light',
+  //     'style_switch_dark',
+  //     'layout_header',
+  //     'layout_label',
+  //     'layout_header_label',
+  //     'content_label',
+  //     'layout_static',
+  //     'layout_offcanvas',
+  //     'layout_fixed',
+  //     'layout_fixed_offcanvas',
+  //     'layout_dd_open_label',
+  //     'layout_navbar_label',
+  //     'layout_footer_label',
+  //     'misc_header',
+  //     'theme_label',
+  //     'direction_label'
+  //   ].forEach(key => {
+  //     const el = this.container.querySelector(`.template-customizer-t-${key}`)
+  //     // eslint-disable-next-line no-unused-expressions
+  //     el && (el.textContent = t[key])
+  //   })
 
-    const tt = t.themes || {}
-    const themes = this.container.querySelectorAll('.template-customizer-theme-item') || []
+  //   const tt = t.themes || {}
+  //   const themes = this.container.querySelectorAll('.template-customizer-theme-item') || []
 
-    for (let i = 0, l = themes.length; i < l; i++) {
-      const themeName = themes[i].querySelector('input[type="radio"]').value
-      themes[i].querySelector('.template-customizer-theme-name').textContent =
-        tt[themeName] || this._getThemeByName(themeName).title
-    }
+  //   for (let i = 0, l = themes.length; i < l; i++) {
+  //     const themeName = themes[i].querySelector('input[type="radio"]').value
+  //     themes[i].querySelector('.template-customizer-theme-name').textContent =
+  //       tt[themeName] || this._getThemeByName(themeName).title
+  //   }
 
-    this.settings.lang = lang
+  //   this.settings.lang = lang
 
-    if (updateStorage) this._setSetting('Lang', lang)
+  //   if (updateStorage) this._setSetting('Lang', lang)
 
-    if (updateStorage) this.settings.onSettingsChange.call(this, this.settings)
-  }
+  //   if (updateStorage) this.settings.onSettingsChange.call(this, this.settings)
+  // }
 
   // Update theme settings control
   update() {
@@ -886,7 +886,7 @@ class TemplateCustomizer {
     }, 100)
 
     // Set language
-    this.setLang(this.settings.lang, false, true)
+    // this.setLang(this.settings.lang, false, true)
 
     // Append container
     if (_container === document) {
@@ -1343,31 +1343,18 @@ TemplateCustomizer.LANGUAGES = {
     layout_navbar_label: 'Navbar Type',
     direction_label: 'Direction'
   },
-  id: {
-    panel_header: 'Kustomisasi Template',
-    panel_sub_header: 'Sesuaikan dan pratinjau secara real-time',
-    theming_header: 'Tema',
-    style_label: 'Gaya (Mode)',
-    theme_label: 'Tema',
-    layout_header: 'Tata Letak',
-    layout_label: 'Menu (Navigasi)',
-    layout_header_label: 'Jenis Header',
-    content_label: 'Konten',
-    layout_navbar_label: 'Jenis Navbar',
-    direction_label: 'Arah'
-  },
-  ms: {
-    panel_header: 'Penyesuai Templat',
-    panel_sub_header: 'Sesuaikan dan pratonton dalam masa nyata',
-    theming_header: 'Pemperibadian Tema',
-    style_label: 'Gaya (Mod)',
-    theme_label: 'Tema',
-    layout_header: 'Tata Letak',
-    layout_label: 'Menu (Navigasi)',
-    layout_header_label: 'Jenis Pengepala',
-    content_label: 'Kandungan',
-    layout_navbar_label: 'Jenis Bar Navigasi',
-    direction_label: 'Arah'
+  fr: {
+    panel_header: 'Modèle De Personnalisation',
+    panel_sub_header: 'Personnalisez et prévisualisez en temps réel',
+    theming_header: 'Thématisation',
+    style_label: 'Style (Mode)',
+    theme_label: 'Thèmes',
+    layout_header: 'Disposition',
+    layout_label: 'Menu (Navigation)',
+    layout_header_label: "Types d'en-tête",
+    content_label: 'Contenu',
+    layout_navbar_label: 'Type de barre de navigation',
+    direction_label: 'Direction'
   },
   ar: {
     panel_header: 'أداة تخصيص القالب',
@@ -1381,19 +1368,6 @@ TemplateCustomizer.LANGUAGES = {
     content_label: 'محتوى',
     layout_navbar_label: 'نوع شريط التنقل',
     direction_label: 'اتجاه'
-  },
-  fr: {
-    panel_header: 'Modèle De Personnalisation',
-    panel_sub_header: 'Personnalisez et prévisualisez en temps réel',
-    theming_header: 'Thématisation',
-    style_label: 'Style (Mode)',
-    theme_label: 'Thèmes',
-    layout_header: 'Disposition',
-    layout_label: 'Menu (Navigation)',
-    layout_header_label: "Types d'en-tête",
-    content_label: 'Contenu',
-    layout_navbar_label: 'Type de barre de navigation',
-    direction_label: 'Direction'
   },
   de: {
     panel_header: 'Vorlagen-Anpasser',

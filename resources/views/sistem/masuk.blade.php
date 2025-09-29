@@ -380,7 +380,7 @@
       var resetButton = document.getElementById("reset-changes");
       var checkItems = function() {
         for (var key in themeConfig) {
-          var value = window.localStorage["tabler-" + key] || themeConfig[key];
+          var value = window.localStorage["tabler/tabler-" + key] || themeConfig[key];
           if (!!value) {
             var radios = form.querySelectorAll(`[name="${key}"]`);
             if (!!radios) {
@@ -398,7 +398,7 @@
         for (var key in themeConfig) {
           if (name === key) {
             document.documentElement.setAttribute("data-bs-" + key, value);
-            window.localStorage.setItem("tabler-" + key, value);
+            window.localStorage.setItem("tabler/tabler-" + key, value);
             url.searchParams.set(key, value);
           }
         }
@@ -408,7 +408,7 @@
         for (var key in themeConfig) {
           var value = themeConfig[key];
           document.documentElement.removeAttribute("data-bs-" + key);
-          window.localStorage.removeItem("tabler-" + key);
+          window.localStorage.removeItem("tabler/tabler-" + key);
           url.searchParams.delete(key);
         }
         checkItems();
