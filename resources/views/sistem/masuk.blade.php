@@ -79,7 +79,7 @@
                 {{-- END OF ALERTS --}}
 
                 {{-- LOGIN FORM --}}
-                {!! html()->form('post')->route('masuk.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
+                {!! html()->form('post')->route('login.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
                 <div class="mb-2">
                   <label class="form-label">Username</label>
                   {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Siakad')->attributes(['aria-describedby' => 'username']) !!}

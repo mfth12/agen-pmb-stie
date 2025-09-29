@@ -79,7 +79,7 @@ class NonkadController extends Controller
             'kategori'  => $request->kategori,
             'ta'        => $request->ta,
             'brosur'    => $brosur->hashName(),
-            // 'semester'  => $request->semester,
+            'semester'  => $request->ta,
             'biaya'     => $request->biaya
         ]);
 
@@ -200,7 +200,7 @@ class NonkadController extends Controller
             return redirect()->route('nonakademiks.index')->with(['success' => 'Data Berhasil Dihapus!']);
         } else {
             // beri pesan kegiatan dg status open atau selesai tdk bisa dihapus
-            return redirect()->route('nonakademiks.index')->with(['error' => 'Data tdk bisa Dihapus!']);
+            return redirect()->route('nonakademiks.index')->with(['error' => 'Data tidak bisa Dihapus!']);
         }
 
       

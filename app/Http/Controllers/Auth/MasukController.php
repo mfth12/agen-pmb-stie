@@ -162,7 +162,7 @@ class MasukController extends Controller
     Auth::logout();
 
     // Redirect ke halaman login
-    return redirect()->route('masuk')->with('keluar', 'Anda telah keluar sistem');
+    return redirect()->route('login')->with('keluar', 'Anda telah keluar sistem');
   }
 
 
