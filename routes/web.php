@@ -19,7 +19,7 @@ Route::middleware(['guest'])->group(function () {
 // Rute dasbor
 Route::middleware([
     'auth',
-    'disablepreventback'
+    // 'disablepreventback'
 ])->group(
     function () {
         Route::post('/keluar', [MasukController::class, 'keluar'])->name('logout');

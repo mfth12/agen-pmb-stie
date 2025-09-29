@@ -123,7 +123,8 @@ class MasukController extends Controller
       if (!is_array($skripsi_role)) {
         $skripsi_role = [$skripsi_role]; // ubah jadi array jika perlu
       }
-      $user->syncRoles($skripsi_role); // langsung sync ke sistem
+      // dd($skripsi_role);
+      // $user->syncRoles($skripsi_role); // langsung sync ke sistem
 
 
       Auth::login($user);
