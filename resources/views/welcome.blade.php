@@ -917,9 +917,9 @@
           <div class="flex lg:justify-center lg:col-start-2">
             {{-- background logo stie aja --}}
 
-            <svg class="h-12 w-auto text-white lg:h-16 lg:text-[#800000]" xmlns="">
-              < fill="currentColor" /> konyoa
-            </svg>
+            {{-- <svg class="h-12 w-auto text-white lg:h-16 lg:text-[#800000]" xmlns="">
+              < fill="currentColor" />
+            </svg> --}}
             {{-- <img src="logo.jpg" class= img-fluid max-width: 25%; height: auto;> --}}
 
           </div>
