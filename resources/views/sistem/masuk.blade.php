@@ -73,7 +73,7 @@
                 @else
                   <div class="alert alert-hilang alert-info text-info d-flex align-items-center" role="alert">
                     <i class="ti ti-fingerprint fs-2 text-info"></i>
-                    Gunakan Akun Siakad Anda untuk masuk.
+                    Gunakan Akun Siakad untuk masuk.
                   </div>
                 @endif
                 {{-- END OF ALERTS --}}
