@@ -141,18 +141,18 @@ document.onkeydown = function (e) {
 }
 
 
-// TOGGLE PASSWORD
-$(document).ready(function () {
-    $('#toggle-password').on('click', function () {
-        let $password = $('#password');
-        let $icon = $('#toggle-password-icon');
+// // TOGGLE PASSWORD
+// $(document).ready(function () {
+//     $('#toggle-password').on('click', function () {
+//         let $password = $('#password');
+//         let $icon = $('#toggle-password-icon');
 
-        if ($password.attr('type') === 'password') {
-            $password.attr('type', 'text');
-            $icon.removeClass('ti-eye-off').addClass('ti-eye');
-        } else {
-            $password.attr('type', 'password');
-            $icon.removeClass('ti-eye').addClass('ti-eye-off');
-        }
-    });
-});
+//         if ($password.attr('type') === 'password') {
+//             $password.attr('type', 'text');
+//             $icon.removeClass('ti-eye-off').addClass('ti-eye');
+//         } else {
+//             $password.attr('type', 'password');
+//             $icon.removeClass('ti-eye').addClass('ti-eye-off');
+//         }
+//     });
+// });
