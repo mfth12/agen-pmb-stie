@@ -28,7 +28,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              {{ Breadcrumbs::render() }}
+              {{-- {{ Breadcrumbs::render() }} --}}
             </ol>
           </div>
         </div>
@@ -407,64 +407,6 @@
               </div>
             </div>
           </section>
-
-          @if ($adalahKetuaUnit == true)
-            {{-- SECTION UNTUK KETUA UNIT DAN ANGGOTANYA --}}
-            <section class="col-lg-7 connectedSortable">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    Anggota Unit
-                  </h3>
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <table id="table_anggota_unit" class="table table-sm table-hover table-borderless">
-                    <thead>
-                      <tr>
-                        <th class="text-center" style="width: 1px">No.</th>
-                        <th class="text-left" style="min-width: 100px">Nama</th>
-                        <th class="text-right" style="max-width: 80px">Diakses</th>
-                        @can('akses_superadmin_manager')
-                          <th class="text-center" style="width: 1px">Aksi</th>
-                        @endcan
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @php $n = 0; @endphp
-                      @foreach ($anggota_unit as $anggota)
-                        @php $n++; @endphp
-                        <tr>
-                          <td class="text-center text-nowrap" style="width: 1px">{{ $n }}</td>
-                          <td class="text-left text-nowrap">{{ $anggota->nama }}</td>
-                          <td class="text-right text-nowrap">
-                            {{ \Carbon\Carbon::parse($anggota->last_login_at)->diffForHumans() }}</td>
-                          @can('akses_superadmin_manager')
-                            <td class="text-center">
-                              @if ($anggota->user_id == auth()->user()->user_id)
-                                <i>Anda</i>
-                              @else
-                                <a href="/pengguna/{{ $anggota->user_id }}" data-toggle="tooltip" data-placement="left"
-                                  title="Lihat Profil" id="{{ $anggota->user_id }}"
-                                  class="lihat btn btn-sm text-center"><i class="fas fa-eye fa-sm"></i>
-                                </a>
-                              @endif
-                            </td>
-                          @endcan
-                        </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </section>
-          @endif
-
-
         </div>
       </div>
     </section>
@@ -492,14 +434,14 @@
     }
 
     /* #table_anggota_unit_filter {
-                                width: 100%;
-                                margin-bottom: 10px;
-                              }
+                                    width: 100%;
+                                    margin-bottom: 10px;
+                                  }
 
-                              #table_anggota_unit_filter input {
-                                width: 100%;
-                                padding: 5px 10px;
-                              } */
+                                  #table_anggota_unit_filter input {
+                                    width: 100%;
+                                    padding: 5px 10px;
+                                  } */
   </style>
 @endsection
 

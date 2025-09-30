@@ -2,8 +2,8 @@
 <html lang="id">
 
 <head>
-  <x-back.header :title="$title" :konfigs="$konfigs" />
-  <x-back.pwa :konfigs="$konfigs" />
+  <x-back.header :title="$title" :konfigs="{{ konfigs() }}" />
+  <x-back.pwa />
   {{-- menghilangkan scrollbar --}}
   <style>
     /* untuk Chromemium-based */

@@ -22,6 +22,7 @@ Route::middleware([
 ])->group(
     function () {
         Route::get('/dasbor', [DasborController::class, 'index'])->name('dashboard.index');
+        Route::get('/dasbor_lawas', [DasborController::class, 'index_lawas'])->name('dashboard.lawas');
         // Route::get('/dasbor/crm', [DasborUtama::class, 'crm'])->name('dashboard.crm');
         // Route::get('/profil', [ProfilController::class, 'index'])->name('profil-index'); //not used again
         Route::post('/keluar', [MasukController::class, 'keluar'])->name('logout');

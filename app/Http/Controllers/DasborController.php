@@ -3,13 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class DasborController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View|RedirectResponse
+    {
+        return view('sistem.dasbor', [
+            'title' => konfigs('NAMA_SISTEM'),
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index_lawas()
     {
         return view('welcome');
     }
