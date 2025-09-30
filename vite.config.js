@@ -16,14 +16,13 @@ function GetFilesArray(query) {
  * Js Files
  * 
  */
-
 // Page JS Files
 const pageJsFiles__________ = GetFilesArray('resources/assets/js/*.js');
 // Processing Vendor JS Files
 const vendorJsFiles________ = GetFilesArray('resources/assets/vendor/js/*.js');
 // Processing Libs JS Files
 const libsJsFiles__________ = GetFilesArray('resources/assets/vendor/libs/**/*.js');
-// CSS setup files
+// Tabler Js setup files
 const tablerJsSetupFiles___ = GetFilesArray('resources/js/tabler/*.js');
 // JS setup files
 const commonJsSetupFiles___ = GetFilesArray('resources/js/*.js');
@@ -35,7 +34,6 @@ const allImgSetupFiles_____ = GetFilesArray('resources/img/*.*');
  * Css & Scss Files
  * 
  */
-
 // Processing Core, Themes & Pages Scss Files
 const CoreScssFiles________ = GetFilesArray('resources/assets/vendor/scss/**/!(_)*.scss');
 // Processing Libs Scss & Css Files
@@ -44,8 +42,7 @@ const LibsCssFiles_________ = GetFilesArray('resources/assets/vendor/libs/**/*.c
 const LibsTablerCssFiles___ = GetFilesArray('resources/css/tabler/*.css');
 // Processing Fonts Scss Files
 const FontsScssFiles_______ = GetFilesArray('resources/assets/vendor/fonts/!(_)*.scss');
-// Processing Core, Themes & Pages Scss Files
-// const CoreScssFiles = GetFilesArray('resources/assets/vendor/scss/**/!(_)*.scss');
+
 
 // Processing Window Assignment for Libs like jKanban, pdfMake
 function libsWindowAssignment() {
@@ -69,7 +66,6 @@ export default defineConfig({
       input: [
         'resources/css/app.css',
         'resources/js/app.js',
-        // Add this line - load vendor setup files first
         ...pageJsFiles__________,
         ...vendorJsFiles________,
         ...libsJsFiles__________,
@@ -77,16 +73,15 @@ export default defineConfig({
         ...commonJsSetupFiles___,
         ...allImgSetupFiles_____,
         ...pageJsSetupFiles_____,
-        // ...otherJsFiles
         ...CoreScssFiles________,
         ...LibsScssFiles________,
         ...LibsCssFiles_________,
         ...LibsTablerCssFiles___,
-        ...FontsScssFiles_______,
-        // ...otherCssFiles
+        ...FontsScssFiles_______
       ],
       refresh: true
     }),
-    html()
+    html(),
+    libsWindowAssignment()
   ]
 });
