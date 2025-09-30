@@ -48,7 +48,6 @@ const FontsScssFiles_______ = GetFilesArray('resources/assets/vendor/fonts/!(_)*
 function libsWindowAssignment() {
   return {
     name: 'libsWindowAssignment',
-
     transform(src, id) {
       if (id.includes('jkanban.js')) {
         return src.replace('this.jKanban', 'window.jKanban');
@@ -59,12 +58,12 @@ function libsWindowAssignment() {
   };
 }
 
-
 export default defineConfig({
   plugins: [
     laravel({
       input: [
         'resources/css/app.css',
+        'resources/assets/css/demo.css',
         'resources/js/app.js',
         ...pageJsFiles__________,
         ...vendorJsFiles________,
@@ -83,5 +82,24 @@ export default defineConfig({
     }),
     html(),
     libsWindowAssignment()
-  ]
+  ],
+
+  // // 👉 tambahan ini
+  // assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2', '**/*.eot', '**/*.svg'],
+
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       assetFileNames: (assetInfo) => {
+  //         if (/\.(woff2?|ttf|eot|svg)$/.test(assetInfo.name)) {
+  //           return 'assets/fonts/[name][extname]';
+  //         }
+  //         if (/\.(png|jpe?g|gif|webp|avif)$/.test(assetInfo.name)) {
+  //           return 'assets/images/[name][extname]';
+  //         }
+  //         return 'assets/[name][extname]';
+  //       }
+  //     }
+  //   }
+  // }
 });
