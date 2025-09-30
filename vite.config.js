@@ -9,72 +9,84 @@ import { glob } from 'glob';
  * @returns array
  */
 function GetFilesArray(query) {
-    return glob.sync(query);
+  return glob.sync(query);
 }
 
-
 /**
- * Deklarasi path untuk setiap resources
+ * Js Files
+ * 
  */
-// Vendor setup files
-const allVendorCssFiles = GetFilesArray('resources/assets/vendor/libs/**/*.css');
-const allVendorJsFiles = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 
+// Page JS Files
+const pageJsFiles__________ = GetFilesArray('resources/assets/js/*.js');
+// Processing Vendor JS Files
+const vendorJsFiles________ = GetFilesArray('resources/assets/vendor/js/*.js');
+// Processing Libs JS Files
+const libsJsFiles__________ = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 // CSS setup files
-const allCssSetupFiles = GetFilesArray('resources/css/**/*.css');
-
+const tablerJsSetupFiles___ = GetFilesArray('resources/js/tabler/*.js');
 // JS setup files
-const allJsSetupFiles = GetFilesArray('resources/js/**/*.js');
-const JsMasukFiles = GetFilesArray('resources/js/pages/**/*.js');
-
+const commonJsSetupFiles___ = GetFilesArray('resources/js/*.js');
+const pageJsSetupFiles_____ = GetFilesArray('resources/js/pages/*.js');
 // Images setup files 
-const allImgSetupFiles = GetFilesArray('resources/img/*.*');
-// siakad3 js files
-// const systemJsFiles = GetFilesArray('resources/js/system/*.js');
-// const dmasterJsFiles = GetFilesArray('resources/js/dmaster/*.js');
-// const spmbJsFiles = GetFilesArray('resources/js/spmb/*.js');
-// const kemahasiswaanJsFiles = GetFilesArray('resources/js/kemahasiswaan/*.js');
-// const kurikulumJsFiles = GetFilesArray('resources/js/akademik/*.js');
-// const keuanganJsFiles = GetFilesArray('resources/js/keuangan/*.js');
-
+const allImgSetupFiles_____ = GetFilesArray('resources/img/*.*');
 
 /**
- * Scss Files
+ * Css & Scss Files
+ * 
  */
 
 // Processing Core, Themes & Pages Scss Files
+const CoreScssFiles________ = GetFilesArray('resources/assets/vendor/scss/**/!(_)*.scss');
+// Processing Libs Scss & Css Files
+const LibsScssFiles________ = GetFilesArray('resources/assets/vendor/libs/**/!(_)*.scss');
+const LibsCssFiles_________ = GetFilesArray('resources/assets/vendor/libs/**/*.css');
+const LibsTablerCssFiles___ = GetFilesArray('resources/css/tabler/*.css');
+// Processing Fonts Scss Files
+const FontsScssFiles_______ = GetFilesArray('resources/assets/vendor/fonts/!(_)*.scss');
+// Processing Core, Themes & Pages Scss Files
 // const CoreScssFiles = GetFilesArray('resources/assets/vendor/scss/**/!(_)*.scss');
 
-// DEFINE CONFIG YANG LAMA
-// export default defineConfig({
-//     plugins: [
-//         laravel({
-//             input: [
-//                 'resources/css/app.css',
-//                 'resources/js/app.js'
-//             ],
-//             refresh: true,
-//         }),
-//     ],
-// });
+// Processing Window Assignment for Libs like jKanban, pdfMake
+function libsWindowAssignment() {
+  return {
+    name: 'libsWindowAssignment',
+
+    transform(src, id) {
+      if (id.includes('jkanban.js')) {
+        return src.replace('this.jKanban', 'window.jKanban');
+      } else if (id.includes('vfs_fonts')) {
+        return src.replaceAll('this.pdfMake', 'window.pdfMake');
+      }
+    }
+  };
+}
+
 
 export default defineConfig({
-    plugins: [
-        laravel({
-            input: [
-                'resources/css/app.css',
-                'resources/js/app.js',
-                // Add this line - load vendor setup files first
-                ...allVendorCssFiles,
-                ...allVendorJsFiles,
-                ...allCssSetupFiles,
-                ...allJsSetupFiles,
-                ...allImgSetupFiles,
-                ...JsMasukFiles,
-                // ...vendorJsFiles
-            ],
-            refresh: true
-        }),
-        html()
-    ]
+  plugins: [
+    laravel({
+      input: [
+        'resources/css/app.css',
+        'resources/js/app.js',
+        // Add this line - load vendor setup files first
+        ...pageJsFiles__________,
+        ...vendorJsFiles________,
+        ...libsJsFiles__________,
+        ...tablerJsSetupFiles___,
+        ...commonJsSetupFiles___,
+        ...allImgSetupFiles_____,
+        ...pageJsSetupFiles_____,
+        // ...otherJsFiles
+        ...CoreScssFiles________,
+        ...LibsScssFiles________,
+        ...LibsCssFiles_________,
+        ...LibsTablerCssFiles___,
+        ...FontsScssFiles_______,
+        // ...otherCssFiles
+      ],
+      refresh: true
+    }),
+    html()
+  ]
 });
