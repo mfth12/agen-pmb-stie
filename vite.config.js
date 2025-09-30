@@ -40,6 +40,7 @@ const CoreScssFiles________ = GetFilesArray('resources/assets/vendor/scss/**/!(_
 const LibsScssFiles________ = GetFilesArray('resources/assets/vendor/libs/**/!(_)*.scss');
 const LibsCssFiles_________ = GetFilesArray('resources/assets/vendor/libs/**/*.css');
 const LibsTablerCssFiles___ = GetFilesArray('resources/css/tabler/*.css');
+const CommonCssFiles_______ = GetFilesArray('resources/css/*.css');
 // Processing Fonts Scss Files
 const FontsScssFiles_______ = GetFilesArray('resources/assets/vendor/fonts/!(_)*.scss');
 
@@ -76,6 +77,7 @@ export default defineConfig({
         ...LibsScssFiles________,
         ...LibsCssFiles_________,
         ...LibsTablerCssFiles___,
+        ...CommonCssFiles_______,
         ...FontsScssFiles_______
       ],
       refresh: true
