@@ -78,28 +78,31 @@ $(document).ready(function () {
         const button = $(this);
         const loader = button.find('.spinner-border');
         const form = button.closest('form');
+        const btnText = button.find('.button-text');
 
         // Validasi form menggunakan instance yang sudah ada
         fv.validate()
             .then(function (status) {
                 if (status === 'Valid') {
-                    // Jika validasi sukses, maka tampilkan loader dan ubah teks tombol
-                    button.find('.button-text').text('Memproses');
+                    // Langsung ganti teks + efek fadeIn
+                    btnText.text('Memproses').hide().fadeIn(200);
+
+                    // Tampilkan loader
                     loader.removeClass('d-none');
                     button.prop('disabled', true);
 
                     // Submit form setelah 500ms agar animasi loading terlihat
                     setTimeout(() => {
                         form.submit();
-                    }, 500); //500ms //0,5 detik
+                    }, 500);
                 }
             })
-            // Jika validasi gagal, biarkan plugin FormValidation menangani pesan error
             .catch(function (err) {
                 console.error('Validasi error:', err);
             });
     });
 });
+
 
 // ANIMASI HITUNGAN MUNDUR UNTUK THROTLE
 document.addEventListener('DOMContentLoaded', function () {

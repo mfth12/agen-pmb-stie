@@ -91,9 +91,7 @@
                         Lupa password?</a>
                     </span>
                   </label>
-                  <div class="input-group">
-                    {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-password', 'autocomplete' => 'off']) !!}
-                  </div>
+                  {!! html()->password('password')->class('form-control' . ($errors->has('password') ? ' is-invalid' : ''))->placeholder('&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;')->id('password')->attributes(['aria-describedby' => 'toggle-password', 'autocomplete' => 'off']) !!}
                 </div>
                 {{-- Clouflare turnstile script --}}
                 @if (env('USING_TURNSTILE', false))

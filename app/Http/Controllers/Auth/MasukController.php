@@ -43,16 +43,16 @@ class MasukController extends Controller
     $throttleKey = Str::transliterate(Str::lower($request->string('username')) . '|' . $request->ip());
     $maxAttempts = (int) env('LOGIN_MAX_ATTEMPTS', 3);
     $decaySeconds = (int) env('LOGIN_DECAY_SECONDS', 120);
-    
+
     if (RateLimiter::tooManyAttempts($throttleKey, $maxAttempts)) {
       event(new Lockout($request));
       $seconds = RateLimiter::availableIn($throttleKey);
-      
+
       throw ValidationException::withMessages([
-        'masuk' => 'Silakan coba lagi dalam <span id="countdown">' . $seconds . '</span> detik.',
+        'masuk' => 'Silakan coba lagi dalam <span id="countdown" style="margin: -10px">' . $seconds . '</span> detik.',
       ]);
     }
-    
+
     // Ambil kredensi
     $credentials = $request->only('username', 'password');
 
