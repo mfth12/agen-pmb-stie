@@ -5,6 +5,7 @@
   <x-back.header :title="$title" />
   <x-back.pwa />
   @yield('style')
+  @vite(['resources/tabler-dist/js/tabler.min.js'])
 </head>
 
 @php
