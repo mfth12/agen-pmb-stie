@@ -23,7 +23,7 @@
     <!-- END NAVBAR LOGO -->
     <div class="navbar-nav flex-row order-md-last">
       <div class="nav-item d-none d-md-flex me-3">
-        <div class="btn-list">
+        {{-- <div class="btn-list">
           <a href="https://github.com/tabler/tabler" class="btn btn-5" target="_blank" rel="noreferrer">
             <!-- Download SVG icon from http://tabler.io/icons/icon/brand-github -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -43,7 +43,7 @@
             </svg>
             Sponsor
           </a>
-        </div>
+        </div> --}}
       </div>
       <div class="d-none d-md-flex">
         <div class="nav-item">
