@@ -24,6 +24,7 @@ const vendorJsFiles________ = GetFilesArray('resources/assets/vendor/js/*.js');
 const libsJsFiles__________ = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 // Tabler Js setup files
 const tablerJsSetupFiles___ = GetFilesArray('resources/tabler-dist/js/*.js');
+const libsTablerFiles______ = GetFilesArray('resources/tabler-dist/libs/***/**/*.js');
 // JS setup files
 const commonJsSetupFiles___ = GetFilesArray('resources/js/*.js');
 const pageJsSetupFiles_____ = GetFilesArray('resources/js/pages/*.js');
@@ -70,6 +71,7 @@ export default defineConfig({
         ...vendorJsFiles________,
         ...libsJsFiles__________,
         ...tablerJsSetupFiles___,
+        ...libsTablerFiles______,
         ...commonJsSetupFiles___,
         ...allImgSetupFiles_____,
         ...pageJsSetupFiles_____,

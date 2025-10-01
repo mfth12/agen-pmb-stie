@@ -130,6 +130,6 @@
       </div>
     </div>
   </div>
-
-  @include('components.back.konfig-tampilan')
 @endsection
+
+@include('components.back.konfig-tampilan')

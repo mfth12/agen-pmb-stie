@@ -2,16 +2,14 @@
 
 @section('container')
   <div class="page-wrapper">
-    <!-- BEGIN PAGE HEADER -->
     <div class="page-header d-print-none" aria-label="Page header">
       <div class="container-xl">
         <div class="row g-2 align-items-center">
           <div class="col">
-            <!-- Page pre-title -->
             <div class="page-pretitle">Overview</div>
             <h2 class="page-title">Dashboard Sistem STIE</h2>
           </div>
-          <!-- Page title actions -->
+
           <div class="col-auto ms-auto d-print-none">
             <div class="btn-list">
               <span class="d-none d-sm-inline">
@@ -19,7 +17,6 @@
               </span>
               <a href="#" class="btn btn-primary btn-5 d-none d-sm-inline-block" data-bs-toggle="modal"
                 data-bs-target="#modal-report">
-                <!-- Download SVG icon from http://tabler.io/icons/icon/plus -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="icon icon-2">
@@ -30,7 +27,6 @@
               </a>
               <a href="#" class="btn btn-primary btn-6 d-sm-none btn-icon" data-bs-toggle="modal"
                 data-bs-target="#modal-report" aria-label="Create new report">
-                <!-- Download SVG icon from http://tabler.io/icons/icon/plus -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   class="icon icon-2">
@@ -39,14 +35,11 @@
                 </svg>
               </a>
             </div>
-            <!-- BEGIN MODAL -->
-            <!-- END MODAL -->
           </div>
         </div>
       </div>
     </div>
-    <!-- END PAGE HEADER -->
-    <!-- BEGIN PAGE BODY -->
+
     <div class="page-body">
       <div class="container-xl">
         <div class="row row-deck row-cards">
@@ -65,7 +58,6 @@
                           <div class="me-auto">
                             <span class="text-green d-inline-flex align-items-center lh-1">
                               7%
-                              <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -89,7 +81,6 @@
                           <div class="me-auto">
                             <span class="text-red d-inline-flex align-items-center lh-1">
                               -1%
-                              <!-- Download SVG icon from http://tabler.io/icons/icon/trending-down -->
                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -359,7 +350,6 @@
                   <div class="me-auto">
                     <span class="text-green d-inline-flex align-items-center lh-1">
                       2%
-                      <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -383,7 +373,6 @@
                   <div class="me-auto">
                     <span class="text-red d-inline-flex align-items-center lh-1">
                       -1%
-                      <!-- Download SVG icon from http://tabler.io/icons/icon/trending-down -->
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -421,7 +410,6 @@
                   <div class="ms-auto">
                     <span class="text-green d-inline-flex align-items-center lh-1">
                       7%
-                      <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -463,7 +451,6 @@
                   <div class="me-auto">
                     <span class="text-green d-inline-flex align-items-center lh-1">
                       8%
-                      <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -500,7 +487,6 @@
                   <div class="me-auto">
                     <span class="text-yellow d-inline-flex align-items-center lh-1">
                       0%
-                      <!-- Download SVG icon from http://tabler.io/icons/icon/minus -->
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -536,7 +522,6 @@
                   <div class="me-auto">
                     <span class="text-green d-inline-flex align-items-center lh-1">
                       4%
-                      <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon ms-1 icon-2">
@@ -557,8 +542,7 @@
                   <div class="card-body">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <span
-                          class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
+                        <span class="bg-primary text-white avatar">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-1">
@@ -579,8 +563,7 @@
                   <div class="card-body">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <span
-                          class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/shopping-cart -->
+                        <span class="bg-green text-white avatar">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-1">
@@ -603,8 +586,7 @@
                   <div class="card-body">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <span
-                          class="bg-x text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
+                        <span class="bg-x text-white avatar">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-1">
@@ -625,8 +607,7 @@
                   <div class="card-body">
                     <div class="row align-items-center">
                       <div class="col-auto">
-                        <span
-                          class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-facebook -->
+                        <span class="bg-facebook text-white avatar">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-1">
@@ -643,12 +624,10 @@
               </div>
             </div>
           </div>
-          <!-- deleted -->
         </div>
       </div>
     </div>
-    <!-- END PAGE BODY -->
-    <!--  BEGIN FOOTER  -->
+
     <footer class="footer footer-transparent d-print-none">
       <div class="container-xl">
         <div class="row text-center align-items-center flex-row-reverse">
@@ -688,7 +667,6 @@
         </div>
       </div>
     </footer>
-    <!--  END FOOTER  -->
   </div>
 @endsection
 
@@ -701,5 +679,9 @@
 @endsection
 
 @section('js_bawah')
-  {{-- kosong --}}
+  @vite(['resources/tabler-dist/libs/apexcharts/dist/apexcharts.min.js'])
+  @vite(['resources/tabler-dist/libs/jsvectormap/dist/jsvectormap.min.js'])
+  @vite(['resources/tabler-dist/libs/jsvectormap/dist/maps/world.js'])
+  @vite(['resources/tabler-dist/libs/jsvectormap/dist/maps/world-merc.js'])
+  @vite(['resources/js/pages/dasbor.js'])
 @endsection

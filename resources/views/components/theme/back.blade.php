@@ -17,12 +17,11 @@
     <x-back.navbar />
     @yield('container')
   </div>
-  <x-back.page-modal {{-- :konfigs="$konfigs" --}} />
+  <x-modal.dasbor {{-- :konfigs="$konfigs" --}} />
   @vite(['resources/js/pages/konfig-tampilan.js'])
   {{-- <x-back.modal /> --}}
   {{-- <x-back.footer :konfigs="$konfigs" /> --}}
   <x-back.script />
-  @vite(['resources/js/pages/dasbor.js'])
   @yield('js_bawah')
 </body>
 
