@@ -23,7 +23,7 @@ const vendorJsFiles________ = GetFilesArray('resources/assets/vendor/js/*.js');
 // Processing Libs JS Files
 const libsJsFiles__________ = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 // Tabler Js setup files
-const tablerJsSetupFiles___ = GetFilesArray('resources/js/tabler/*.js');
+const tablerJsSetupFiles___ = GetFilesArray('resources/tabler-dist/js/*.js');
 // JS setup files
 const commonJsSetupFiles___ = GetFilesArray('resources/js/*.js');
 const pageJsSetupFiles_____ = GetFilesArray('resources/js/pages/*.js');
@@ -39,7 +39,7 @@ const CoreScssFiles________ = GetFilesArray('resources/assets/vendor/scss/**/!(_
 // Processing Libs Scss & Css Files
 const LibsScssFiles________ = GetFilesArray('resources/assets/vendor/libs/**/!(_)*.scss');
 const LibsCssFiles_________ = GetFilesArray('resources/assets/vendor/libs/**/*.css');
-const LibsTablerCssFiles___ = GetFilesArray('resources/css/tabler/*.css');
+const LibsTablerCssFiles___ = GetFilesArray('resources/tabler-dist/css/*.css');
 const CommonCssFiles_______ = GetFilesArray('resources/css/*.css');
 // Processing Fonts Scss Files
 const FontsScssFiles_______ = GetFilesArray('resources/assets/vendor/fonts/!(_)*.scss');
