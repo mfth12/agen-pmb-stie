@@ -9,9 +9,7 @@
 
 <body>
   @vite(['resources/tabler-dist/js/tabler-theme.min.js'])
-  <div class="login-box" id="thisme">
-    @yield('container')
-  </div>
+  @yield('container')
   <x-front.script />
 </body>
 
