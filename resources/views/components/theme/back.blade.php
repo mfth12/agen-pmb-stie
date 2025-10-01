@@ -2,35 +2,8 @@
 <html lang="id">
 
 <head>
-  <x-back.header :title="$title" :konfigs="{{ konfigs() }}" />
+  <x-back.header :title="$title" />
   <x-back.pwa />
-  {{-- menghilangkan scrollbar --}}
-  <style>
-    /* untuk Chromemium-based */
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* untuk Firefox */
-    html {
-      scrollbar-width: none;
-    }
-
-    .nav-pills {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-    }
-
-    .nav-pills::-webkit-scrollbar {
-      display: none;
-      /* Sembunyikan scrollbar (opsional) */
-    }
-
-    .nav-item {
-      white-space: nowrap;
-    }
-  </style>
   @yield('style')
 </head>
 

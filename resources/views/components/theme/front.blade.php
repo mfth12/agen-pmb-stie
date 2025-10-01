@@ -7,7 +7,8 @@
 </head>
 
 <body>
-  @vite(['resources/js/tabler/tabler-theme.min.js']) {{-- this is tabler.css --}}
+  {{-- tabler-theme.js --}}
+  @vite(['resources/js/tabler/tabler-theme.min.js'])
   <div class="login-box" id="thisme">
     @yield('container')
   </div>
