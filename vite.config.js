@@ -25,6 +25,7 @@ const libsJsFiles__________ = GetFilesArray('resources/assets/vendor/libs/**/*.j
 // Tabler Js setup files
 const tablerJsSetupFiles___ = GetFilesArray('resources/tabler-dist/js/*.js');
 const libsTablerFiles______ = GetFilesArray('resources/tabler-dist/libs/***/**/*.js');
+// const libsTablerFiles______ = GetFilesArray('resources/tabler-dist/libs/**/dist/*.js');
 // JS setup files
 const commonJsSetupFiles___ = GetFilesArray('resources/js/*.js');
 const pageJsSetupFiles_____ = GetFilesArray('resources/js/pages/*.js');
@@ -87,23 +88,9 @@ export default defineConfig({
     html(),
     libsWindowAssignment()
   ],
-
-  // // 👉 tambahan ini
-  // assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2', '**/*.eot', '**/*.svg'],
-
-  // build: {
-  //   rollupOptions: {
-  //     output: {
-  //       assetFileNames: (assetInfo) => {
-  //         if (/\.(woff2?|ttf|eot|svg)$/.test(assetInfo.name)) {
-  //           return 'assets/fonts/[name][extname]';
-  //         }
-  //         if (/\.(png|jpe?g|gif|webp|avif)$/.test(assetInfo.name)) {
-  //           return 'assets/images/[name][extname]';
-  //         }
-  //         return 'assets/[name][extname]';
-  //       }
-  //     }
-  //   }
-  // }
+  resolve: {
+    alias: {
+      '@tabler': '/resources/tabler-dist',
+    },
+  },
 });
