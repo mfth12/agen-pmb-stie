@@ -3,12 +3,12 @@
 
 <head>
   <x-front.header :title="$title" />
-  <x-back.pwa {{--  :konfigs="$konfigs" --}} />
+  <x-back.pwa />
+  @vite(['resources/tabler-dist/js/tabler.min.js'])
 </head>
 
 <body>
-  {{-- tabler-theme.js --}}
-  @vite(['resources/js/tabler/tabler-theme.min.js'])
+  @vite(['resources/tabler-dist/js/tabler-theme.min.js'])
   <div class="login-box" id="thisme">
     @yield('container')
   </div>
