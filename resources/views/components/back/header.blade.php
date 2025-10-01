@@ -1,27 +1,23 @@
-<meta charset="utf-8">
+{{-- META HTML --}}
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>{{ $title }}</title>
-<!-- BEGIN PAGE LEVEL STYLES -->
-{{-- <link href="./node_modules/jsvectormap/dist/jsvectormap.js" rel="stylesheet" /> --}}
-{{-- @vite(['node_modules/jsvectormap/dist/jsvectormap.js']) --}}
-<!-- END PAGE LEVEL STYLES -->
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css" rel="stylesheet" />
-<!-- END GLOBAL MANDATORY STYLES -->
-<!-- BEGIN PLUGINS STYLES -->
-<link href="./dist/css/tabler-flags.css?1757245339" rel="stylesheet" />
-<link href="./dist/css/tabler-socials.css?1757245339" rel="stylesheet" />
-<link href="./dist/css/tabler-payments.css?1757245339" rel="stylesheet" />
-<link href="./dist/css/tabler-vendors.css?1757245339" rel="stylesheet" />
-<link href="./dist/css/tabler-marketing.css?1757245339" rel="stylesheet" />
-<link href="./dist/css/tabler-themes.css?1757245339" rel="stylesheet" />
-<!-- END PLUGINS STYLES -->
-<!-- BEGIN DEMO STYLES -->
-<link href="./preview/css/demo.css?1757245339" rel="stylesheet" />
-<!-- END DEMO STYLES -->
-<!-- BEGIN CUSTOM FONT -->
+{{-- GLOBAL MANDATORY STYLES --}}
+@vite(['resources/tabler-dist/css/tabler.min.css'])
+{{-- ADDITIONALS --}}
+{{-- @vite(['resources/tabler-dist/css/tabler-flags.css'])
+@vite(['resources/tabler-dist/css/tabler-flags.css'])
+@vite(['resources/tabler-dist/css/tabler-socials.css'])
+@vite(['resources/tabler-dist/css/tabler-payments.css'])
+@vite(['resources/tabler-dist/css/tabler-vendors.css'])
+@vite(['resources/tabler-dist/css/tabler-marketing.css'])
+@vite(['resources/tabler-dist/css/tabler-themes.css']) --}}
 <style>
   @import url("https://rsms.me/inter/inter.css");
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+  /* @import url("https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"); */
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css");
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
