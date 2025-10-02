@@ -5,7 +5,6 @@
   <x-back.header :title="$title" />
   <x-back.pwa />
   @yield('style')
-  @vite(['resources/tabler-dist/js/tabler.min.js'])
 </head>
 
 @php
@@ -13,6 +12,7 @@
 @endphp
 
 <body class="{{ $pushmenuState === 'collapsed' ? 'sidebar-collapse' : '' }}">
+  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler-theme.min.js" async defer></script>
   <div class="page">
     <x-back.navbar />
     @yield('container')

@@ -132,4 +132,8 @@
   </div>
 @endsection
 
+@section('style')
+  {{-- kosong --}}
+@endsection
+
 @include('components.back.konfig-tampilan')

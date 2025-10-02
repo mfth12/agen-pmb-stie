@@ -18,6 +18,6 @@
 @vite(['resources/assets/vendor/libs/@form-validation/popular.js'])
 @vite(['resources/assets/vendor/libs/@form-validation/bootstrap5.js'])
 @vite(['resources/assets/vendor/libs/@form-validation/auto-focus.js'])
-{{-- TAMBAHAN HALAMAN MASUK JS --}}
-@vite(['resources/js/pages/masuk.js'])
+{{-- TAMBAHAN JS UNTUK PAGE MASUK --}}
 @vite(['resources/js/pages/konfig-tampilan.js'])
+@vite(['resources/js/pages/masuk.js'])

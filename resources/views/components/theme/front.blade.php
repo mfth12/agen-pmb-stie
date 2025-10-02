@@ -4,11 +4,11 @@
 <head>
   <x-front.header :title="$title" />
   <x-back.pwa />
-  @vite(['resources/tabler-dist/js/tabler.min.js'])
+  @yield('style')
 </head>
 
 <body>
-  @vite(['resources/tabler-dist/js/tabler-theme.min.js'])
+  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler-theme.min.js" async defer></script>
   @yield('container')
   <x-front.script />
 </body>

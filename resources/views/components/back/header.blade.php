@@ -4,21 +4,24 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>{{ $title }}</title>
-@vite(['resources/tabler-dist/libs/jsvectormap/dist/jsvectormap.js'])
-{{-- GLOBAL MANDATORY STYLES --}}
-@vite(['resources/tabler-dist/css/tabler.min.css'])
-{{-- ADDITIONALS --}}
-@vite(['resources/tabler-dist/css/tabler-flags.css'])
-@vite(['resources/tabler-dist/css/tabler-socials.css'])
-@vite(['resources/tabler-dist/css/tabler-payments.css'])
-@vite(['resources/tabler-dist/css/tabler-vendors.css'])
-@vite(['resources/tabler-dist/css/tabler-marketing.css'])
-@vite(['resources/tabler-dist/css/tabler-themes.css'])
-@vite(['resources/tabler-dist/css/demo.min.css'])
+<script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+
 <style>
+  /* GLOBAL MANDATORY STYLES */
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-flags.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-socials.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-payments.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-vendors.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-marketing.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-themes.css");
+
+  /* ADDITIONALS */
   @import url("https://rsms.me/inter/inter.css");
   @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
-  /* @import url("https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"); */
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/jsvectormap.min.css");
   @import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css");
 </style>
+
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js" async defer></script>
