@@ -18,18 +18,18 @@
       <div class="offcanvas-body d-flex flex-column">
         <div>
           <div class="mb-4">
-            <label class="form-label">Color mode</label>
+            <label class="form-label">Mode warna tema</label>
             <p class="form-hint">Choose the color mode for your app.</p>
             <label class="form-check">
               <div class="form-selectgroup-item">
                 <input type="radio" name="theme" value="light" class="form-check-input" checked />
-                <div class="form-check-label">Light</div>
+                <div class="form-check-label">Terang</div>
               </div>
             </label>
             <label class="form-check">
               <div class="form-selectgroup-item">
                 <input type="radio" name="theme" value="dark" class="form-check-input" />
-                <div class="form-check-label">Dark</div>
+                <div class="form-check-label">Gelap</div>
               </div>
             </label>
           </div>
