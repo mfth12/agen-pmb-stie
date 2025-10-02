@@ -6,7 +6,8 @@
     </button>
 
     <div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-      <a href="/" class="d-flex align-items-center text-decoration-none text-reset" aria-label="Sinkad">
+      <a href="/" class="d-flex align-items-center text-decoration-none text-reset" aria-label="Sinkad"
+        title="Sinkad" data-bs-toggle="tooltip" data-bs-placement="bottom">
         <img src="{{ asset('favicon.ico') }}" alt="Sinkad" width="26" height="26" class="me-2">
         <span class="fw-bold">Sinkad</span>
       </a>
@@ -154,7 +155,7 @@
             </div>
           </div>
         </div>
-        <div class="nav-item dropdown d-none d-md-flex me-3">
+        {{-- <div class="nav-item dropdown d-none d-md-flex me-3">
           <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1"
             aria-label="Show app menu" data-bs-auto-close="outside" aria-expanded="false">
             <!-- Download SVG icon from http://tabler.io/icons/icon/apps -->
@@ -775,7 +776,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <div class="nav-item dropdown">
         <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown"
@@ -821,18 +822,9 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                   data-bs-auto-close="outside" role="button" aria-expanded="false">
-                  <span
-                    class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/package -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="icon icon-1">
-                      <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                      <path d="M12 12l8 -4.5" />
-                      <path d="M12 12l0 9" />
-                      <path d="M12 12l-8 -4.5" />
-                      <path d="M16 5.25l-8 4.5" />
-                    </svg></span>
-                  <span class="nav-link-title">Sistem</span>
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <i class="ti ti-book-2 fs-2"></i></span>
+                  <span class="nav-link-title">Non-Akademik</span>
                 </a>
                 <div class="dropdown-menu">
                   <div class="dropdown-menu-columns">
@@ -934,8 +926,7 @@
           <div class="col col-md-auto">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#" data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasSettings">
+                <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings">
                   <span class="badge badge-sm bg-red text-red-fg">New</span>
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <!-- Download SVG icon from http://tabler.io/icons/icon/settings -->
