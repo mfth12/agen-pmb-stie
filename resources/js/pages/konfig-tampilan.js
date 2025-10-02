@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     var themeConfig = {
         theme: "light",
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var resetButton = document.getElementById("reset-changes");
     var checkItems = function () {
         for (var key in themeConfig) {
-            var value = window.localStorage["tabler/tabler-" + key] || themeConfig[key];
+            var value = window.localStorage["stie/sistem-stie-" + key] || themeConfig[key];
             if (!!value) {
                 var radios = form.querySelectorAll(`[name="${key}"]`);
                 if (!!radios) {
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (var key in themeConfig) {
             if (name === key) {
                 document.documentElement.setAttribute("data-bs-" + key, value);
-                window.localStorage.setItem("tabler/tabler-" + key, value);
+                window.localStorage.setItem("stie/sistem-stie-" + key, value);
                 url.searchParams.set(key, value);
             }
         }
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (var key in themeConfig) {
             var value = themeConfig[key];
             document.documentElement.removeAttribute("data-bs-" + key);
-            window.localStorage.removeItem("tabler/tabler-" + key);
+            window.localStorage.removeItem("stie/sistem-stie-" + key);
             url.searchParams.delete(key);
         }
         checkItems();
