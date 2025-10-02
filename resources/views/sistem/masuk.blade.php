@@ -4,7 +4,7 @@
   <div class="page page-center">
     <div class="container container-normal py-4">
       <div class="row align-items-center g-4">
-        {{--  --}}
+        {{-- BAGIAN FORM --}}
         <div class="col-lg">
           <div class="container-tight py-6">
             <div class="text-center mb-2">
@@ -123,7 +123,7 @@
             </div>
           </div>
         </div>
-
+        {{-- BAGIAN ILUSTRASI --}}
         <div class="col-lg d-none d-lg-block">
           <img src="{{ Vite::asset('resources/img/login-illustration.png') }}" alt="Login Illustration">
         </div>
@@ -136,4 +136,18 @@
   {{-- kosong --}}
 @endsection
 
-@include('components.back.konfig-tampilan')
+@section('js_atas')
+  {{-- kosong --}}
+@endsection
+
+@section('js_bawah')
+  {{-- DEPENDENSI UNTUK PAGE MASUK --}}
+  @vite(['resources/assets/vendor/libs/@form-validation/popular.js'])
+  @vite(['resources/assets/vendor/libs/@form-validation/bootstrap5.js'])
+  @vite(['resources/assets/vendor/libs/@form-validation/auto-focus.js'])
+  {{-- TAMBAHAN JS UNTUK PAGE MASUK --}}
+  @vite(['resources/js/pages/konfig-tampilan.js'])
+  @vite(['resources/js/pages/masuk.js'])
+  {{-- KOMPONEN INKLUD --}}
+  @include('components.back.konfig-tampilan')
+@endsection

@@ -5,6 +5,7 @@
   <x-back.header :title="$title" />
   <x-back.pwa />
   @yield('style')
+  @yield('js_atas')
 </head>
 
 @php

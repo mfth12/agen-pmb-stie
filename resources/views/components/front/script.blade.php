@@ -1,3 +1,4 @@
+{{-- SCRIPT UNTUK FRONT --}}
 <div id="pwaforwp-add-to-home-click" style="background-color:#d2dfeb"
   class="pwaforwp-footer-prompt pwaforwp-bounceInUp pwaforwp-animated"><span id="pwaforwp-prompt-close"
     class="pwaforwp-prompt-close"></span>
@@ -15,9 +16,5 @@
 @vite(['resources/js/pwaforwp-video.js'])
 @vite(['resources/js/pwaforwp-download.js'])
 @vite(['resources/js/pwa-register-sw.js'])
-@vite(['resources/assets/vendor/libs/@form-validation/popular.js'])
-@vite(['resources/assets/vendor/libs/@form-validation/bootstrap5.js'])
-@vite(['resources/assets/vendor/libs/@form-validation/auto-focus.js'])
-{{-- TAMBAHAN JS UNTUK PAGE MASUK --}}
-@vite(['resources/js/pages/konfig-tampilan.js'])
-@vite(['resources/js/pages/masuk.js'])
+
+

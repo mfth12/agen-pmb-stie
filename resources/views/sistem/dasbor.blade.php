@@ -679,11 +679,13 @@
 @endsection
 
 @section('js_bawah')
+  {{-- DEPENDENSI UNTUK PAGE DASBOR --}}
   <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/jsvectormap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/maps/world.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/maps/world-merc.js"></script>
+  {{-- TAMBAHAN JS UNTUK PAGE DASBOR --}}
   @vite(['resources/js/pages/dasbor.js'])
+  {{-- KOMPONEN INKLUD --}}
+  @include('components.back.konfig-tampilan')
 @endsection
-
-@include('components.back.konfig-tampilan')
