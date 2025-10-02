@@ -13,26 +13,24 @@ function GetFilesArray(query) {
 }
 
 /**
- * Js Files
+ * Processing All JS Files
+ * 
  */
-// Processing Vendor JS Files
 const libsJsFiles__________ = GetFilesArray('resources/assets/vendor/libs/**/*.js');
 const vendorJsFiles________ = GetFilesArray('resources/assets/vendor/js/*.js');
 const pageJsFiles__________ = GetFilesArray('resources/assets/js/*.js');
-// JS setup files
 const pageJsSetupFiles_____ = GetFilesArray('resources/js/pages/*.js');
 const commonJsSetupFiles___ = GetFilesArray('resources/js/*.js');
 const allImgSetupFiles_____ = GetFilesArray('resources/img/*.*');
 
 /**
- * Css & Scss Files
+ * Processing Core, Libs Scs, Themes & Pages Scss Files
+ * 
 */
-// Processing Core, Libs Scs, Themes & Pages Scss Files
 const CoreScssFiles________ = GetFilesArray('resources/assets/vendor/scss/**/!(_)*.scss');
 const LibsScssFiles________ = GetFilesArray('resources/assets/vendor/libs/**/!(_)*.scss');
 const FontsScssFiles_______ = GetFilesArray('resources/assets/vendor/fonts/!(_)*.scss');
 const LibsCssFiles_________ = GetFilesArray('resources/assets/vendor/libs/**/*.css');
-// Processing Fonts Scss Files
 const CommonCssFiles_______ = GetFilesArray('resources/css/*.css');
 
 // Deleted
@@ -56,6 +54,7 @@ function libsWindowAssignment() {
   };
 }
 
+// Exporting defined configs
 export default defineConfig({
   plugins: [
     laravel({
@@ -66,26 +65,26 @@ export default defineConfig({
         ...pageJsFiles__________,
         ...vendorJsFiles________,
         ...libsJsFiles__________,
-        // ...tablerJsSetupFiles___,
-        // ...libsTablerFiles______,
         ...commonJsSetupFiles___,
         ...allImgSetupFiles_____,
         ...pageJsSetupFiles_____,
         ...CoreScssFiles________,
         ...LibsScssFiles________,
         ...LibsCssFiles_________,
-        // ...LibsTablerCssFiles___,
         ...CommonCssFiles_______,
         ...FontsScssFiles_______
+        // ...tablerJsSetupFiles___,
+        // ...libsTablerFiles______,
+        // ...LibsTablerCssFiles___,
       ],
       refresh: true
     }),
     html(),
     libsWindowAssignment()
   ],
-  resolve: {
-    alias: {
-      '@tabler': '/resources/tabler-dist',
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     '@tabler': '/resources/tabler-dist',
+  //   },
+  // },
 });
