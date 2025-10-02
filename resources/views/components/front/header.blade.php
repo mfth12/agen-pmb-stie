@@ -12,12 +12,12 @@
 <style>
   /* GLOBAL MANDATORY STYLES */
   @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css");
-  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-flags.css");
-  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-socials.css");
-  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-payments.css");
-  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-vendors.css");
-  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-marketing.css");
-  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-themes.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-flags.min.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-socials.min.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-payments.min.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-vendors.min.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-marketing.min.css");
+  @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-themes.min.css");
 
   /* ADDITIONALS */
   @import url("https://rsms.me/inter/inter.css");
