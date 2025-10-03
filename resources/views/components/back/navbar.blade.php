@@ -6,29 +6,28 @@
     </button>
 
     <div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-      <a href="/" class="d-flex align-items-center text-decoration-none text-reset" aria-label="Sinkad"
-        title="Sinkad" data-bs-toggle="tooltip" data-bs-placement="bottom">
+      <a href="/" class="d-flex align-items-center text-decoration-none text-reset"
+        aria-label="Sistem Informasi Non-akademik">
         <img src="{{ asset('favicon.ico') }}" alt="Sinkad" width="26" height="26" class="me-2">
         <span class="fw-bold">Sinkad</span>
       </a>
     </div>
-
 
     <div class="navbar-nav flex-row order-md-last">
       <div class="nav-item d-none d-md-flex me-3">
       </div>
       <div class="d-none d-md-flex">
         <div class="nav-item">
-          <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Gunakan Mode Gelap"
-            data-bs-toggle="tooltip" data-bs-placement="bottom">
+          <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Mode Gelap" data-bs-toggle="tooltip"
+            data-bs-placement="bottom">
             <!-- Download SVG icon from http://tabler.io/icons/icon/moon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
               <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
             </svg>
           </a>
-          <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Gunakan Mode Terang"
-            data-bs-toggle="tooltip" data-bs-placement="bottom">
+          <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Mode Terang" data-bs-toggle="tooltip"
+            data-bs-placement="bottom">
             <!-- Download SVG icon from http://tabler.io/icons/icon/sun -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
