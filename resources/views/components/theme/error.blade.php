@@ -4,14 +4,6 @@
 <head>
   <title>@yield('title')</title>
   <x-error.header />
-  <style>
-    .disable-selection {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-  </style>
 </head>
 
 <body class="disable-selection">
