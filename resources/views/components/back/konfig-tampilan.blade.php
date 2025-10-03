@@ -12,7 +12,7 @@
         <div>
           <div class="mb-4">
             <label class="form-label">Mode warna tema</label>
-            <p class="form-hint">Choose the color mode for your app.</p>
+            <p class="form-hint">Pilih mode tampilan sistem ini.</p>
             <label class="form-check">
               <div class="form-selectgroup-item">
                 <input type="radio" name="theme" value="light" class="form-check-input" checked />
@@ -27,8 +27,8 @@
             </label>
           </div>
           <div class="mb-4">
-            <label class="form-label">Color scheme</label>
-            <p class="form-hint">The perfect color mode for your app.</p>
+            <label class="form-label">Nuansa Warna</label>
+            <p class="form-hint">Warna yang paling Anda sukai untuk tampilan sistem ini.</p>
             <div class="row g-2">
               <div class="col-auto">
                 <label class="form-colorinput">
@@ -105,8 +105,8 @@
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Font family</label>
-            <p class="form-hint">Choose the font family that fits your app.</p>
+            <label class="form-label">Jenis Font</label>
+            <p class="form-hint">Pilih font yang paling nyaman untuk Anda.</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
@@ -135,8 +135,8 @@
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Theme base</label>
-            <p class="form-hint">Choose the gray shade for your app.</p>
+            <label class="form-label">Tema Warna Latar</label>
+            <p class="form-hint">Pilih tingkat gradasi abu untuk warna latar.</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
@@ -171,8 +171,8 @@
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Corner Radius</label>
-            <p class="form-hint">Choose the border radius factor for your app.</p>
+            <label class="form-label">Radius Pinggiran</label>
+            <p class="form-hint">Pilih seberapa besar lengkungan untuk radius pinggiran.</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
@@ -215,9 +215,9 @@
               class="icon icon-1">
               <path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" />
             </svg>
-            Reset changes
+            Atur ulang perubahan
           </button>
-          <a href="#" class="btn btn-primary w-100" data-bs-dismiss="offcanvas"> Save </a>
+          <a href="#" class="btn btn-primary w-100" data-bs-dismiss="offcanvas"> Simpan </a>
         </div>
       </div>
     </form>
