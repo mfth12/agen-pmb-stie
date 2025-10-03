@@ -8,8 +8,8 @@
     <div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
       <a href="/" class="d-flex align-items-center text-decoration-none text-reset"
         aria-label="Sistem Informasi Non-akademik">
-        <img src="{{ asset('favicon.ico') }}" alt="Sinkad" width="26" height="26" class="me-2">
-        <span class="fw-bold">Sinkad</span>
+        <span class="app-brand-logo me-2">@include('components.back.macros', ['height' => 20])</span>
+        <span class="app-brand-text menu-text fw-bold">Sinkad</span>
       </a>
     </div>
 
