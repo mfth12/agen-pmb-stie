@@ -1,18 +1,11 @@
   <div class="settings">
     <a href="#" class="btn btn-floating btn-icon btn-primary" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasSettings" aria-controls="offcanvasSettings" aria-label="Theme Settings">
-      <!-- Download SVG icon from http://tabler.io/icons/icon/brush -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
-        <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-        <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-        <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-        <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-      </svg>
+      data-bs-target="#offcanvasSettings" aria-controls="offcanvasSettings" aria-label="Pengaturan Tampilan">
+      <i class="ti ti-brush fs-2"></i>
     </a>
     <form class="offcanvas offcanvas-start offcanvas-narrow" tabindex="-1" id="offcanvasSettings">
       <div class="offcanvas-header">
-        <h2 class="offcanvas-title">Theme Settings</h2>
+        <h2 class="offcanvas-title">Pengaturan Tampilan</h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
