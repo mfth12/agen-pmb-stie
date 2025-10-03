@@ -13,6 +13,7 @@
 
   <div class="page">
     <x-back.navbar />
+    <x-back.menu />
 
     <div class="page-wrapper">
       @yield('container')
