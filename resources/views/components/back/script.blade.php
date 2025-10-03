@@ -2,12 +2,13 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 @vite(['resources/js/pages/konfig-tampilan.js'])
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function(e) {
     Turbo.session.drive = false;
     if (window.Turbo) {
       var loader = Turbo.navigator.delegate.adapter.progressBar;
       console.log(loader);
       loader.show(); //tampil
+      // loader.setValue(1); //100%
       e.preventDefault();
     }
   });
@@ -29,8 +30,9 @@
 
       // 2. Sembunyikan loader KETIKA halaman SELESAI dimuat
       document.addEventListener("turbo:load", function() {
+        progressBar.setValue(1);
         progressBar.hide();
-        console.log("Turbo load: Loader disembunyikan.");
+        console.log("Turbo load: Loader selesai disembunyikan.");
       });
 
       // 3. (Opsional tapi direkomendasikan)
