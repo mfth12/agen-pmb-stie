@@ -8,11 +8,7 @@
   @yield('js_atas')
 </head>
 
-@php
-  $pushmenuState = session('pushmenu_state', 'expanded'); // Default 'expanded' jika session kosong
-@endphp
-
-<body class="{{ $pushmenuState === 'collapsed' ? 'sidebar-collapse' : '' }}">
+<body>
   <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler-theme.min.js" async defer></script>
 
   <div class="page">
