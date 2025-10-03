@@ -5,9 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>{{ $title }}</title>
 <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
-<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-<link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
-<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
 <style>
   /* GLOBAL MANDATORY STYLES */
   @import url("https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css");

@@ -4,12 +4,6 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>{{ $title }}</title>
-<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-<link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
-<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-{{-- FOR PWA --}}
-<link rel="prefetch" href="{{ asset('manifest.json') }}">
-<link rel="manifest" href="{{ asset('manifest.json') }}">
 @vite(['resources/css/pwaforwp-main.css'])
 
 <style>

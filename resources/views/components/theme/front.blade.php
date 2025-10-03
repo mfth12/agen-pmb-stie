@@ -3,7 +3,7 @@
 
 <head>
   <x-front.header :title="$title" />
-  <x-back.pwa />
+  <x-back.favicon />
   @yield('style')
   @yield('js_atas')
 </head>
