@@ -215,7 +215,7 @@
               class="icon icon-1">
               <path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" />
             </svg>
-            Atur ulang perubahan
+            Atur ulang
           </button>
           <a href="#" class="btn btn-primary w-100" data-bs-dismiss="offcanvas"> Simpan </a>
         </div>
