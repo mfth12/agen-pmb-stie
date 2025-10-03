@@ -29,7 +29,7 @@ class MasukController extends Controller
     }
 
     return view('sistem.masuk', [
-      'title'     => konfigs('NAMA_SISTEM'),
+      'title'     => 'Masuk ' . konfigs('NAMA_SISTEM_ALIAS'),
     ]);
   }
 
