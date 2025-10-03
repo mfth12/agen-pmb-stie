@@ -1,8 +1,10 @@
   <div class="settings">
-    <a href="#" class="btn btn-floating btn-icon btn-primary" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasSettings" aria-controls="offcanvasSettings" aria-label="Pengaturan Tampilan">
-      <i class="ti ti-brush fs-2"></i>
-    </a>
+    @if ($floating == true)
+      <a href="#" class="btn btn-floating btn-icon btn-primary" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasSettings" aria-controls="offcanvasSettings" aria-label="Pengaturan Tampilan">
+        <i class="ti ti-brush fs-2"></i>
+      </a>
+    @endif
     <form class="offcanvas offcanvas-start offcanvas-narrow" tabindex="-1" id="offcanvasSettings">
       <div class="offcanvas-header">
         <h2 class="offcanvas-title">Pengaturan Tampilan</h2>

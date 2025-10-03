@@ -5,8 +5,8 @@
       <div class="container-xl">
         <div class="row g-2 align-items-center">
           <div class="col">
+            <h2 class="page-title">Dashboard</h2>
             <div class="page-pretitle">Overview</div>
-            <h2 class="page-title">Dashboard Sistem STIE</h2>
           </div>
 
           <div class="col-auto ms-auto d-print-none">
@@ -47,7 +47,7 @@
               <div class="card-body">
                 <div class="row gy-3">
                   <div class="col-12 col-sm d-flex flex-column">
-                    <h3 class="h2">Welcome back, Paweł</h3>
+                    <h3 class="h2">Selamat datang, Miftahul</h3>
                     <p class="text-muted">You have 53 new messages and 2 new notifications.</p>
                     <div class="row g-5 mt-auto">
                       <div class="col-auto">
@@ -752,5 +752,5 @@
   {{-- TAMBAHAN JS UNTUK PAGE DASBOR --}}
   @vite(['resources/js/pages/dasbor.js'])
   {{-- KOMPONEN INKLUD --}}
-  @include('components.back.konfig-tampilan')
+  @include('components.back.konfig-tampilan', ['floating' => false])
 @endsection

@@ -149,5 +149,5 @@
   @vite(['resources/js/pages/konfig-tampilan.js'])
   @vite(['resources/js/pages/masuk.js'])
   {{-- KOMPONEN INKLUD --}}
-  @include('components.back.konfig-tampilan')
+  @include('components.back.konfig-tampilan', ['floating' => true])
 @endsection
