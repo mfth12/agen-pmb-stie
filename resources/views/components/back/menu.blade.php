@@ -4,7 +4,7 @@
       <div class="container-xl">
         <div class="row flex-column flex-md-row flex-fill align-items-center">
           <div class="col">
-            <!-- BEGIN NAVBAR MENU -->
+            {{-- NAVBAR MENU --}}
             <ul class="navbar-nav">
               {{-- DASBOR --}}
               <li class="nav-item active">
@@ -117,15 +117,13 @@
                 </div>
               </li>
             </ul>
-            <!-- END NAVBAR MENU -->
+            {{-- AKHIR NAVBAR MENU --}}
           </div>
           <div class="col col-md-auto">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings">
-                  {{-- <span class="badge badge-sm bg-red text-red-fg">Baru</span> --}}
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
-                    <!-- Download SVG icon from http://tabler.io/icons/icon/settings -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" class="icon icon-1">
