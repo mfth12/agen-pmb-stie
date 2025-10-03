@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd1ef6087bf8e20a5bb08aab9cbd3496",
+    "content-hash": "146a6592100fb81c365172edac49c522",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1567,16 +1567,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.46.0",
+            "version": "v11.46.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2c6d85f22d08123ad45aa3a6726b16f06e68eecd"
+                "reference": "5fd457f807570a962a53b403b1346efe4cc80bb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2c6d85f22d08123ad45aa3a6726b16f06e68eecd",
-                "reference": "2c6d85f22d08123ad45aa3a6726b16f06e68eecd",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5fd457f807570a962a53b403b1346efe4cc80bb8",
+                "reference": "5fd457f807570a962a53b403b1346efe4cc80bb8",
                 "shasum": ""
             },
             "require": {
@@ -1778,7 +1778,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-09-08T21:54:34+00:00"
+            "time": "2025-09-30T14:51:32+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4819,16 +4819,16 @@
         },
         {
             "name": "spatie/laravel-html",
-            "version": "3.12.0",
+            "version": "3.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-html.git",
-                "reference": "3655f335609d853f51e431698179ddfe05851126"
+                "reference": "72af3cad24d153c230ff6e1da9fa3b7b702834c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-html/zipball/3655f335609d853f51e431698179ddfe05851126",
-                "reference": "3655f335609d853f51e431698179ddfe05851126",
+                "url": "https://api.github.com/repos/spatie/laravel-html/zipball/72af3cad24d153c230ff6e1da9fa3b7b702834c9",
+                "reference": "72af3cad24d153c230ff6e1da9fa3b7b702834c9",
                 "shasum": ""
             },
             "require": {
@@ -4885,7 +4885,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-html/tree/3.12.0"
+                "source": "https://github.com/spatie/laravel-html/tree/3.12.1"
             },
             "funding": [
                 {
@@ -4893,7 +4893,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-03-21T08:58:06+00:00"
+            "time": "2025-10-02T07:26:38+00:00"
         },
         {
             "name": "spatie/laravel-medialibrary",
