@@ -926,7 +926,7 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSettings">
-                  <span class="badge badge-sm bg-red text-red-fg">New</span>
+                  {{-- <span class="badge badge-sm bg-red text-red-fg">Baru</span> --}}
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <!-- Download SVG icon from http://tabler.io/icons/icon/settings -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -937,7 +937,7 @@
                       <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
                     </svg>
                   </span>
-                  <span class="nav-link-title"> Theme Settings </span>
+                  <span class="nav-link-title">Atur Tampilan</span>
                 </a>
               </li>
             </ul>
