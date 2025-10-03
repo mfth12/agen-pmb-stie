@@ -1,7 +1,10 @@
 @extends('components.theme.error')
-@section('title', 'Eror-500 Kesalahan Server Internal')
+@section('title', 'Eror 500 (Kesalahan Internal Server)')
 
 @section('container')
-  <h1 class="display-4"><strong>Eror-500</strong> / Kesalahan Internal Server</h1>
-  <p class="lead">Terjadi masalah internal pada sistem atau server</p>
+  <div class="empty-img">
+    @include('components.error.illustrations-computer-fix')
+  </div>
+  <p class="empty-title">Eror 500 (Kesalahan Internal Server)</p>
+  <p class="empty-subtitle text-secondary">Uups! Terjadi masalah internal pada sistem atau server</p>
 @endsection
