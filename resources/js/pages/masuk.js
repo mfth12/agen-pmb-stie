@@ -143,19 +143,9 @@ document.onkeydown = function (e) {
     }
 }
 
-
-// // TOGGLE PASSWORD
-// $(document).ready(function () {
-//     $('#toggle-password').on('click', function () {
-//         let $password = $('#password');
-//         let $icon = $('#toggle-password-icon');
-
-//         if ($password.attr('type') === 'password') {
-//             $password.attr('type', 'text');
-//             $icon.removeClass('ti-eye-off').addClass('ti-eye');
-//         } else {
-//             $password.attr('type', 'password');
-//             $icon.removeClass('ti-eye').addClass('ti-eye-off');
-//         }
-//     });
-// });
+// FUNGSI UNTUK AUTO NGIKUTIN TEMA TAMPILAN (DARK/LIGHT)
+document.addEventListener("DOMContentLoaded", function () {
+    let theme = document.documentElement.getAttribute("data-bs-theme") || "light";
+    console.log('this is = ' + theme);
+    document.getElementById("cf-turnstile-widget").setAttribute("data-theme", theme);
+});

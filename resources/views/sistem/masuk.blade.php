@@ -96,9 +96,10 @@
                 {{-- Clouflare turnstile script --}}
                 @if (env('USING_TURNSTILE', false))
                   <div class="mt-4" style="display: block; flex-flow: row;">
-                    <div class="cf-turnstile" style="min-width: 100px;" data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}"
-                      data-size="flexible" data-refresh-expired="auto" data-callback="javascriptCallback"
-                      data-theme="light" data-language="{{ env('TURNSTILE_LANGUAGE', 'en-US') }}">
+                    <div id="cf-turnstile-widget" class="cf-turnstile" style="min-width: 100px;"
+                      data-sitekey="{{ env('TURNSTILE_SITE_KEY') }}" data-size="flexible" data-refresh-expired="auto"
+                      data-callback="javascriptCallback" data-theme="light"
+                      data-language="{{ env('TURNSTILE_LANGUAGE', 'en-US') }}">
                     </div>
                   </div>
                 @endif
