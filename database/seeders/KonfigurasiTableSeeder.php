@@ -39,7 +39,7 @@ class KonfigurasiTableSeeder extends Seeder
     DB::table($tableName)->insert([
       'config_group'  => 'identitas',
       'config_key'    => 'NAMA_SISTEM',
-      'config_value'  => 'Sistem Informasi Non-Akademik',
+      'config_value'  => 'Sistem Informasi Agen PMB',
       'created_at'    => Carbon::now(),
       'updated_at'    => Carbon::now()
     ]);
@@ -47,7 +47,7 @@ class KonfigurasiTableSeeder extends Seeder
     DB::table($tableName)->insert([
       'config_group'  => 'identitas',
       'config_key'    => 'NAMA_SISTEM_ALIAS',
-      'config_value'  => 'Sinkad',
+      'config_value'  => 'Agen PMB',
       'created_at'    => Carbon::now(),
       'updated_at'    => Carbon::now()
     ]);

@@ -7,9 +7,9 @@
 
     <div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
       <a href="/" class="d-flex align-items-center text-decoration-none text-reset"
-        aria-label="Sistem Informasi Non-akademik">
+        aria-label="{{ konfigs('NAMA_SISTEM') }}">
         <span class="app-brand-logo me-2">@include('components.back.macros', ['height' => 20])</span>
-        <span class="app-brand-text menu-text fw-bold">Sinkad</span>
+        <span class="app-brand-text menu-text fw-bold">{{ konfigs('NAMA_SISTEM_ALIAS') }}</span>
       </a>
     </div>
 

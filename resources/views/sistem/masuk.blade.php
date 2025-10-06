@@ -16,7 +16,7 @@
                 <h1 class="mb-0">{{ konfigs('NAMA_SISTEM_ALIAS') }}</h1>
               </a>
             </div>
-            <h3 class="text-center mb-4">{{ konfigs('NAMA_SISTEM') }}</h3>
+            <h3 class="text-center mb-4">{{ konfigs('NAMA_SISTEM') }} </h3>
             <div class="card card-md">
               <div class="card-body">
                 {{-- ALERTS --}}
@@ -73,7 +73,7 @@
                 @else
                   <div class="alert alert-hilang alert-info text-info d-flex align-items-center" role="alert">
                     <i class="ti ti-fingerprint fs-2 text-info"></i>
-                    Gunakan Akun Siakad untuk masuk.
+                    Gunakan Akun Agen PMB untuk masuk.
                   </div>
                 @endif
                 {{-- END OF ALERTS --}}
@@ -82,7 +82,7 @@
                 {!! html()->form('post')->route('login.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
                 <div class="mb-2">
                   <label class="form-label">Username</label>
-                  {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Siakad')->attributes(['aria-describedby' => 'username']) !!}
+                  {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Agen')->attributes(['aria-describedby' => 'username']) !!}
                 </div>
                 <div class="mb-2">
                   <label class="form-label">
