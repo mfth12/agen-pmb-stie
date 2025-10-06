@@ -147,7 +147,6 @@ document.onkeydown = function (e) {
 document.addEventListener("DOMContentLoaded", function () {
     // Ambil value dari localStorage
     let theme = localStorage.getItem("tabler-theme") || "light";
-
     console.log("this is =", theme);
 
     // Terapkan tema ke elemen target
@@ -155,7 +154,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (widget) {
         widget.setAttribute("data-theme", theme);
     }
-
-    // (Opsional) jika ingin sekaligus set ke <html>
-    document.documentElement.setAttribute("data-bs-theme", theme);
 });
