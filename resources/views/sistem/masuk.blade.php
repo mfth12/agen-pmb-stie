@@ -126,7 +126,8 @@
         </div>
         {{-- BAGIAN ILUSTRASI --}}
         <div class="col-lg d-none d-lg-block">
-          <img src="{{ Vite::asset('resources/img/login-illustration.png') }}" alt="Login Illustration">
+          <img id="login-illustration" src="{{ Vite::asset('resources/img/login-illustration.png') }}"
+            alt="Login Illustration">
         </div>
       </div>
     </div>
@@ -147,6 +148,11 @@
   @vite(['resources/assets/vendor/libs/@form-validation/bootstrap5.js'])
   @vite(['resources/assets/vendor/libs/@form-validation/auto-focus.js'])
   {{-- TAMBAHAN JS UNTUK PAGE MASUK --}}
+  <script>
+    // Ambil URL dasar dari halaman yang sedang diakses
+    window.assetBase = "{{ Vite::asset('resources/img') }}";
+    console.log('------>> window.assetBase: '+ window.assetBase);
+  </script>
   @vite(['resources/js/pages/konfig-tampilan.js'])
   @vite(['resources/js/pages/masuk.js'])
   {{-- KOMPONEN INKLUD --}}
