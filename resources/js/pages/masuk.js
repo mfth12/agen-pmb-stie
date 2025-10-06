@@ -143,24 +143,3 @@ document.onkeydown = function (e) {
     }
 }
 
-// FUNGSI UNTUK AUTO NGIKUTIN TEMA TAMPILAN (DARK/LIGHT)
-document.addEventListener("DOMContentLoaded", function () {
-    // Ambil value dari localStorage
-    let theme = localStorage.getItem("tabler-theme") || "light";
-    console.log("this is =", theme);
-
-    // Terapkan tema ke elemen target
-    const widget = document.getElementById("cf-turnstile-widget");
-    if (widget) {
-        widget.setAttribute("data-theme", theme);
-    }
-
-    // Terapkan juga ke login-illustration
-    const illustration = document.getElementById("login-illustration");
-    if (illustration && window.assetBase) {
-        illustration.src =
-            theme === "dark"
-                ? window.assetBase + "/login-illustration-dark.png"
-                : window.assetBase + "/login-illustration.png";
-    }
-});

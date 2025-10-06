@@ -152,4 +152,35 @@
   @vite(['resources/js/pages/masuk.js'])
   {{-- KOMPONEN INKLUD --}}
   @include('components.back.konfig-tampilan', ['floating' => true])
+  <script>
+    // FUNGSI UNTUK AUTO NGIKUTIN TEMA TAMPILAN (DARK/LIGHT)
+    document.addEventListener("DOMContentLoaded", function() {
+      // Ambil value dari localStorage
+      let theme = localStorage.getItem("tabler-theme") || "light";
+      console.log("this is =", theme);
+
+      // Terapkan tema ke elemen target
+      const widget = document.getElementById("cf-turnstile-widget");
+      if (widget) {
+        widget.setAttribute("data-theme", theme);
+      }
+
+      // Terapkan juga ke login-illustration
+      const img = document.getElementById('login-illustration');
+      const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function updateIllustration(e) {
+        if (e.matches) {
+          img.src = "{{ Vite::asset('resources/img/login-illustration-dark.png') }}";
+        } else {
+          img.src = "{{ Vite::asset('resources/img/login-illustration-light.png') }}";
+        }
+      }
+
+      // Jalankan saat halaman pertama kali dimuat
+      updateIllustration(darkMode);
+      // Dengarkan perubahan tema sistem (auto switch)
+      darkMode.addEventListener('change', updateIllustration);
+    });
+  </script>
 @endsection
