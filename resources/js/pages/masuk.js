@@ -145,7 +145,17 @@ document.onkeydown = function (e) {
 
 // FUNGSI UNTUK AUTO NGIKUTIN TEMA TAMPILAN (DARK/LIGHT)
 document.addEventListener("DOMContentLoaded", function () {
-    let theme = document.documentElement.getAttribute("data-bs-theme") || "light";
-    console.log('this is = ' + theme);
-    document.getElementById("cf-turnstile-widget").setAttribute("data-theme", theme);
+    // Ambil value dari localStorage
+    let theme = localStorage.getItem("tabler-theme") || "light";
+
+    console.log("this is =", theme);
+
+    // Terapkan tema ke elemen target
+    const widget = document.getElementById("cf-turnstile-widget");
+    if (widget) {
+        widget.setAttribute("data-theme", theme);
+    }
+
+    // (Opsional) jika ingin sekaligus set ke <html>
+    document.documentElement.setAttribute("data-bs-theme", theme);
 });
