@@ -1,1 +1,0 @@
-VIEW `viewsinkads`  AS SELECT `transaknonkad`.`id_non` AS `id_non`, `transaknonkad`.`id_peserta` AS `id_peserta`, `non_akademiks`.`kegiatan` AS `kegiatan`, `mahasiswa`.`NAMA` AS `NAMA` FROM ((`transaknonkad` join `non_akademiks`) join `mahasiswa`) WHERE `transaknonkad`.`id_non` = `non_akademiks`.`id` AND `transaknonkad`.`id_peserta` = `mahasiswa`.`ID``ID`

@@ -21,7 +21,6 @@ class multiakademiksController extends Controller
     public function index()
     { 
        //nama tabel baru dbaConsole & sinkadstie
-       //DB::connection('mysql2')->table('mahasiswa')
         $peserta = DB::connection('mysql')->table('sinkadstie.transaknonkad') 
             ->join('sinkadstie.non_akademiks', 'sinkadstie.transaknonkad.id_non', '=', 'sinkadstie.non_akademiks.id')
             ->join('dbaConsole.mahasiswa', 'sinkadstie.transaknonkad.id_peserta', '=', 'dbaConsole.mahasiswa.ID')
