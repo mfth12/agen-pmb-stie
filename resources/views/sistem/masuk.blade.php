@@ -148,11 +148,6 @@
   @vite(['resources/assets/vendor/libs/@form-validation/bootstrap5.js'])
   @vite(['resources/assets/vendor/libs/@form-validation/auto-focus.js'])
   {{-- TAMBAHAN JS UNTUK PAGE MASUK --}}
-  <script>
-    // Ambil URL dasar dari halaman yang sedang diakses
-    window.assetBase = "{{ Vite::asset('resources/img') }}";
-    console.log('------>> window.assetBase: '+ window.assetBase);
-  </script>
   @vite(['resources/js/pages/konfig-tampilan.js'])
   @vite(['resources/js/pages/masuk.js'])
   {{-- KOMPONEN INKLUD --}}

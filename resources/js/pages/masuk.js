@@ -154,4 +154,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (widget) {
         widget.setAttribute("data-theme", theme);
     }
+
+    // Terapkan juga ke login-illustration
+    const illustration = document.getElementById("login-illustration");
+    if (illustration && window.assetBase) {
+        illustration.src =
+            theme === "dark"
+                ? window.assetBase + "/login-illustration-dark.png"
+                : window.assetBase + "/login-illustration.png";
+    }
 });

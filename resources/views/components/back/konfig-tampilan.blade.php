@@ -227,7 +227,10 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      window.assetBase = "{{ Vite::asset('resources/img/') }}";
+      // Ambil base URL dari salah satu file sebagai referensi
+      const tempPath = "{{ Vite::asset('resources/img/login-illustration.png') }}";
+      // Hilangkan bagian nama file-nya → hasilnya jadi folder img
+      window.assetBase = tempPath.replace('/login-illustration.png', '');
       var basePath = window.assetBase;
 
       var themeConfig = {
@@ -324,7 +327,7 @@
                 newImg.src = value === "dark" ?
                   basePath + "/login-illustration-dark.png" :
                   basePath + "/login-illustration.png";
-                newImg.className = "img-fluid"; // optional, agar tetap responsive
+                // newImg.className = "img-fluid"; // optional, agar tetap responsive
 
                 // Tambahkan kembali ke DOM
                 parent.appendChild(newImg);
