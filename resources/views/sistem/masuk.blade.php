@@ -37,7 +37,7 @@
                     <div class="alert-icon">
                       <i class="ti ti-plug-connected-x fs-2 text-danger"></i>
                     </div>
-                    {!! $errors->first('koneksi') !!} asd
+                    {!! $errors->first('koneksi') !!}
                     <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                   </div>
                 @elseif ($errors->has('turnstile_notvalid'))
