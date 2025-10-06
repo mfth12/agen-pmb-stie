@@ -126,7 +126,7 @@
         </div>
         {{-- BAGIAN ILUSTRASI --}}
         <div class="col-lg d-none d-lg-block">
-          <img id="login-illustration" src="{{ Vite::asset('resources/img/login-illustration.png') }}"
+          <img id="login-illustration" src="{{ asset('img/login-illustration.png') }}"
             alt="Login Illustration">
         </div>
       </div>
@@ -171,9 +171,9 @@
 
       function updateIllustration(e) {
         if (e.matches) {
-          img.src = "{{ Vite::asset('resources/img/login-illustration-dark.png') }}";
+          img.src = "{{ asset('img/login-illustration-dark.png') }}";
         } else {
-          img.src = "{{ Vite::asset('resources/img/login-illustration-light.png') }}";
+          img.src = "{{ asset('img/login-illustration.png') }}";
         }
       }
 

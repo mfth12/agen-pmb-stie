@@ -228,7 +228,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Ambil base URL dari salah satu file sebagai referensi
-      const tempPath = "{{ Vite::asset('resources/img/login-illustration.png') }}";
+      const tempPath = "{{ asset('img/login-illustration.png') }}";
       // Hilangkan bagian nama file-nya → hasilnya jadi folder img
       window.assetBase = tempPath.replace('/login-illustration.png', '');
       var basePath = window.assetBase;
