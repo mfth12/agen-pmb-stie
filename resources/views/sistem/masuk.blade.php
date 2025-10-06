@@ -126,8 +126,7 @@
         </div>
         {{-- BAGIAN ILUSTRASI --}}
         <div class="col-lg d-none d-lg-block">
-          <img id="login-illustration" src="{{ asset('img/login-illustration.png') }}"
-            alt="Login Illustration">
+          <img id="login-illustration" src="{{ asset('img/login-illustration.png') }}" alt="Login Illustration">
         </div>
       </div>
     </div>
@@ -153,34 +152,42 @@
   {{-- KOMPONEN INKLUD --}}
   @include('components.back.konfig-tampilan', ['floating' => true])
   <script>
-    // FUNGSI UNTUK AUTO NGIKUTIN TEMA TAMPILAN (DARK/LIGHT)
     document.addEventListener("DOMContentLoaded", function() {
-      // Ambil value dari localStorage
-      let theme = localStorage.getItem("tabler-theme") || "light";
-      console.log("this is =", theme);
-
-      // Terapkan tema ke elemen target
       const widget = document.getElementById("cf-turnstile-widget");
-      if (widget) {
-        widget.setAttribute("data-theme", theme);
-      }
+      const img = document.getElementById("login-illustration");
 
-      // Terapkan juga ke login-illustration
-      const img = document.getElementById('login-illustration');
-      const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+      function applyTheme() {
+        let theme = localStorage.getItem("tabler-theme") || "light";
+        console.log("Current theme:", theme);
 
-      function updateIllustration(e) {
-        if (e.matches) {
-          img.src = "{{ asset('img/login-illustration-dark.png') }}";
-        } else {
-          img.src = "{{ asset('img/login-illustration.png') }}";
+        // Terapkan ke Turnstile
+        if (widget) {
+          widget.setAttribute("data-theme", theme);
+        }
+
+        // Terapkan ke ilustrasi login
+        if (img) {
+          if (theme === "dark") {
+            img.src = "{{ asset('img/login-illustration-dark.png') }}";
+          } else {
+            img.src = "{{ asset('img/login-illustration.png') }}";
+          }
         }
       }
 
-      // Jalankan saat halaman pertama kali dimuat
-      updateIllustration(darkMode);
-      // Dengarkan perubahan tema sistem (auto switch)
-      darkMode.addEventListener('change', updateIllustration);
+      // Jalankan pertama kali
+      applyTheme();
+
+      // Pantau perubahan tema secara dinamis (misal dari switcher Tabler)
+      const observer = new MutationObserver(() => {
+        applyTheme();
+      });
+
+      // Amati perubahan attribute data-bs-theme di <html> (Tabler ganti tema di sana)
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-bs-theme']
+      });
     });
   </script>
 @endsection
