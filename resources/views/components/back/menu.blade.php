@@ -12,7 +12,7 @@
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <i class="ti ti-smart-home fs-2"></i>
                   </span>
-                  <span class="nav-link-title"> Beranda </span>
+                  <span class="nav-link-title">Beranda</span>
                 </a>
               </li>
               {{-- SISTEM --}}
@@ -28,9 +28,9 @@
                     <div class="dropdown-menu-column">
                       <a class="dropdown-item" href="./accordion.html">
                         Accordion
-                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Baru</span>
                       </a>
-                      <a class="dropdown-item" href="./alerts.html"> Alerts </a>
+                      <a class="dropdown-item" href="./alerts.html">Alerts</a>
                       <div class="dropend">
                         <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication"
                           data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
@@ -53,7 +53,7 @@
                       </div>
                       <a class="dropdown-item" href="./avatars.html">
                         Avatars
-                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Baru</span>
                       </a>
                       <a class="dropdown-item" href="./badges.html"> Badges </a>
                       <a class="dropdown-item" href="./blank.html"> Blank page </a>
@@ -67,7 +67,7 @@
                           <a href="./cards.html" class="dropdown-item"> Sample cards </a>
                           <a href="./card-actions.html" class="dropdown-item">
                             Card actions
-                            <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                            <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Baru</span>
                           </a>
                           <a href="./cards-masonry.html" class="dropdown-item"> Cards Masonry </a>
                         </div>
@@ -106,10 +106,10 @@
                     <div class="dropdown-menu-column">
                       <a class="dropdown-item" href="./accordion.html">
                         Agen Sekolah
-                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
+                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Baru</span>
                       </a>
                       <a class="dropdown-item" href="./alerts.html"> Konfigurasi Sistem
-                        {{-- <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span> --}}
+                        {{-- <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Baru</span> --}}
                       </a>
                     </div>
                   </div>
