@@ -6,11 +6,11 @@
       <div class="row g-2 align-items-center">
         <div class="col">
           <h2 class="page-title">Dashboard</h2>
-          <div class="page-pretitle">Overview</div>
+          <div class="page-pretitle">{{ auth()->user()->getRoleNames()->first() }} - Overview</div>
         </div>
 
         <div class="col-auto ms-auto d-print-none">
-          <div class="btn-list">
+          {{-- <div class="btn-list">
             <span class="d-none d-sm-inline">
               <a href="#" class="btn btn-1"> New view </a>
             </span>
@@ -31,6 +31,25 @@
                 <path d="M5 12l14 0" />
               </svg>
             </a>
+          </div> --}}
+          <div class="btn-list">
+            @can('pengajuan_create')
+              <a href="{{ route('pengajuan.create') }}" class="btn btn-primary">
+                Buat Pengajuan Baru
+              </a>
+            @endcan
+
+            @can('user_view')
+              <a href="{{ route('users.index') }}" class="btn btn-secondary">
+                Kelola Pengguna
+              </a>
+            @endcan
+
+            @can('approval_view')
+              <a href="{{ route('approval.index') }}" class="btn btn-success">
+                Approval Mahasiswa
+              </a>
+            @endcan
           </div>
         </div>
       </div>
@@ -45,6 +64,20 @@
             <div class="card-body">
               <div class="row gy-3">
                 <div class="col-12 col-sm d-flex flex-column">
+                  <!-- Content berdasarkan role -->
+                  @if (auth()->user()->hasRole('superadmin'))
+                    @include('sistem.dasbor.superadmin')
+                  @elseif(auth()->user()->hasRole('baak'))
+                    @include('sistem.dasbor.baak')
+                  @elseif(auth()->user()->hasRole('prodi'))
+                    @include('sistem.dasbor.prodi')
+                  @elseif(auth()->user()->hasRole('keuangan'))
+                    @include('sistem.dasbor.keuangan')
+                  @elseif(auth()->user()->hasRole('dosen'))
+                    @include('sistem.dasbor.dosen')
+                  @elseif(auth()->user()->hasRole('mahasiswa'))
+                    @include('sistem.dasbor.mahasiswa')
+                  @endif
                   <h3 class="h2">Selamat datang, Miftahul</h3>
                   <p class="text-muted">You have 53 new messages and 2 new notifications.</p>
                   <div class="row g-5 mt-auto">

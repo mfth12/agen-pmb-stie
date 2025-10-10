@@ -8,69 +8,63 @@ use Illuminate\Http\RedirectResponse;
 
 class DasborController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(): View|RedirectResponse
     {
-        return view('sistem.dasbor', [
+        $user = auth()->user();
+        $role = $user->getRoleNames()->first();
+
+        // Data berdasarkan role
+        $data = [
             'title' => konfigs('NAMA_SISTEM'),
-        ]);
+            'user_role' => $role,
+            'dashboard_data' => $this->getDashboardData($role)
+        ];
+
+        return view('sistem.dasbor', $data);
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index_lawas()
+    private function getDashboardData($role)
     {
-        return view('welcome');
-    }
+        switch ($role) {
+            case 'superadmin':
+                return [
+                    'total_users' => \App\Models\User::count(),
+                    'total_pengajuan' => 0, // Ganti dengan model yang sesuai
+                    'pending_approvals' => 0,
+                ];
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+            case 'baak':
+                return [
+                    'total_pengajuan' => 0,
+                    'pending_approvals' => 0,
+                    'approved_today' => 0,
+                ];
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            case 'prodi':
+                return [
+                    'total_mahasiswa' => 0,
+                    'pengajuan_prodi' => 0,
+                ];
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+            case 'keuangan':
+                return [
+                    'total_pembayaran' => 0,
+                    'pending_payments' => 0,
+                ];
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+            case 'dosen':
+                return [
+                    'total_mahasiswa_bimbingan' => 0,
+                ];
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            case 'mahasiswa':
+                return [
+                    'status_pengajuan' => 'Belum ada pengajuan',
+                    'last_activity' => null,
+                ];
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            default:
+                return [];
+        }
     }
 }

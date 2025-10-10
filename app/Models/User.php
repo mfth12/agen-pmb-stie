@@ -137,4 +137,12 @@ class User extends Authenticatable implements HasMedia
     {
         return with(new static)->getTable();
     }
+
+    /**
+     * Get the user's primary role
+     */
+    public function getPrimaryRoleAttribute()
+    {
+        return $this->roles->first()->name ?? 'mahasiswa';
+    }
 }

@@ -2,8 +2,12 @@
 
 // use App\Http\Middleware\setKonfigs;
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\CheckPermission;
+use Spatie\Permission\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Spatie\Permission\Middleware\PermissionMiddleware;
+use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -20,6 +24,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web([
             // LocaleMiddleware::class, // disable, we use single language which is Indonesian
             // setKonfigs::class,
+            // CheckPermission::class,
+
         ]);
 
         $middleware->validateCsrfTokens(except: [
@@ -29,10 +35,11 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->alias([
-            // 'role'                  => RoleMiddleware::class,
-            // 'permission'            => PermissionMiddleware::class,
-            // 'role_or_permission'    => RoleOrPermissionMiddleware::class,
+            'role'                  => RoleMiddleware::class,
+            'permission'            => PermissionMiddleware::class,
+            'role_or_permission'    => RoleOrPermissionMiddleware::class,
             // 'set.konfigs'           => setKonfigs::class,
+            // 'check.permission'         => CheckPermission::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
