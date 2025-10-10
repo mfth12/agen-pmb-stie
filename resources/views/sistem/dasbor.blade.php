@@ -65,7 +65,7 @@
               <div class="row gy-3">
                 <div class="col-12 col-sm d-flex flex-column">
                   <!-- Content berdasarkan role -->
-                  @if (auth()->user()->hasRole('superadmin'))
+                  {{-- @if (auth()->user()->hasRole('superadmin'))
                     @include('sistem.dasbor.superadmin')
                   @elseif(auth()->user()->hasRole('baak'))
                     @include('sistem.dasbor.baak')
@@ -77,7 +77,7 @@
                     @include('sistem.dasbor.dosen')
                   @elseif(auth()->user()->hasRole('mahasiswa'))
                     @include('sistem.dasbor.mahasiswa')
-                  @endif
+                  @endif --}}
                   <h3 class="h2">Selamat datang, Miftahul</h3>
                   <p class="text-muted">You have 53 new messages and 2 new notifications.</p>
                   <div class="row g-5 mt-auto">

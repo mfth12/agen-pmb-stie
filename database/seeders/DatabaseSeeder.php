@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         //seed data dasar
         $this->call(KonfigurasiTableSeeder::class);
+        $this->call(RolePermissionSeeder::class);
     }
 }
