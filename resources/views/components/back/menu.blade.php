@@ -108,7 +108,7 @@
                         Agen Sekolah
                         <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span>
                       </a>
-                      <a class="dropdown-item" href="./alerts.html"> Alerts
+                      <a class="dropdown-item" href="./alerts.html"> Konfigurasi Sistem
                         {{-- <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">New</span> --}}
                       </a>
                     </div>
