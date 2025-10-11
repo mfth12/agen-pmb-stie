@@ -48,7 +48,7 @@
               </select>
             </div>
             <div class="col-md-1">
-              <button type="submit" class="btn btn-secondary w-100">Filter</button>
+              <button type="submit" class="btn w-100"><i class="ti ti-filter fs-3 me-1"></i>Filter</button>
             </div>
           </form>
 
@@ -92,11 +92,11 @@
                     <td class="text-center">
                       <div class="btn-list justify-content-center">
                         <a href="{{ route('pengguna.show', $user) }}" class="btn btn-sm btn-info" title="Detail">
-                          <i class="ti ti-eye"></i>
+                          Lihat
                         </a>
                         @can('user_edit')
                           <a href="{{ route('pengguna.edit', $user) }}" class="btn btn-sm btn-warning" title="Edit">
-                            <i class="ti ti-edit"></i>
+                            Edit
                           </a>
                         @endcan
                         @can('user_delete')
@@ -106,7 +106,7 @@
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-sm btn-danger" title="Hapus">
-                                <i class="ti ti-trash"></i>
+                                Hapus
                               </button>
                             </form>
                           @endif

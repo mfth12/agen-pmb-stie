@@ -121,7 +121,9 @@
                 </div>
 
                 <div class="mt-4">
-                  <button type="submit" class="btn btn-primary">Simpan Pengguna</button>
+                  <button type="submit" class="btn btn-primary me-1"><i class="ti ti-device-floppy fs-2 me-1"></i>
+                    Simpan
+                  </button>
                   <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">Batal</a>
                 </div>
               </form>

@@ -131,7 +131,9 @@
                 </div>
 
                 <div class="mt-4">
-                  <button type="submit" class="btn btn-primary me-1">Update</button>
+                  <button type="submit" class="btn btn-primary me-1"><i class="ti ti-device-floppy fs-2 me-1"></i>
+                    Update
+                  </button>
                   <a href="{{ route('pengguna.index') }}" class="btn btn-secondary me-1">Batal</a>
 
                   @can('user_edit')
