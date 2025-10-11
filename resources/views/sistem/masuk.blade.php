@@ -80,9 +80,18 @@
 
                 {{-- LOGIN FORM --}}
                 {!! html()->form('post')->route('login.do')->attributes(['name' => 'formAuthentication', 'id' => 'formAuthentication', 'class' => 'mb-0 mt-0'])->open() !!}
+                
                 <div class="mb-2">
-                  <label class="form-label">Username</label>
-                  {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username Agen')->attributes(['aria-describedby' => 'username']) !!}
+                  <label class="form-label">Username </label>
+                  {!! html()->text('username')->class('form-control' . ($errors->has('username') ? ' is-invalid' : ''))->placeholder('Username')->attributes(['aria-describedby' => 'username']) !!}
+                  <div class="form-check form-switch pt-2">
+                    <input type="hidden" name="via_siakad" value="0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault"
+                      name="via_siakad" value="1">
+                    <label class="form-check-label" for="switchCheckDefault">
+                      <span id="switchLabel">Akun Agen</span>
+                    </label>
+                  </div>
                 </div>
                 <div class="mb-2">
                   <label class="form-label">

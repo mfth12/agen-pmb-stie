@@ -143,3 +143,10 @@ document.onkeydown = function (e) {
     }
 }
 
+const switchCheck = document.getElementById('switchCheckDefault');
+const switchLabel = document.getElementById('switchLabel');
+
+switchCheck.addEventListener('change', () => {
+    switchLabel.textContent = switchCheck.checked ? 'Via Siakad' : 'Akun Agen';
+});
+
