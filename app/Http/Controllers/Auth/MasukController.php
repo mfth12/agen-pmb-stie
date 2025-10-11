@@ -25,7 +25,7 @@ class MasukController extends Controller
   public function index(): View|RedirectResponse
   {
     if (Auth::check()) {
-      return redirect()->route('dashboard.index'); // ini redirect ke dasbor, BUKAN '/'
+      return redirect()->route('dashboard.index');
     }
 
     return view('sistem.masuk', [
@@ -33,9 +33,8 @@ class MasukController extends Controller
     ]);
   }
 
-
   /**
-   * Proses login menggunakan API SIAKAD
+   * Proses login menggunakan API SIAKAD atau lokal
    */
   public function masuk(LoginRequest $request): RedirectResponse
   {
@@ -55,20 +54,30 @@ class MasukController extends Controller
 
     // Ambil kredensial
     $credentials = $request->only('username', 'password', 'via_siakad');
-    // dd($credentials);
 
     // Cek status via_siakad
     if ($credentials['via_siakad'] == 1) {
-      dd('Login via SIAKAD');
+      // Login via SIAKAD
+      return $this->loginViaSiakad($request, $credentials, $throttleKey, $decaySeconds);
     } else {
-      dd('Login Agen PMB');
+      // Login lokal ke database user
+      return $this->loginLocal($request, $credentials, $throttleKey, $decaySeconds);
     }
+  }
 
+  /**
+   * Login via API SIAKAD
+   */
+  protected function loginViaSiakad($request, $credentials, $throttleKey, $decaySeconds): RedirectResponse
+  {
     // Lakukan try catch ke endpoint API SIAKAD
     try {
-      $response = Http::timeout(10)->post(env('URL_API_SIAKAD') . '/api/v2/auth/login', $credentials);
+      $response = Http::timeout(10)->post(env('URL_API_SIAKAD') . '/api/v2/auth/login', [
+        'username' => $credentials['username'],
+        'password' => $credentials['password']
+      ]);
     } catch (Exception $e) {
-      RateLimiter::hit($throttleKey, $decaySeconds); // ❌ Tambah hit saat koneksi gagal
+      RateLimiter::hit($throttleKey, $decaySeconds);
       return back()->withErrors(['koneksi' => 'Gagal menghubungi layanan Siakad.']);
     }
 
@@ -88,18 +97,18 @@ class MasukController extends Controller
 
     // Jika login berhasil
     if ($response->successful() && isset($data['access_token']) && isset($data['user'])) {
-      RateLimiter::clear($throttleKey); // ✅ Reset limit jika berhasil login
+      RateLimiter::clear($throttleKey);
 
       $access_token = $data['access_token'];
       $userData = $data['user'];
 
-      // Cari atau buat user di sistem e-Skripsi
+      // Cari atau buat user di sistem
       $user = User::updateOrCreate(
         ['siakad_id' => $userData['id']],
         [
           'siakad_id'         => $userData['id'],
-          'username'          => $userData['username'], //not used
-          'password'          => null, //dont store pswd
+          'username'          => $userData['username'],
+          'password'          => null, // Jangan simpan password dari Siakad
           'email'             => $userData['email'],
           'name'              => $userData['name'],
           'nomor_hp'          => $userData['nomor_hp'],
@@ -117,58 +126,101 @@ class MasukController extends Controller
         ]
       );
 
+      // Untuk user lain, assign role berdasarkan default_role dari Siakad
+      $agen_role = $userData['default_role'] ?? 'mahasiswa';
+      if (!is_array($agen_role)) {
+        $agen_role = [$agen_role];
+      }
+
+      $user->syncRoles($agen_role);
+
       // Simpan access_token ke session
       Session::put('api_access_token', $access_token);
-      Session::put('api_userroles', $userData['roles']); //menyimpan roles dari siakad
-
-      // Sinkronisasi roles dari default siakad:
-      // dd($userData['roles']);
-      $skripsi_role = $userData['default_role'] ?? [];
-      if (!is_array($skripsi_role)) {
-        $skripsi_role = [$skripsi_role]; // ubah jadi array jika perlu
-      }
-      // dd($skripsi_role);
-      $user->syncRoles($skripsi_role); // langsung sync ke sistem
-
+      Session::put('api_userroles', $userData['roles']);
 
       Auth::login($user);
       return redirect()->intended(route('dashboard.index'));
     }
 
     // Hit jika gagal login
-    RateLimiter::hit($throttleKey, $decaySeconds); // ❌ Tambah hit kalau login gagal
+    RateLimiter::hit($throttleKey, $decaySeconds);
 
     // Tampilkan error dari API
     $errorMessage = "Tidak dapat melakukan otentikasi";
     if (isset($data['message'])) {
       if (is_array($data['message'])) {
-        // Jika `message` berupa array verifikasi, gabungkan menjadi string
         $errorMessage = implode('. ', array_map(fn($msg) => implode(' ', $msg), $data['message']));
       } else {
-        // Jika `message` berupa string biasa
         $errorMessage = $data['message'];
       }
     }
 
-    // Kembalikan pesan eror
     return back()->withErrors(['masuk' => $errorMessage . "."]);
   }
 
+  /**
+   * Login lokal ke database user
+   */
+  protected function loginLocal($request, $credentials, $throttleKey, $decaySeconds): RedirectResponse
+  {
+    // Verifikasi Turnstile untuk login lokal juga
+    if (env('USING_TURNSTILE', true)) {
+      $turnstileResponse = $request->input('cf-turnstile-response');
+      if (!$turnstileResponse) {
+        return back()->withErrors(['turnstile_notvalid' => 'Wajib verifikasi keamanan']);
+      }
+      $turnstileValid = $this->validateTurnstile($turnstileResponse, $request->ip());
+      if (!$turnstileValid) {
+        return back()->withErrors(['turnstile_notvalid' => 'Verifikasi keamanan gagal']);
+      }
+    }
+
+    // Coba login dengan kredensial lokal
+    if (Auth::attempt([
+      'username' => $credentials['username'],
+      'password' => $credentials['password'],
+      'status' => 'active'
+    ], $request->boolean('remember'))) {
+
+      RateLimiter::clear($throttleKey);
+
+      // Update last logged in
+      $user = Auth::user();
+      $user->update([
+        'last_logged_in' => Carbon::now(),
+        'status_login' => 'online'
+      ]);
+
+      return redirect()->intended(route('dashboard.index'));
+    }
+
+    // Hit jika gagal login
+    RateLimiter::hit($throttleKey, $decaySeconds);
+
+    return back()->withErrors([
+      'masuk' => 'Username atau password salah.',
+    ]);
+  }
 
   /**
    * Proses logout
    */
   public function keluar(): RedirectResponse
   {
+    // Update status login user
+    if (Auth::check()) {
+      Auth::user()->update([
+        'status_login' => 'offline'
+      ]);
+    }
+
     // Hapus session
     Session::forget('api_access_token');
-    Session::forget('api_userroles'); //not used
+    Session::forget('api_userroles');
     Auth::logout();
 
-    // Redirect ke halaman login
     return redirect()->route('login')->with('keluar', 'Anda telah keluar sistem');
   }
-
 
   /**
    * Fungsi untuk memverifikasi Turnstile.
