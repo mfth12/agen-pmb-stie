@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('user_id')->from(3201);           //added
-            $table->string('siakad_id', 64)->unique();                                    //synced
+            $table->string('siakad_id', 64)->unique()->nullable();                                    //synced
             $table->string('username');                             //added
-            // $table->string('password');                                     //notused
+            $table->string('password')->nullable();                                     //notused
             $table->string('name');                                                       //synced
             $table->string('email')->unique();                                            //synced
             $table->string('nomor_hp', 64)->unique();                                     //synced
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();                                         //synced
             $table->string('status', 15)->default('active');                              //synced
             $table->string('status_login', 15)->default('offline');                       //synced
-            $table->boolean('isdeleted')->default(true);                                  //synced
+            $table->boolean('isdeleted')->default(false);                                  //synced
             $table->timestamp('last_logged_in')->nullable();                    //added
             $table->timestamp('last_synced_at')->nullable();                    //added
             $table->rememberToken();                                           //laravel
