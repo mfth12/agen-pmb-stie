@@ -73,7 +73,7 @@
                 @else
                   <div class="alert alert-hilang alert-info text-info d-flex align-items-center" role="alert">
                     <i class="ti ti-fingerprint fs-2 text-info"></i>
-                    Gunakan Akun Agen PMB untuk masuk.
+                    Gunakan Akun Agen atau Siakad Anda.
                   </div>
                 @endif
                 {{-- END OF ALERTS --}}
