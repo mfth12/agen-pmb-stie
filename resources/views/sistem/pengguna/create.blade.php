@@ -6,11 +6,11 @@
       <div class="row g-2 align-items-center">
         <div class="col">
           <h2 class="page-title">Tambah Pengguna Baru</h2>
-          <div class="page-pretitle">Tambah pengguna baru ke sistem</div>
+          <div class="page-pretitle">Tambah pengguna baru ke {{ konfigs('NAMA_SISTEM') }}</div>
         </div>
         <div class="col-auto">
           <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
-            <i class="ti ti-arrow-left"></i>
+            <i class="ti ti-arrow-back-up fs-2 me-1"></i>
             Kembali
           </a>
         </div>

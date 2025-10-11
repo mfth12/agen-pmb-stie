@@ -24,12 +24,13 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <div class="row mb-4">
+              <div class="row mb-4 mt-2">
                 <div class="col-md-3 text-center">
                   <div class="avatar avatar-xl mb-3"
-                    style="background-image: url({{ $pengguna->avatar ?? asset('img/avatar-default.png') }})"></div>
+                    style="background-image: url({{ $pengguna->avatar ? env('URL_ASSET_SIAKAD') . '/' . $pengguna->avatar : asset('img/default.png') }})"></div>
+                    
                   <h4>{{ $pengguna->name }}</h4>
-                  <span class="badge bg-primary text-primary-fg">{{ $pengguna->getRoleNames()->first() }}</span>
+                  <span class="">({{ $pengguna->getRoleNames()->first() }})</span>
                 </div>
                 <div class="col-md-9">
                   <div class="row">
@@ -69,12 +70,14 @@
 
               <div class="mt-4">
                 @can('user_edit')
-                  <a href="{{ route('pengguna.edit', $pengguna) }}" class="btn btn-warning">
-                    <i class="ti ti-edit"></i>
+                  <a href="{{ route('pengguna.edit', $pengguna) }}" class="btn btn-warning me-1">
+                    <i class="ti ti-edit fs-2 me-1"></i>
                     Edit Pengguna
                   </a>
                 @endcan
-                <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">Kembali ke Daftar</a>
+                <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
+                  <i class="ti ti-arrow-back-up fs-2 me-1"></i>
+                  Kembali ke Daftar</a>
               </div>
             </div>
           </div>

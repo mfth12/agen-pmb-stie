@@ -65,7 +65,7 @@
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <i class="ti ti-adjustments fs-2"></i>
                   </span>
-                  <span class="nav-link-title">Pengaturan</span>
+                  <span class="nav-link-title">Sistem</span>
                 </a>
                 <div class="dropdown-menu">
                   <div class="dropdown-menu-columns">

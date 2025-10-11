@@ -11,8 +11,8 @@
         <div class="col-auto ms-auto d-print-none">
           @can('user_create')
             <a href="{{ route('pengguna.create') }}" class="btn btn-primary">
-              <i class="ti ti-plus"></i>
-              Tambah Pengguna
+              <i class="ti ti-plus fs-2 me-1"></i>
+              Tambah
             </a>
           @endcan
         </div>
@@ -26,7 +26,7 @@
         <div class="card-body">
           <!-- Filter Form -->
           <form method="GET" class="row g-3 mb-4">
-            <div class="col-md-4">
+            <div class="col-md-5">
               <input type="text" name="cari" class="form-control" placeholder="Cari nama, email, username..."
                 value="{{ request('cari') }}">
             </div>
@@ -47,7 +47,7 @@
                 <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Nonaktif</option>
               </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
               <button type="submit" class="btn btn-secondary w-100">Filter</button>
             </div>
           </form>
@@ -80,10 +80,11 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->username }}</td>
                     <td>
-                      <span class="badge bg-primary text-primary-fg">{{ $user->getRoleNames()->first() }}</span>
+                      <span>{{ $user->getRoleNames()->first() }}</span>
                     </td>
                     <td>
-                      <span class="badge {{ $user->status == 'active' ? 'bg-success text-success-fg' : 'bg-danger text-danger-fg' }}">
+                      <span
+                        class="badge {{ $user->status == 'active' ? 'bg-success text-success-fg' : 'bg-danger text-danger-fg' }}">
                         {{ $user->status == 'active' ? 'Aktif' : 'Nonaktif' }}
                       </span>
                     </td>

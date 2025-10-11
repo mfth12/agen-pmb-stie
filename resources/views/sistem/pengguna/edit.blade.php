@@ -10,7 +10,7 @@
         </div>
         <div class="col-auto">
           <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
-            <i class="ti ti-arrow-left"></i>
+            <i class="ti ti-arrow-back-up fs-2 me-1"></i>
             Kembali
           </a>
         </div>
