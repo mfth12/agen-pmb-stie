@@ -77,7 +77,7 @@
                     Edit Pengguna
                   </a>
                 @endcan
-                <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
+                <a href="{{ route('pengguna.index') }}" class="btn btn-default">
                   <i class="ti ti-arrow-back-up fs-2 me-1"></i>
                   Kembali ke Daftar</a>
               </div>
