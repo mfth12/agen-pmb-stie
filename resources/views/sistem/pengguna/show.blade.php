@@ -88,3 +88,27 @@
     </div>
   </div>
 @endsection
+
+@section('style')
+  {{-- kosong --}}
+@endsection
+
+@section('modals')
+  {{-- kosong --}}
+@endsection
+
+@section('js_atas')
+  {{-- kosong --}}
+@endsection
+
+@section('js_bawah')
+  {{-- DEPENDENSI UNTUK PAGE SPESIFIK --}}
+  {{-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/apexcharts/dist/apexcharts.min.js"></script> --}}
+  {{-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/jsvectormap.min.js"></script> --}}
+  {{-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/maps/world.js"></script> --}}
+  {{-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/libs/jsvectormap/dist/maps/world-merc.js"></script> --}}
+  {{-- TAMBAHAN JS UNTUK PAGE SPESIFIK --}}
+  {{-- @vite(['resources/js/pages/dasbor.js']) --}}
+  {{-- KOMPONEN INKLUD --}}
+  @include('components.back.konfig-tampilan', ['floating' => false])
+@endsection
