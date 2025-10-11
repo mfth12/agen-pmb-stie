@@ -78,7 +78,7 @@
                   @elseif(auth()->user()->hasRole('mahasiswa'))
                     @include('sistem.dasbor.mahasiswa')
                   @endif --}}
-                  <h3 class="h2">Selamat datang, Miftahul</h3>
+                  <h3 class="h2">Selamat datang, {{ Auth()->user()->name }}</h3>
                   <p class="text-muted">You have 53 new messages and 2 new notifications.</p>
                   <div class="row g-5 mt-auto">
                     <div class="col-auto">

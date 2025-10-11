@@ -131,8 +131,8 @@
                 </div>
 
                 <div class="mt-4">
-                  <button type="submit" class="btn btn-primary">Update Pengguna</button>
-                  <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">Batal</a>
+                  <button type="submit" class="btn btn-primary me-1">Update</button>
+                  <a href="{{ route('pengguna.index') }}" class="btn btn-secondary me-1">Batal</a>
 
                   @can('user_edit')
                     @if (!$pengguna->hasRole('superadmin'))

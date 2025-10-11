@@ -161,7 +161,7 @@
           aria-label="Open user menu">
           <span class="avatar avatar-sm" style="background-image: url({{ auth()->user()->avatar ? env('URL_ASSET_SIAKAD') . '/' . auth()->user()->avatar : asset('img/default.png') }})"> </span>
           <div class="d-none d-xl-block ps-2">
-            <div>Miftahul Haq</div>
+            <div>{{ Auth()->user()->name }}</div>
             <div class="mt-1 small text-secondary">{{ auth()->user()->getRoleNames()->first() }}</div>
           </div>
         </a>

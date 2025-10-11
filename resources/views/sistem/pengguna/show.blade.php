@@ -10,7 +10,7 @@
         </div>
         <div class="col-auto">
           <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
-            <i class="ti ti-arrow-left"></i>
+            <i class="ti ti-arrow-back-up fs-2 me-1"></i>
             Kembali
           </a>
         </div>
@@ -23,12 +23,13 @@
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card">
-            <div class="card-body">
-              <div class="row mb-4 mt-2">
+            <div class="card-body my-2">
+              <div class="row mb-4">
                 <div class="col-md-3 text-center">
                   <div class="avatar avatar-xl mb-3"
-                    style="background-image: url({{ $pengguna->avatar ? env('URL_ASSET_SIAKAD') . '/' . $pengguna->avatar : asset('img/default.png') }})"></div>
-                    
+                    style="background-image: url({{ $pengguna->avatar ? env('URL_ASSET_SIAKAD') . '/' . $pengguna->avatar : asset('img/default.png') }})">
+                  </div>
+
                   <h4>{{ $pengguna->name }}</h4>
                   <span class="">({{ $pengguna->getRoleNames()->first() }})</span>
                 </div>
@@ -50,7 +51,8 @@
                     </div>
                     <div class="col-md-6">
                       <strong>Status:</strong><br>
-                      <span class="badge {{ $pengguna->status == 'active' ? 'bg-success text-success-fg' : 'bg-danger text-danger-fg' }}">
+                      <span
+                        class="badge {{ $pengguna->status == 'active' ? 'bg-success text-success-fg' : 'bg-danger text-danger-fg' }}">
                         {{ $pengguna->status == 'active' ? 'Aktif' : 'Nonaktif' }}
                       </span>
                     </div>
