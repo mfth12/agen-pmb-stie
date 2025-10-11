@@ -29,7 +29,7 @@
                   <div class="avatar avatar-xl mb-3"
                     style="background-image: url({{ $pengguna->avatar ?? asset('img/avatar-default.png') }})"></div>
                   <h4>{{ $pengguna->name }}</h4>
-                  <span class="badge bg-primary">{{ $pengguna->getRoleNames()->first() }}</span>
+                  <span class="badge bg-primary text-primary-fg">{{ $pengguna->getRoleNames()->first() }}</span>
                 </div>
                 <div class="col-md-9">
                   <div class="row">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-6">
                       <strong>Status:</strong><br>
-                      <span class="badge {{ $pengguna->status == 'active' ? 'bg-success' : 'bg-danger' }}">
+                      <span class="badge {{ $pengguna->status == 'active' ? 'bg-success text-success-fg' : 'bg-danger text-danger-fg' }}">
                         {{ $pengguna->status == 'active' ? 'Aktif' : 'Nonaktif' }}
                       </span>
                     </div>
