@@ -60,7 +60,7 @@
                   <div class="dropdown-menu-columns">
                     <div class="dropdown-menu-column">
                       <a class="dropdown-item" href="./accordion.html">
-                        Agen Sekolah
+                        Manajemen Pengguna
                         <span class="badge badge-sm bg-green-lt text-uppercase ms-auto">Baru</span>
                       </a>
                       <a class="dropdown-item" href="./alerts.html"> Konfigurasi Sistem
