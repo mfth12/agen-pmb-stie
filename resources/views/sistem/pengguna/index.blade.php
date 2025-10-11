@@ -6,7 +6,7 @@
       <div class="row g-2 align-items-center">
         <div class="col">
           <h2 class="page-title">Manajemen Pengguna</h2>
-          <div class="page-pretitle">Daftar semua pengguna agen PMB</div>
+          <div class="page-pretitle">Semua pengguna agen PMB</div>
         </div>
         <div class="col-auto ms-auto d-print-none">
           @can('user_create')
@@ -72,19 +72,18 @@
                     <td>
                       <div class="d-flex align-items-center">
                         <span class="avatar avatar-sm me-2"
-                          style="background-image: url({{ $user->avatar ? env('URL_ASSET_SIAKAD') . '/' . Auth::user()->avatar : asset('img/default.png') }})">
+                          style="background-image: url({{ $user->avatar ? env('URL_ASSET_SIAKAD') . '/' . $user->avatar : asset('img/default.png') }})">
                         </span>
-                        {{-- src="{{ Auth::user()->avatar ? env('URL_CDN_SIAKAD') . '/' . Auth::user()->avatar : asset('img/default.png') }}" --}}
                         {{ $user->name }}
                       </div>
                     </td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->username }}</td>
                     <td>
-                      <span class="badge bg-primary">{{ $user->getRoleNames()->first() }}</span>
+                      <span class="badge bg-primary text-primary-fg">{{ $user->getRoleNames()->first() }}</span>
                     </td>
                     <td>
-                      <span class="badge {{ $user->status == 'active' ? 'bg-success' : 'bg-danger' }}">
+                      <span class="badge {{ $user->status == 'active' ? 'bg-success text-success-fg' : 'bg-danger text-danger-fg' }}">
                         {{ $user->status == 'active' ? 'Aktif' : 'Nonaktif' }}
                       </span>
                     </td>
