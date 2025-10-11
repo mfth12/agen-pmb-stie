@@ -53,8 +53,16 @@ class MasukController extends Controller
       ]);
     }
 
-    // Ambil kredensi
-    $credentials = $request->only('username', 'password');
+    // Ambil kredensial
+    $credentials = $request->only('username', 'password', 'via_siakad');
+    // dd($credentials);
+
+    // Cek status via_siakad
+    if ($credentials['via_siakad'] == 1) {
+      dd('Login via SIAKAD');
+    } else {
+      dd('Login Agen PMB');
+    }
 
     // Lakukan try catch ke endpoint API SIAKAD
     try {
@@ -91,25 +99,21 @@ class MasukController extends Controller
         [
           'siakad_id'         => $userData['id'],
           'username'          => $userData['username'], //not used
-          // 'password'          => $userData['password'], //not used
+          'password'          => null, //dont store pswd
           'email'             => $userData['email'],
           'name'              => $userData['name'],
           'nomor_hp'          => $userData['nomor_hp'],
           'nomor_hp2'         => $userData['nomor_hp2'],
           'email_verified_at' => $userData['email_verified_at'],
           'about'             => $userData['about'],
-          // 'role'              => $userData['default_role'], //not used
           'default_role'      => $userData['default_role'],
           'theme'             => $userData['theme'],
           'avatar'            => $userData['avatar'],
           'status'            => $userData['status'],
           'status_login'      => $userData['status_login'],
           'isdeleted'         => $userData['isdeleted'],
-          'last_logged_in'     => Carbon::now(),
+          'last_logged_in'    => Carbon::now(),
           'last_synced_at'    => Carbon::now(),
-          // 'rememberToken'     => $userData['rememberToken'], //not used
-          // 'created_at'        => $userData['created_at'], //not used
-          // 'updated_at'        => $userData['updated_at'], //not used
         ]
       );
 
