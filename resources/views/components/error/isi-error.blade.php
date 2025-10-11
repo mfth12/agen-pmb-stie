@@ -4,7 +4,7 @@
 
     <div class="empty-action">
       <a href="{{ url()->previous() }}" class="btn btn-primary btn-4">
-        <i class="ti ti-arrow-back-up fs-2 me-2"></i>
+        <i class="ti ti-arrow-back-up fs-2 me-1"></i>
         Kembali
       </a>
     </div>
