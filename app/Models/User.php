@@ -64,15 +64,13 @@ class User extends Authenticatable implements HasMedia
         //'user_id',
         'siakad_id',            //id
         'username', //original
-        // 'password', //not used
         'name',                 //name
         'email',                //email
         'nomor_hp',             //nomor_hp
         'nomor_hp2',            //nomor_hp2
         'email_verified_at',    //email_verified_at
         'about',                //about
-        // 'role',  //original
-        'default_role',         //default_role        //mixing default
+        'default_role',         //default_role 
         'theme',                //theme
         'avatar',               //avatar
         'status',               //status
@@ -80,9 +78,7 @@ class User extends Authenticatable implements HasMedia
         'isdeleted',            //isdeleted
         'last_logged_in', //original
         'last_synced_at', //original
-        'rememberToken', //original
-        'updated_at',           //updated_at
-        'created_at',           //created_at
+        'password', // tambahkan ini
     ];
 
     /**

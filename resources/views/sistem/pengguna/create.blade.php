@@ -5,8 +5,8 @@
     <div class="container-xl">
       <div class="row g-2 align-items-center">
         <div class="col">
-          <h2 class="page-title">Edit Pengguna - {{ $pengguna->name }}</h2>
-          <div class="page-pretitle">Edit data pengguna</div>
+          <h2 class="page-title">Tambah Pengguna Baru</h2>
+          <div class="page-pretitle">Tambah pengguna baru ke sistem</div>
         </div>
         <div class="col-auto">
           <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
@@ -24,16 +24,15 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
-              <form action="{{ route('pengguna.update', $pengguna) }}" method="POST">
+              <form action="{{ route('pengguna.store') }}" method="POST">
                 @csrf
-                @method('PUT')
 
                 <div class="row">
                   <div class="col-md-6">
                     <div class="mb-3">
                       <label class="form-label">Nama Lengkap *</label>
                       <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
-                        value="{{ old('nama', $pengguna->name) }}" required>
+                        value="{{ old('nama') }}" required>
                       @error('nama')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -43,7 +42,7 @@
                     <div class="mb-3">
                       <label class="form-label">Email *</label>
                       <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                        value="{{ old('email', $pengguna->email) }}" required>
+                        value="{{ old('email') }}" required>
                       @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -56,7 +55,7 @@
                     <div class="mb-3">
                       <label class="form-label">Username *</label>
                       <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
-                        value="{{ old('username', $pengguna->username) }}" required>
+                        value="{{ old('username') }}" required>
                       @error('username')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -66,7 +65,7 @@
                     <div class="mb-3">
                       <label class="form-label">Nomor HP *</label>
                       <input type="text" name="nomor_hp" class="form-control @error('nomor_hp') is-invalid @enderror"
-                        value="{{ old('nomor_hp', $pengguna->nomor_hp) }}" required>
+                        value="{{ old('nomor_hp') }}" required>
                       @error('nomor_hp')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -78,20 +77,14 @@
                   <div class="col-md-6">
                     <div class="mb-3">
                       <label class="form-label">Role *</label>
-                      <select name="role" class="form-select @error('role') is-invalid @enderror" required
-                        {{ $pengguna->hasRole('superadmin') ? 'disabled' : '' }}>
+                      <select name="role" class="form-select @error('role') is-invalid @enderror" required>
                         <option value="">Pilih Role</option>
                         @foreach ($roles as $role)
-                          <option value="{{ $role->name }}"
-                            {{ old('role', $pengguna->getRoleNames()->first()) == $role->name ? 'selected' : '' }}>
+                          <option value="{{ $role->name }}" {{ old('role') == $role->name ? 'selected' : '' }}>
                             {{ ucfirst($role->name) }}
                           </option>
                         @endforeach
                       </select>
-                      @if ($pengguna->hasRole('superadmin'))
-                        <input type="hidden" name="role" value="superadmin">
-                        <small class="text-muted">Role Superadmin tidak dapat diubah</small>
-                      @endif
                       @error('role')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -99,12 +92,10 @@
                   </div>
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label">Status *</label>
+                      <label class="form-label">Status</label>
                       <select name="status" class="form-select">
-                        <option value="active" {{ old('status', $pengguna->status) == 'active' ? 'selected' : '' }}>Aktif
-                        </option>
-                        <option value="inactive" {{ old('status', $pengguna->status) == 'inactive' ? 'selected' : '' }}>
-                          Nonaktif</option>
+                        <option value="active" {{ old('status', 'active') == 'active' ? 'selected' : '' }}>Aktif</option>
+                        <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Nonaktif</option>
                       </select>
                     </div>
                   </div>
@@ -113,9 +104,9 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label">Password</label>
+                      <label class="form-label">Password *</label>
                       <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                        placeholder="Kosongkan jika tidak ingin mengubah">
+                        required>
                       @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                       @enderror
@@ -123,36 +114,17 @@
                   </div>
                   <div class="col-md-6">
                     <div class="mb-3">
-                      <label class="form-label">Konfirmasi Password</label>
-                      <input type="password" name="password_confirmation" class="form-control"
-                        placeholder="Kosongkan jika tidak ingin mengubah">
+                      <label class="form-label">Konfirmasi Password *</label>
+                      <input type="password" name="password_confirmation" class="form-control" required>
                     </div>
                   </div>
                 </div>
 
                 <div class="mt-4">
-                  <button type="submit" class="btn btn-primary">Update Pengguna</button>
+                  <button type="submit" class="btn btn-primary">Simpan Pengguna</button>
                   <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">Batal</a>
-
-                  @can('user_edit')
-                    @if (!$pengguna->hasRole('superadmin'))
-                      <button type="button" class="btn btn-warning float-end"
-                        onclick="document.getElementById('reset-password-form').submit()">
-                        Reset Password
-                      </button>
-                    @endif
-                  @endcan
                 </div>
               </form>
-
-              @can('user_edit')
-                @if (!$pengguna->hasRole('superadmin'))
-                  <form id="reset-password-form" action="{{ route('pengguna.reset-password', $pengguna) }}" method="POST"
-                    class="d-none">
-                    @csrf
-                  </form>
-                @endif
-              @endcan
             </div>
           </div>
         </div>

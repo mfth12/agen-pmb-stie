@@ -40,7 +40,7 @@
             @endcan
 
             @can('user_view')
-              <a href="{{ route('users.index') }}" class="btn btn-secondary">
+              <a href="{{ route('pengguna.index') }}" class="btn btn-secondary">
                 Kelola Pengguna
               </a>
             @endcan

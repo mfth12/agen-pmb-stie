@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DasborController;
-use App\Http\Controllers\Auth\MasukController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\DasborController;
 use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\Auth\MasukController;
 
 // Rute "/" universal, tidak pakai middleware
 Route::get('/', fn() => redirect()->route(Auth::check() ? 'dashboard.index' : 'login'));
@@ -28,20 +29,22 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/keluar', [MasukController::class, 'keluar'])->name('logout');
 
-    // User Management Routes - hanya untuk superadmin dan baak
-    Route::prefix('users')->middleware(['permission:user_view'])->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('users.index');
-        Route::get('/create', [UserController::class, 'create'])->name('users.create')
+    // Manajemen Pengguna Routes - hanya untuk superadmin dan baak
+    Route::prefix('pengguna')->middleware(['permission:user_view'])->group(function () {
+        Route::get('/', [PenggunaController::class, 'index'])->name('pengguna.index');
+        Route::get('/buat', [PenggunaController::class, 'create'])->name('pengguna.create')
             ->middleware('permission:user_create');
-        Route::post('/', [UserController::class, 'store'])->name('users.store')
+        Route::post('/', [PenggunaController::class, 'store'])->name('pengguna.store')
             ->middleware('permission:user_create');
-        Route::get('/{user}', [UserController::class, 'show'])->name('users.show');
-        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('users.edit')
+        Route::get('/{pengguna}', [PenggunaController::class, 'show'])->name('pengguna.show');
+        Route::get('/{pengguna}/edit', [PenggunaController::class, 'edit'])->name('pengguna.edit')
             ->middleware('permission:user_edit');
-        Route::put('/{user}', [UserController::class, 'update'])->name('users.update')
+        Route::put('/{pengguna}', [PenggunaController::class, 'update'])->name('pengguna.update')
             ->middleware('permission:user_edit');
-        Route::delete('/{user}', [UserController::class, 'destroy'])->name('users.destroy')
+        Route::delete('/{pengguna}', [PenggunaController::class, 'destroy'])->name('pengguna.destroy')
             ->middleware('permission:user_delete');
+        Route::post('/{pengguna}/reset-password', [PenggunaController::class, 'resetPassword'])->name('pengguna.reset-password')
+            ->middleware('permission:user_edit');
     });
 
     // Pengajuan Routes - bisa diakses oleh multiple roles
