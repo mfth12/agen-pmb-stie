@@ -72,7 +72,9 @@
                     <td>
                       <div class="d-flex align-items-center">
                         <span class="avatar avatar-sm me-2"
-                          style="background-image: url({{ $user->avatar ?? asset('img/default.png') }})"></span>
+                          style="background-image: url({{ $user->avatar ? env('URL_ASSET_SIAKAD') . '/' . Auth::user()->avatar : asset('img/default.png') }})">
+                        </span>
+                        {{-- src="{{ Auth::user()->avatar ? env('URL_CDN_SIAKAD') . '/' . Auth::user()->avatar : asset('img/default.png') }}" --}}
                         {{ $user->name }}
                       </div>
                     </td>
