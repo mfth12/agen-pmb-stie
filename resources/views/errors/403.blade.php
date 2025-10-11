@@ -1,7 +1,11 @@
 @extends('components.theme.error')
-@section('title', 'Eror-403 Terlarang')
+@section('title', 'Eror 404 (Terlarang)')
 
 @section('container')
-  <h1 class="display-4"><strong>Eror-403</strong> / Terlarang</h1>
-  <p class="lead">Permintaan/aksi yang Anda lakukan tidak diizinkan sistem</p>
+  <div class="empty-img">
+    @include('components.error.illustrations-computer-fix')
+
+  </div>
+  <p class="empty-title">Eror 403 (Terlarang)</p>
+  <p class="empty-subtitle text-secondary">Permintaan/aksi yang Anda lakukan tidak diizinkan sistem</p>
 @endsection
